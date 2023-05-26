@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My GitHub.io Page</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Vamsi Krishna Kocherla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        .section h2 {
+            cursor: pointer;
+        }
+
+        .section-content {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function toggleSectionContent(event) {
+            var sectionContent = event.target.nextElementSibling;
+            var isContentVisible = sectionContent.style.display === 'block';
+
+            if (isContentVisible) {
+                sectionContent.style.display = 'none';
+            } else {
+                sectionContent.style.display = 'block';
+            }
+        }
+    </script>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My GitHub.io Page</h1>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>I am a passionate developer with a love for coding.</p>
-    </section>
-    
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="#">Project 1</a></li>
-        <li><a href="#">Project 2</a></li>
-        <li><a href="#">Project 3</a></li>
-      </ul>
-    </section>
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 My GitHub.io Page. All rights reserved.</p>
-  </footer>
+    <h1>Vamsi Krishna Kocherla</h1>
+    <p>Sr, Computer Vision Scientist | AI & Robotics Enthusiast</p>
+    <p>Ph, No: (+91) 7416127777	Email: vamsikmails@gmail.com</p>
+    <p>GitHub: <a href="github.com/VamsiKrishna1211">VamsiKrishna1211</a></p>
+    <p>LinkedIn: <a href="linkedin.com/in/vamsi-krishna-kocherla-46941a16a/">Vamsi Krishna Kocherla</a></p>
+
+    <div class="section">
+        <h2 onclick="toggleSectionContent(event)">Summary</h2>
+        <div class="section-content">
+            <!-- Summary Content Here -->
+        </div>
+    </div>
+
+    <!-- Add More Sections Here -->
+
 </body>
 </html>
