@@ -1,0 +1,118 @@
+.hero{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-img {
+    margin-top: 50px;
+    resize: both;
+    gap: 35px;
+    border-radius: 100%;
+    /* border: 2px solid #000; */
+    box-shadow: 0 0 20px 1px #000;
+    width: 13rem;
+    height: 13rem;
+    transition: transform 0.5s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.hero-img:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 0 30px 5px #000; /* Enhance box-shadow */
+}
+
+.hero h1{
+    font-size: 70px;
+    width: 70%;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hero h1 span {
+    background: linear-gradient(267deg, #da7c25, #b923e1);
+    background-size: 200% 100%; /* Extend the background size for the animation */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block; /* Required for background-clip */
+    transition: background-position 0.5s ease, transform 0.5s ease; /* Smooth transition for the background */
+    -webkit-text-fill-color: transparent; /* Ensures text color is transparent for webkit browsers */
+}
+
+.hero h1:hover span {
+    background-position: 100% 0; /* Keeps the existing background position change on hover */
+    transform: scale(1.03); /* Scales the text up to 110% of its original size */
+    transition: background-position 0.5s ease, transform 0.5s ease; /* Smooth transition for both background and transform */
+}
+.hero p{
+    font-size: 1.3em;
+    /* width: 50%; */
+    text-align: center;
+    margin-top: 1em;
+    line-height: 2em;
+}
+
+.hero-caption {
+    font-size: 1em; /* Adjust the font size */
+    color: grey; /* This will be overridden by background-clip but is needed for a fallback */
+    display: inline-block; /* Required for transform */
+    font-style: italic; /* Make the font italic */
+    background: linear-gradient(to right, grey, grey); /* Initial background as grey to simulate text color */
+    background-size: 200% 100%; /* Extend the background size for the animation */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the background */
+    transition: transform 0.5s ease, background 0.5s ease; /* Transition for transform */
+    -webkit-text-fill-color: transparent; /* Ensure text fill color is transparent for gradient effect */
+}
+.hero-caption:hover {
+    transform: scale(1.03); /* Scales the text up slightly */
+    background: linear-gradient(to right, #da7c25, #b923e1); /* Apply colorful gradient on hover */
+    background-size: 100%; /* Reset background size on hover to fill text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 0.5s ease, background 0.5s ease; /* Transition for transform */
+    -webkit-text-fill-color: transparent; /* Ensure text fill color is transparent for gradient effect */
+}
+
+.hero-action {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+    font-weight: 400;
+    align-items: center;
+    font-size: 24px;
+}
+
+
+.hero-connect {
+    padding: 10px 40px;
+    border-radius: 50px;
+    background: linear-gradient(267deg, #da7c25 0,36%, #b923e1 102%);
+    cursor: pointer;
+    transition: filter 0.5s, scale 0.5s;
+}
+.hero-connect:hover{
+    filter: contrast(1.4);
+    filter: drop-shadow(0 0 1em #7d3c16aa);
+    scale: 1.01;
+    transition: filter 0.5s, scale 0.5s;
+    will-change: filter, transform;
+}
+
+
+.hero-resume {
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 2px solid #dedede;
+    cursor: pointer;
+    transition: filter 500ms, border-color 500ms, scale 500ms;
+}
+.hero-resume:hover {
+    /* transform: scale(1.05); Slightly increase size */
+    border-color: #b415ff; /* Change border color on hover */
+    transition: filter 500ms, scale 500ms, border-color 500ms;
+    filter: drop-shadow(0 0 2em #7d3c16aa);
+    filter: contrast(1.4);
+    scale: 1.01;
+}

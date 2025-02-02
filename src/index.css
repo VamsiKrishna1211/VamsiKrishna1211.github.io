@@ -1,0 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  height: 100vh; 
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  background: #111111ee;
+  color: #e5e3e3;
+  font-style: normal;
+}
