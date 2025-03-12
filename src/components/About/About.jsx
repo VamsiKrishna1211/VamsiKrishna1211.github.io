@@ -1,5 +1,5 @@
 import React from "react";
-import profile_img from "../../assets/anime_profile_img.jpeg";
+import profile_img from "../../assets/MyImage.jpeg";
 import "./About.css";
 import skills from "./skills.json"
 

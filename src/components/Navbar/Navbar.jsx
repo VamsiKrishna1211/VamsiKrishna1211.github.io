@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { Link } from 'react-scroll';
 
 import logo from "../../assets/logo.svg";
-import profile_img from "../../assets/anime_profile_img.jpeg";
+import profile_img from "../../assets/MyImage.jpeg";
 
 const NavLink = ({ to, children, scroll_delay }) => (
   <li>

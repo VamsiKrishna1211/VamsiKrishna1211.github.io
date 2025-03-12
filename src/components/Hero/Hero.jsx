@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import profile_img from "../../assets/anime_profile_img.jpeg";
+import profile_img from "../../assets/MyImage.jpeg";
 import { Link } from 'react-router-dom';
 import resumePDF from "../../assets/UMN-Robotics-Resume-Sem-1.pdf";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
@@ -20,12 +20,13 @@ const Hero = () => {
                 </Link>
                 <h3 className="hero-name" data-text="Vamsi Krishna">Vamsi Krishna</h3>
                 {/* <h3 className="hero-title" data-text="Master's Student">Masters Student</h3> */}
-                <h4 className="hero-title">AI & Robotics Engineer</h4>
+                <h4 className="hero-title">Masters Student</h4>
+                <h4 className="hero-title">University of Minnesota</h4>
                 <div className="hero-icons">
-                    <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer"><FaGithub size={icons_size} /></a>
-                    <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><FaLinkedin size={icons_size} /></a>
+                    <a href="https://github.com/VamsiKrishna1211" target="_blank" rel="noopener noreferrer"><FaGithub size={icons_size} /></a>
+                    <a href="https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/" target="_blank" rel="noopener noreferrer"><FaLinkedin size={icons_size} /></a>
                     <a href="https://scholar.google.com/citations?user=Vm4R7eoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><FaGoogleScholar size={icons_size} /></a>
-                    <a href="mailto:your-email@example.com"><FaEnvelope size={icons_size} /></a>
+                    <a href="mailto:vamsikmails@gmail.com"><FaEnvelope size={icons_size} /></a>
                 </div>
             </div>
             <div className="hero-right">
