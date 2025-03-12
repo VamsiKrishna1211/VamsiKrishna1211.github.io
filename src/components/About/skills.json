@@ -1,0 +1,86 @@
+[
+    {
+      "category": "Programming Languages",
+      "items": ["Python", "C++", "Golang", "CUDA", "NodeJS"]
+    },
+    {
+      "category": "Machine Learning & Deep Learning",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "OpenCV",
+        "Scikit-learn",
+        "Transformers",
+        "CNNs",
+        "GANs",
+        "TensorRT",
+        "ONNX"
+      ]
+    },
+    {
+      "category": "Computer Vision",
+      "items": [
+        "Object Detection",
+        "Semantic/Instance Segmentation",
+        "SLAM",
+        "3D Reconstruction",
+        "ViT",
+        "Faster-RCNN",
+        "Mask-RCN",
+        "YOLO"
+      ]
+    },
+    {
+      "category": "Robotics & Embedded Systems",
+      "items": [
+        "ROS/ROS2",
+        "Isaac Sim (Omniverse)",
+        "Gazebo",
+        "OpenAI Gym",
+        "Ardupilot",
+        "PX4",
+        "MQTT"
+      ]
+    },
+    {
+      "category": "Edge & IoT Hardware",
+      "items": [
+        "Jetson Orin Nano",
+        "Jetson AGX",
+        "Raspberry Pi",
+        "Arduino",
+        "Sensor Fusion",
+        "Sensor Integration"
+      ]
+    },
+    {
+      "category": "Cloud & Deployment",
+      "items": [
+        "Kubernetes",
+        "KNative",
+        "Docker",
+        "KServe",
+        "Triton Inference Server",
+        "AWS (S3, EC2, EKS, ECS, Lambda)",
+        "REST APIs"
+      ]
+    },
+    {
+      "category": "Databases & Tools",
+      "items": [
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL",
+        "Redis",
+        "ClickHouse",
+        "RabbitMQ",
+        "Apache Kafka",
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    {
+      "category": "Tools & Technologies",
+      "items": ["Git", "DVC", "Linux", "Linux File System", "Flask", "Fast API"]
+    }
+  ]
