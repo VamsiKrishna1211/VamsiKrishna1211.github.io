@@ -1,3 +1,28 @@
+/* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.3125em 10.625em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+} */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 0.3125em 5em; Reduced horizontal margin */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0.625em 1em;
+}
+
 .nav-logo {
     height: 4em;
     /* padding: 1.5em; */
@@ -5,6 +30,7 @@
     /* transition: filter 300ms; */
     /* transform: scale(1.05); */
     margin-top: 1em;
+    margin-left: 1em;
     border-radius: 50%;
     /* border: 2px solid #000; */
     /* Smooth transition for transform and box-shadow */
@@ -33,14 +59,6 @@ filter: drop-shadow(0 0 2em #646cffaa);
     }
 }
 
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 170px;
-}
-
 .nav-menu {
     display: flex;
     align-items: center;
@@ -49,11 +67,27 @@ filter: drop-shadow(0 0 2em #646cffaa);
     font-size: 20px;
 }
 
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px 15px; /* Add horizontal padding */
+    border-radius: 5px; /* Add a slight border-radius for rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly highlight the background on hover */
+    color: #fff; /* Change text color on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added a subtle shadow on hover */
+}
+
 .nav-connect {
     padding: 10px 40px;
     border-radius: 50px;
     background: linear-gradient(267deg, #da7c25 0, 36%, #b923e1 102%);
     transition: filter 0.5s, transform 0.5s;
+    margin-right: 1em;
 }
 
 .nav-connect:hover {

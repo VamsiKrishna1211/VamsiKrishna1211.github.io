@@ -1,50 +1,51 @@
 import React from "react";
 import profile_img from "../../assets/anime_profile_img.jpeg";
 import "./About.css";
+import skills from "./skills.json"
 
 const About = () => {
-    return (
-        <div className="about">
-            <div className="about-title">
-                <h1>About Me</h1>
-            </div>
-            <div className="about-section">
-                <div className="about-left">
-                    <img src={profile_img} alt="profile image" className="about-img" />
-                </div>
-                <div className="about-right">
-                    <div className="about-para">
-                        <p>I'm a Robotics Engineer with a knack for making machines see and think. I've spent a good chunk of my career diving deep into the world of computer vision and machine learning, building systems that can understand images and videos. I've also had my hands dirty with hardware, tinkering with everything from drones to self-driving cars. I've even dabbled in the cloud, deploying my creations on platforms like AWS and Azure. I'm always up for a challenge, whether it's implementing cutting-edge research or optimizing models for real-world applications. I've also got a proven track record of leading teams and delivering results in a fast-paced startup environment.</p>
-                    </div>
-                    <div className="about-skills">
-                        <div className="about-skill">
-                            <p>Python </p><hr style={{width: "90%"}}/>
-                            <p>Golang </p><hr style={{width: "60%"}}/>
-                            <p>Computer Vision </p><hr style={{width: "80%"}}/>
-                            <p>Deep Learning </p><hr style={{width: "30%"}}/>
-                            <p>ROS </p><hr style={{width: "40%"}}/>
-                        </div>
-                    </div>
-                    <div className="about-achievements">
-                        <div className="about-achievement">
-                            <h1>5+</h1>
-                            <p>Years of Experience</p>
-                        </div>
-                        <hr/>
-                        <div className="about-achievement">
-                            <h1>10+</h1>
-                            <p>Projects Completed</p>
-                        </div>
-                        <hr/>
-                        <div className="about-achievement">
-                            <h1>5+</h1>
-                            <p>Patents</p>
-                        </div>
-                    </div>
-                </div>
-            </div>            
+  return (
+    <div className="about" id="about">
+      <div className="about-title">
+        <h1>About Me</h1>
+      </div>
+      <div className="about-content">
+        {/* Left Section - Image */}
+        <div className="about-left">
+          <img src={profile_img} alt="profile image" className="about-img" />
         </div>
-    );
-}
+
+        {/* Right Section - Text and Skills */}
+        <div className="about-right">
+          <div className="about-para">
+            <p>
+            As a Robotics Engineer, I'm passionate about building intelligent machines that can perceive and interact with the world around them. 
+            My expertise lies in computer vision and machine learning, where I've developed systems to analyze images and videos, enabling machines to 'see' and 'understand.'  
+            I've also gained extensive experience in hardware development, working on projects ranging from autonomous drones to self-driving cars.  
+            To bring my creations to life, I've delved into cloud technologies, deploying solutions on platforms like AWS and Azure. 
+            I'm driven by a desire to tackle complex challenges, whether it's implementing cutting-edge research or optimizing models for real-world applications.  
+            Moreover, I have a proven track record of leading teams and delivering results in a dynamic startup environment.
+            </p>
+          </div>
+
+          {/* Skills Section */}
+          <h2>Skills</h2>
+          <div className="skills-container">
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-group">
+                <h3>{skill.category}</h3>
+                <ul>
+                  {skill.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default About;

@@ -2,15 +2,17 @@ import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>
-      {/* <h1>Hello, World!</h1> */}
-      <Navbar/>
-      <Hero/>
-      <About/>
+    <Router>
+      <div>
+      <Navbar />
+      <Hero />
+      <About />
     </div>
+    </Router>
   );
 }
 
