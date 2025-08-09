@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "company": "Upjao Agrotech",
+    "position": "Senior Computer Vision Scientist (Core Team)",
+    "location": "Ahmedabad, India",
+    "startDate": "Jan 2019",
+    "endDate": "Jul 2024",
+    "duration": "5 years 7 months",
+    "type": "Full-time",
+    "logo": "/src/assets/upjao-logo.png",
+    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
+    "achievements": [
+      "Developed novel deep learning models based on Visual Transformers, Faster-RCNN, Mask-RCN, YOLO incorporating custom loss functions, achieving up to 20% improvement in accuracy",
+      "Designed high-performance serverless inference platform on Kubernetes with NVIDIA Triton Inference Server, achieving <500ms latency",
+      "Optimized deep learning models for edge devices, achieving 40% reduction in inference time and 20% reduction in model size",
+      "Improved inference performance by 50% and reduced infrastructure costs by 60% through optimization techniques",
+      "Implemented model caching algorithm reducing scale-up time from 15-20 minutes to 3-4 seconds"
+    ],
+    "description": "Led computer vision initiatives developing cutting-edge AI solutions for agricultural applications, focusing on scalable deployment and edge optimization."
+  },
+  {
+    "id": 2,
+    "company": "Tata Consultancy Services",
+    "position": "AI / ML Developer",
+    "location": "Hyderabad, India",
+    "startDate": "Jun 2021",
+    "endDate": "Apr 2023",
+    "duration": "1 year 11 months",
+    "type": "Full-time",
+    "logo": "/src/assets/tcs-logo.png",
+    "technologies": ["BERT", "Transformers", "Flask", "React", "Vite", "Python", "NLP"],
+    "achievements": [
+      "Selected into TCS Rapid Labs Cohort, an elite R&D team focused on cutting-edge AI and Robotics",
+      "Developed multiple NLP-based proof-of-concept projects using BERT & Transformer models",
+      "Created novel algorithm for complex repeated data removal from PDFs, improving efficiency by 20%",
+      "Awarded Best Team Award in the TCS Rapid Labs Cohort"
+    ],
+    "description": "Developed innovative AI solutions as part of an elite research team, focusing on natural language processing and data optimization algorithms."
+  }
+]

@@ -1,43 +1,139 @@
-import React from "react";
-import "./Navbar.css";
-// import {Link} from "react-router-dom";
-import { Link } from 'react-scroll';
-
-import logo from "../../assets/logo.svg";
-import profile_img from "../../assets/MyImage.jpeg";
-
-const NavLink = ({ to, children, scroll_delay }) => (
-  <li>
-    <Link
-      to={to}
-      smooth={true}
-      duration={scroll_delay}
-      className="nav-link"
-    >
-      {children}
-    </Link>
-  </li>
-);
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaBars, FaTimes, FaRobot } from 'react-icons/fa';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const scroll_delay = 500;
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = navItems.map(item => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + 100;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navItems[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
 
   return (
-    <div className="navbar">
-        <Link to="/">
-            <img src={profile_img} alt="logo" className="nav-logo" />
-        </Link>
-        <ul className="nav-menu">
-          <NavLink to="hero" scroll_delay={scroll_delay}>Home</NavLink>
-          <NavLink to="about" scroll_delay={scroll_delay}>About Me</NavLink>
-          <li className="nav-link">Projects</li>
-          <li className="nav-link">Portfolio</li>
-          <li className="nav-link">Contact</li>
-        </ul>
-        <div className="nav-connect">Connect With Me</div>
-    </div>
+    <motion.nav 
+      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="navbar-container">
+        {/* Logo */}
+        <motion.div 
+          className="navbar-logo"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <FaRobot className="logo-icon" />
+          <span className="logo-text">VK</span>
+        </motion.div>
+
+        {/* Desktop Navigation */}
+        <div className="navbar-menu">
+          {navItems.map((item, index) => (
+            <motion.button
+              key={item.id}
+              className={`navbar-item ${activeSection === item.id ? 'active' : ''}`}
+              onClick={() => handleNavClick(item.id)}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {item.label}
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="navbar-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Mobile Navigation */}
+        <motion.div 
+          className={`navbar-mobile ${isOpen ? 'navbar-mobile-open' : ''}`}
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ 
+            opacity: isOpen ? 1 : 0,
+            x: isOpen ? '0%' : '100%'
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="navbar-mobile-content">
+            {navItems.map((item, index) => (
+              <motion.button
+                key={item.id}
+                className={`navbar-mobile-item ${activeSection === item.id ? 'active' : ''}`}
+                onClick={() => handleNavClick(item.id)}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ 
+                  opacity: isOpen ? 1 : 0,
+                  x: isOpen ? 0 : 50
+                }}
+                transition={{ 
+                  duration: 0.3,
+                  delay: isOpen ? index * 0.1 : 0
+                }}
+              >
+                {item.label}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Mobile Overlay */}
+        {isOpen && (
+          <div 
+            className="navbar-overlay"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </div>
+    </motion.nav>
   );
-}
+};
 
 export default Navbar;

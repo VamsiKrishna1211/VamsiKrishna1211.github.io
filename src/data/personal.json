@@ -1,0 +1,28 @@
+{
+  "name": "Vamsi Krishna Kocherla",
+  "title": "Deep Learning | Machine Learning | Computer Vision | Robotics | GenAI | Open Source Contributor",
+  "subtitle": "Robotics Graduate Student & AI Research Engineer",
+  "location": "Minneapolis, USA",
+  "email": "koche156@umn.edu",
+  "phone": "+1-763-900-1422",
+  "linkedin": "https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/",
+  "github": "https://github.com/VamsiKrishna1211",
+  "portfolio": "https://vamsikrishna1211.github.io",
+  "resume": "/src/assets/UMN-Robotics-Resume-internships.pdf",
+  "tagline": "Pioneering the Future of Autonomous Robotics Through Advanced Computer Vision and Intelligent Systems",
+  "bio": "Robotics graduate student at the University of Minnesota, passionate about developing autonomous systems that bridge the gap between artificial intelligence and real-world applications. Specializing in computer vision, deep learning, SLAM, and robotic perception for next-generation intelligent machines.",
+  "avatar": "/src/assets/anime_profile_img.jpeg",
+  "heroVideo": null,
+  "theme": {
+    "primary": "#00d4ff",
+    "secondary": "#ff3366",
+    "accent": "#00ff88",
+    "background": "#0a0a0f",
+    "surface": "#12121a",
+    "cardBackground": "#1a1a2e",
+    "text": "#ffffff",
+    "textSecondary": "#b3b3cc",
+    "border": "#2a2a3e",
+    "gradient": "linear-gradient(135deg, #00d4ff 0%, #00ff88 100%)"
+  }
+}
