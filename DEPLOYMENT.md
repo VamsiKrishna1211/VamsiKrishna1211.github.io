@@ -139,10 +139,28 @@ Your portfolio is now fully configured for GitHub Pages deployment with the foll
 - [ ] **Monitor performance**: Check loading times
 - [ ] **SEO verification**: Test search engine visibility
 
-## 📈 Analytics Setup (Optional)
+## 📈 Analytics Setup
 
+### **Google Analytics (Configured)**
+Your portfolio includes Google Analytics integration:
+
+1. **Get GA4 Tracking ID**:
+   - Visit [Google Analytics](https://analytics.google.com/)
+   - Create a new property or use existing
+   - Copy your GA4 tracking ID (format: `G-XXXXXXXXXX`)
+
+2. **Configure Environment Variable**:
+   ```bash
+   # Create .env file in project root
+   echo "REACT_APP_GA_TRACKING_ID=G-YOUR-ACTUAL-ID" > .env
+   ```
+
+3. **GitHub Secrets** (for production):
+   - Go to repository **Settings** → **Secrets and variables** → **Actions**
+   - Add secret: `REACT_APP_GA_TRACKING_ID` with your tracking ID
+
+### **Additional Analytics**
 Consider adding:
-- **Google Analytics**: Track visitor metrics
 - **Google Search Console**: Monitor SEO performance
 - **GitHub traffic insights**: Built-in repository analytics
 
