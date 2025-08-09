@@ -5,12 +5,12 @@
 Your portfolio is now fully configured for GitHub Pages deployment with the following optimizations:
 
 ### ✅ **Vite Configuration** (`vite.config.js`)
-- **Base URL**: Set to `/VamsiKrishna1211.github.io/` for proper GitHub Pages routing
+- **Base URL**: Set to `/` for GitHub Pages user site deployment
 - **Build optimization**: Configured with manual chunks for better performance
 - **Asset management**: Optimized for production deployment
 
 ### ✅ **Package.json Configuration**
-- **Homepage URL**: `https://vamsikrishna1211.github.io/VamsiKrishna1211.github.io/`
+- **Homepage URL**: `https://vamsikrishna1211.github.io/`
 - **Deploy script**: `gh-pages -d dist` for manual deployment
 - **Build script**: Optimized for production
 
@@ -42,7 +42,7 @@ Your portfolio is now fully configured for GitHub Pages deployment with the foll
    - The workflow will automatically deploy your site
 
 3. **Access your portfolio**:
-   - URL: `https://vamsikrishna1211.github.io/VamsiKrishna1211.github.io/`
+   - URL: `https://vamsikrishna1211.github.io/`
    - Updates automatically on every push to main
 
 ### **Option 2: Manual Deployment**
@@ -58,7 +58,7 @@ Your portfolio is now fully configured for GitHub Pages deployment with the foll
    ```
 
 3. **Access your portfolio**:
-   - URL: `https://vamsikrishna1211.github.io/VamsiKrishna1211.github.io/`
+   - URL: `https://vamsikrishna1211.github.io/`
 
 ## 🔧 Build Optimization Features
 
@@ -106,15 +106,23 @@ Your portfolio is now fully configured for GitHub Pages deployment with the foll
 
 ### **Common Issues**
 
-1. **404 Error on deployment**:
+1. **MIME Type Error (FIXED)** ✅:
+   ```
+   Failed to load module script: Expected a JavaScript-or-Wasm module script 
+   but the server responded with a MIME type of "text/html"
+   ```
+   - **Solution**: Use base path `/` for user sites, not `/repo-name/`
+   - **Reason**: `username.github.io` repos are user sites, not project sites
+
+2. **404 Error on deployment**:
    - Ensure base URL is correct in `vite.config.js`
    - Check that `.nojekyll` file exists in public folder
 
-2. **Assets not loading**:
+3. **Assets not loading**:
    - Verify homepage URL in `package.json`
    - Check asset paths in build output
 
-3. **Build failures**:
+4. **Build failures**:
    - Review build logs in GitHub Actions
    - Test build locally with `npm run build`
 
@@ -176,4 +184,4 @@ Your workflow is configured for:
 
 **Your portfolio is now ready for professional deployment! 🚀**
 
-**Live URL**: `https://vamsikrishna1211.github.io/VamsiKrishna1211.github.io/`
+**Live URL**: `https://vamsikrishna1211.github.io/`
