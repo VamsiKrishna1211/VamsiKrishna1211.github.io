@@ -160,12 +160,12 @@ Your portfolio includes Google Analytics integration:
 2. **Configure Environment Variable**:
    ```bash
    # Create .env file in project root
-   echo "REACT_APP_GA_TRACKING_ID=G-YOUR-ACTUAL-ID" > .env
+   echo "VITE_GA_TRACKING_ID=G-YOUR-ACTUAL-ID" > .env
    ```
 
 3. **GitHub Secrets** (for production):
    - Go to repository **Settings** → **Secrets and variables** → **Actions**
-   - Add secret: `REACT_APP_GA_TRACKING_ID` with your tracking ID
+   - Add secret: `VITE_GA_TRACKING_ID` with your tracking ID
 
 ### **Additional Analytics**
 Consider adding:
