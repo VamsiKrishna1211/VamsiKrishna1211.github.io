@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "title": "Autonomous Drone Navigation with Stereo SLAM",
+    "category": "Robotics & Computer Vision",
+    "description": "Developed an autonomous drone system utilizing custom-built stereo vision system with real-time 3D mapping and localization in GPS-denied environments.",
+    "longDescription": "This project involved developing a comprehensive autonomous drone navigation system using advanced computer vision and SLAM techniques. The system integrates multiple sensors and compute platforms to enable safe autonomous flight in complex environments.",
+    "technologies": ["Python", "ROS 2", "ArduPilot", "C++", "SLAM", "OpenCV", "Stereo Vision", "Camera Calibration"],
+    "frameworks": ["ORB-SLAM3", "RTAB-Map", "Jetson Orin Nano", "Pixhawk"],
+    "image": "/src/assets/drone-slam-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/autonomous-drone-slam",
+    "demo": null,
+    "status": "Completed",
+    "featured": true,
+    "highlights": [
+      "Custom stereo vision system with Raspberry Pi cameras",
+      "Manual camera calibration for accurate depth perception",
+      "Real-time 3D mapping and localization using Visual-Inertial SLAM",
+      "ROS 2 integration for seamless sensor communication",
+      "Comprehensive testing in simulation before real deployment"
+    ],
+    "challenges": [
+      "Autonomous navigation in GPS-denied environments",
+      "Real-time processing constraints on edge hardware",
+      "Sensor fusion and calibration accuracy",
+      "Safety protocols for autonomous flight operations"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Image-Based Visual Servoing (IBVS) for Robotic Arm Control",
+    "category": "Computer Vision & Robotics",
+    "description": "Engineered a robotic arm control system using real-time visual feedback for precise object manipulation and grasping tasks.",
+    "longDescription": "This project implements Image-Based Visual Servoing for robotic arm control, enabling dynamic real-time adjustment based on visual feedback. The system integrates stereo vision, object detection, and control algorithms for accurate manipulation.",
+    "technologies": ["Python", "ROS", "OpenCV", "PyTorch", "Open3D", "TensorRT"],
+    "frameworks": ["YOLOv8", "Stereo Anything", "Raspberry Pi"],
+    "image": "/src/assets/ibvs-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/ibvs-robotic-arm",
+    "demo": null,
+    "status": "Completed",
+    "featured": true,
+    "highlights": [
+      "Custom stereo camera system with comprehensive calibration",
+      "3D point cloud generation from disparity maps",
+      "Real-time object detection and segmentation using YOLOv8",
+      "TensorRT optimization achieving <5ms inference times",
+      "Dynamic visual servoing control for precise manipulation"
+    ],
+    "challenges": [
+      "Real-time stereo vision processing",
+      "Accurate depth estimation for manipulation",
+      "Visual servoing control loop stability",
+      "Integration of multiple AI models in real-time pipeline"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Custom Quadcopter Design & Development",
+    "category": "Autonomous Systems",
+    "description": "Designed and built a high-performance quadcopter with advanced flight capabilities and extended range for autonomous operations.",
+    "longDescription": "Complete quadcopter development project from component selection to flight testing, focusing on maximizing flight time, range, and payload capacity while maintaining stable autonomous flight capabilities.",
+    "technologies": ["Pixhawk", "ArduPilot", "C++", "Mission Planner"],
+    "frameworks": ["PX4", "MAVLink"],
+    "image": "/src/assets/quadcopter-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/custom-quadcopter",
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Flight range of 2.8 kilometers with constant telemetry",
+      "20-minute flight time with 6200mAh battery",
+      "6kg payload capacity for mission equipment",
+      "7+ story building altitude capability",
+      "Advanced autonomous flight modes"
+    ],
+    "challenges": [
+      "Power distribution optimization",
+      "Telemetry range extension",
+      "Payload integration without affecting flight dynamics",
+      "Safety protocols for high-altitude operations"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Image Super Resolution using SRGAN",
+    "category": "Deep Learning & Computer Vision",
+    "description": "Implemented deep learning model for upscaling 720p video content to 4K resolution using Super Resolution Generative Adversarial Networks.",
+    "longDescription": "Advanced image processing project implementing SRGAN for real-time video upscaling, with significant optimizations for memory efficiency and large-scale video processing.",
+    "technologies": ["Python", "PyTorch", "OpenCV", "CUDA"],
+    "frameworks": ["SRGAN", "GAN"],
+    "image": "/src/assets/super-resolution-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/image-super-resolution",
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Successful 720p to 4K upscaling implementation",
+      "40% reduction in GPU memory consumption",
+      "Dynamic memory allocation for large video processing",
+      "Efficient CPU-GPU data transfer optimization"
+    ],
+    "challenges": [
+      "Memory optimization for large video files",
+      "Real-time processing requirements",
+      "Quality preservation during upscaling",
+      "Hardware resource management"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Real-Time Audio Noise Cancellation",
+    "category": "Deep Learning & Signal Processing",
+    "description": "Developed deep learning-based noise cancellation system using Wave-UNet architecture for real-time audio processing.",
+    "longDescription": "Advanced audio processing project implementing deep learning techniques for intelligent noise cancellation, utilizing large-scale datasets and optimized training strategies.",
+    "technologies": ["Python", "PyTorch", "Torchaudio", "Librosa", "STFT"],
+    "frameworks": ["Wave-UNet", "One Cycle Learning"],
+    "image": "/src/assets/noise-cancellation-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/audio-noise-cancellation",
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Mozilla Common Voice and UrbanSound8k dataset integration",
+      "Wave-UNet architecture implementation",
+      "One Cycle Learning Rate optimization",
+      "MSE loss of approximately 0.2 achieved"
+    ],
+    "challenges": [
+      "Real-time audio processing constraints",
+      "Large dataset handling and preprocessing",
+      "Model optimization for low-latency inference",
+      "Quality metrics for noise cancellation evaluation"
+    ]
+  }
+]

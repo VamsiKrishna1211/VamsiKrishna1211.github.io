@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Best Team Award - TCS Rapid Labs Cohort",
+    "organization": "Tata Consultancy Services",
+    "year": 2023,
+    "type": "Team Excellence",
+    "description": "Awarded Best Team Award in the prestigious TCS Rapid Labs Cohort, demonstrating exceptional technical and collaborative skills in AI and robotics research.",
+    "icon": "🏆",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Juror - LaElevitia Hackathon 2023",
+    "organization": "LaElevitia",
+    "year": 2023,
+    "type": "Leadership",
+    "description": "Served as a technical juror for the LaElevitia Hackathon Event, evaluating projects from over 80 students and showcasing technical expertise and leadership potential.",
+    "icon": "⚖️",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Innovation Centre Club Organizer & Mentor",
+    "organization": "University",
+    "year": "2018-2021",
+    "type": "Leadership",
+    "description": "Actively organized and mentored students in AI & robotics education and outreach programs, showcasing robotics projects at inter-university events and conducting workshops.",
+    "icon": "🎓",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "TCS Rapid Labs Cohort Selection",
+    "organization": "Tata Consultancy Services",
+    "year": 2021,
+    "type": "Recognition",
+    "description": "Selected into the elite TCS Rapid Labs Cohort, an exclusive R&D team focused on cutting-edge technologies including AI and Robotics.",
+    "icon": "🔬",
+    "featured": false
+  }
+]

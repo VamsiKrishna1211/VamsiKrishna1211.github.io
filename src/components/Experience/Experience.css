@@ -1,0 +1,56 @@
+.experience {
+  background: var(--bg-secondary);
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.experience-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  transition: var(--transition-normal);
+}
+
+.experience-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.exp-header h3 {
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+}
+
+.exp-header h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.exp-duration {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.exp-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exp-content li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+}
+
+.exp-content li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}

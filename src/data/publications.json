@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Noise Cancellation and Speech Enhancement Using Multi-Layer Convolutional Neural Network",
+    "authors": ["Kumar, Ch Praveen", "K. Praveen Kumar", "KSS Vamsi Krishna", "T. Shwetha"],
+    "journal": "Design Engineering",
+    "year": 2021,
+    "pages": "921-926",
+    "type": "Journal Article",
+    "doi": null,
+    "url": null,
+    "abstract": "This paper presents a novel approach to noise cancellation and speech enhancement using deep convolutional neural networks, demonstrating significant improvements in audio quality metrics.",
+    "keywords": ["Deep Learning", "Audio Processing", "CNN", "Noise Cancellation", "Speech Enhancement"],
+    "citations": null,
+    "featured": true
+  }
+]

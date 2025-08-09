@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "institution": "University of Minnesota - Twin Cities",
+    "degree": "Master of Science in Robotics",
+    "location": "Minneapolis, USA",
+    "startDate": "Aug 2024",
+    "endDate": "Aug 2026 (Expected)",
+    "gpa": null,
+    "logo": "/src/assets/umn-logo.png",
+    "status": "Current",
+    "coursework": [
+      "Computer Vision",
+      "Intelligent Robotic Systems",
+      "Image Processing & Application",
+      "Natural Language Processing",
+      "Deep Learning"
+    ],
+    "description": "Advanced graduate studies in robotics with focus on autonomous systems, computer vision, and AI integration."
+  },
+  {
+    "id": 2,
+    "institution": "GITAM University",
+    "degree": "Bachelor of Technology in Electronics & Communication Engineering",
+    "location": "Hyderabad, India",
+    "startDate": "Jun 2017",
+    "endDate": "Jun 2021",
+    "gpa": null,
+    "logo": "/src/assets/gitam-logo.png",
+    "status": "Completed",
+    "coursework": [
+      "Signals & Systems",
+      "Digital Signal Processing",
+      "Probability Theory and Random Process"
+    ],
+    "description": "Undergraduate studies in electronics and communication engineering with strong foundation in signal processing and mathematical concepts."
+  }
+]

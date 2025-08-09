@@ -1,0 +1,30 @@
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-background);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.background-animation canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Reduce animation complexity on mobile devices */
+@media (max-width: 768px) {
+  .background-animation {
+    opacity: 0.3;
+  }
+}
+
+/* Disable background animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .background-animation {
+    display: none;
+  }
+}

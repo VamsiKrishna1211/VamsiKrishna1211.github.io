@@ -1,50 +1,128 @@
-import React from "react";
-import profile_img from "../../assets/MyImage.jpeg";
-import "./About.css";
-import skills from "./skills.json"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaRobot, FaEye, FaBrain, FaCode } from 'react-icons/fa';
+import personalData from '../../data/personal.json';
+import './About.css';
 
 const About = () => {
+  const specializations = [
+    {
+      icon: FaRobot,
+      title: 'Autonomous Robotics',
+      description: 'Developing intelligent robotic systems with advanced navigation, perception, and control capabilities',
+      color: 'var(--primary)'
+    },
+    {
+      icon: FaEye,
+      title: 'Computer Vision',
+      description: 'Implementing cutting-edge vision algorithms for object detection, SLAM, and 3D reconstruction',
+      color: 'var(--accent)'
+    },
+    {
+      icon: FaBrain,
+      title: 'Deep Learning',
+      description: 'Creating novel neural network architectures for real-time AI applications and edge deployment',
+      color: 'var(--secondary)'
+    },
+    {
+      icon: FaCode,
+      title: 'System Integration',
+      description: 'Building scalable AI infrastructure and deploying models on edge devices and cloud platforms',
+      color: 'var(--primary)'
+    }
+  ];
+
   return (
-    <div className="about" id="about">
-      <div className="about-title">
-        <h1>About Me</h1>
-      </div>
-      <div className="about-content">
-        {/* Left Section - Image */}
-        <div className="about-left">
-          <img src={profile_img} alt="profile image" className="about-img" />
-        </div>
+    <section className="about section">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title">
+            About <span className="text-gradient">Me</span>
+          </h2>
+        </motion.div>
 
-        {/* Right Section - Text and Skills */}
-        <div className="about-right">
-          <div className="about-para">
-            <p>
-            As a Robotics Engineer, I'm passionate about building intelligent machines that can perceive and interact with the world around them. 
-            My expertise lies in computer vision and machine learning, where I've developed systems to analyze images and videos, enabling machines to 'see' and 'understand.'  
-            I've also gained extensive experience in hardware development, working on projects ranging from autonomous drones to self-driving cars.  
-            To bring my creations to life, I've delved into cloud technologies, deploying solutions on platforms like AWS and Azure. 
-            I'm driven by a desire to tackle complex challenges, whether it's implementing cutting-edge research or optimizing models for real-world applications.  
-            Moreover, I have a proven track record of leading teams and delivering results in a dynamic startup environment.
-            </p>
-          </div>
+        <div className="about-content">
+          {/* Bio Section */}
+          <motion.div
+            className="about-bio"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bio-card">
+              <h3>Pioneering the Future of Autonomous Systems</h3>
+              <p>{personalData.bio}</p>
+              
+              <div className="bio-highlights">
+                <div className="highlight">
+                  <span className="highlight-number">5+</span>
+                  <span className="highlight-text">Years in AI/Robotics</span>
+                </div>
+                <div className="highlight">
+                  <span className="highlight-number">20+</span>
+                  <span className="highlight-text">AI Projects</span>
+                </div>
+                <div className="highlight">
+                  <span className="highlight-number">5</span>
+                  <span className="highlight-text">Patents Filed</span>
+                </div>
+              </div>
 
-          {/* Skills Section */}
-          <h2>Skills</h2>
-          <div className="skills-container">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-group">
-                <h3>{skill.category}</h3>
+              <div className="current-focus">
+                <h4>Current Focus Areas</h4>
                 <ul>
-                  {skill.items.map((item, itemIndex) => (
-                    <li key={itemIndex}>{item}</li>
-                  ))}
+                  <li>Visual-Inertial SLAM for autonomous navigation</li>
+                  <li>Real-time computer vision on edge devices</li>
+                  <li>Multimodal AI for robotic perception</li>
+                  <li>Scalable inference systems for deep learning</li>
                 </ul>
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
+
+          {/* Specializations */}
+          <motion.div
+            className="about-specializations"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h3>Technical Specializations</h3>
+            <div className="specializations-grid">
+              {specializations.map((spec, index) => (
+                <motion.div
+                  key={spec.title}
+                  className="specialization-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div 
+                    className="spec-icon"
+                    style={{ color: spec.color }}
+                  >
+                    <spec.icon />
+                  </div>
+                  <h4>{spec.title}</h4>
+                  <p>{spec.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

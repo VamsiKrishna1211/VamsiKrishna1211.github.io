@@ -1,7 +1,6 @@
 import React from "react";
 import "./Hero.css";
 import profile_img from "../../assets/MyImage.jpeg";
-import { Link } from 'react-router-dom';
 import resumePDF from "../../assets/UMN-Robotics-Resume-Sem-1.pdf";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
@@ -15,9 +14,7 @@ const Hero = () => {
     return (
         <div className="hero">
             <div className="hero-left">
-                <Link to="/">
-                    <img src={profile_img} alt="profile image" className="hero-img" />
-                </Link>
+                <img src={profile_img} alt="profile image" className="hero-img" />
                 <h3 className="hero-name" data-text="Vamsi Krishna">Vamsi Krishna</h3>
                 {/* <h3 className="hero-title" data-text="Master's Student">Masters Student</h3> */}
                 <h4 className="hero-title">Masters Student</h4>
@@ -55,7 +52,12 @@ const Hero = () => {
                     </ul>
                 </div>
                 <div className="hero-action">
-                    <div className="hero-connect">Connect With me</div>
+                    <div className="hero-connect" onClick={() => {
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }}>Connect With me</div>
                     <a href={resumePDF} target="_blank" rel="noopener noreferrer" className="hero-resume">
                         <div>Download Resume</div>
                     </a>

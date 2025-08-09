@@ -1,171 +1,222 @@
 .about {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  gap: 4em;
-  /* margin: 2em 2em; */
-  padding-top: 8%;
-}
-
-.about-title {
+  background: var(--bg-primary);
   position: relative;
 }
 
-.about-title h1 {
-  /* padding: 0 1em; */
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #fff;
+.section-header {
   text-align: center;
-  margin-bottom: 0.2em;
-}
-
-.about-section {
-  display: flex;
-  flex-direction: row;
-  gap: 2em;
-}
-
-.about-left {
-  flex: 1;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
-  /* width: 20%; */
-  margin-left: 5%;
-}
-
-.about-img {
-  width: 70%;
-  border-radius: 50%;
-  /* border: 5px solid #fff; */
-  box-shadow: 0 0 30px 1px #000;
-  transition: transform 0.5s ease, box-shadow 0.3s ease;
-}
-
-.about-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px 5px #000;
-}
-
-.about-right {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  /* gap: 1.5em; */
-  margin-right: 5%;
-}
-
-.about-para {
-  font-size: 1.2em;
-  color: #ccc;
-}
-
-.about-skills {
-  text-align: center;
-}
-
-.about-skills h2 {
-  font-size: 1.8em;
-  margin-bottom: 0.5em;
-  color: #fff;
-}
-
-.about-skill-icons {
-  display: flex;
-  justify-content: space-around;
-  gap: 1em;
-}
-
-.skill-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-}
-
-.skill-icon p {
-  margin-top: 0.5em;
-  font-size: 1em;
-}
-
-.about-achievements {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 1em;
-}
-
-.about-achievement {
-  text-align: center;
-  color: #fff;
-}
-
-.about-achievement h1 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
-
-.about-achievement p {
-  font-size: 1em;
-  color: #ccc;
+  margin-bottom: var(--space-3xl);
 }
 
 .about-content {
-  display: flex;
-  flex-direction: row; /* Arrange image and text side-by-side */
-  overflow: hidden; /* Hide horizontal overflow for scrolling */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
 }
 
-.about-left {
-  flex: 1; /* Allow image to take up space */
-  padding: 20px;
+/* Bio Section */
+.about-bio {
+  position: sticky;
+  top: var(--space-xl);
 }
 
-.about-right {
-  flex: 2; /* Allow text and skills to take up more space */
-  padding: 20px;
-  overflow-y: auto; /* Enable vertical scrolling for skills */
+.bio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
 }
 
-.about-para {
-  margin-bottom: 20px;
+.bio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
 }
 
-.skills-container {
-  display: flex;
-  flex-direction: column; /* Arrange skill groups vertically */
+.bio-card h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  font-size: 1.5rem;
 }
 
-.skill-group {
-  margin-bottom: 20px;
+.bio-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+  font-size: 1.1rem;
 }
 
-.skill-group ul {
+.bio-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.highlight {
+  text-align: center;
+}
+
+.highlight-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+}
+
+.highlight-text {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.current-focus h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-size: 1.1rem;
+}
+
+.current-focus ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+}
+
+.current-focus li {
+  position: relative;
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.current-focus li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+/* Specializations */
+.about-specializations h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.specializations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.specialization-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.specialization-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.specialization-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.specialization-card:hover::before {
+  opacity: 1;
+}
+
+.spec-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
   display: flex;
-  flex-wrap: wrap; /* Allow skill items to wrap */
+  justify-content: center;
+  filter: drop-shadow(0 0 10px currentColor);
 }
 
-.skill-group li {
-  margin-right: 10px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.5s ease, color 0.8s ease; /* Add smooth transition for border color */
-}
-.skill-group li:hover {
-  border-color: #b923e1; /* Change border color to purple on hover */
-  color: #b923e1; /* Change text color to purple on hover */
-  box-shadow: 0 4px 8px rgba(234, 0, 255, 0.2); /* Add shadow on hover */
-  transition: border-color 0.5s ease, color 0.8s ease; /* Add smooth transition for border color */
+.specialization-card h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-size: 1.2rem;
 }
 
-.skill-group h3 {
-  margin-bottom: 10px;
+.specialization-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .about-bio {
+    position: static;
+  }
+
+  .specializations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-highlights {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .specializations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-card,
+  .specialization-card {
+    padding: var(--space-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-card,
+  .specialization-card {
+    padding: var(--space-lg);
+  }
+
+  .spec-icon {
+    font-size: 2rem;
+  }
 }

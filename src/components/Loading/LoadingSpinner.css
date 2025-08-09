@@ -1,0 +1,187 @@
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  text-align: center;
+  position: relative;
+}
+
+/* Robot Animation */
+.loading-robot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.robot-head {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-dark);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: var(--shadow-glow);
+}
+
+.robot-eyes {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.robot-eye {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.robot-body {
+  width: 100px;
+  height: 120px;
+  background: var(--gradient-dark);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.robot-chest {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chest-light {
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.loading-dots {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Progress Bar */
+.loading-progress {
+  width: 200px;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* Floating Particles */
+.loading-particles {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 6px var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .robot-head {
+    width: 60px;
+    height: 60px;
+  }
+
+  .robot-body {
+    width: 80px;
+    height: 100px;
+  }
+
+  .robot-chest {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chest-light {
+    width: 16px;
+    height: 16px;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+
+  .loading-progress {
+    width: 150px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .loading-robot,
+  .loading-text,
+  .loading-particles,
+  .progress-fill {
+    animation: none;
+  }
+  
+  .robot-head,
+  .robot-body,
+  .robot-eye,
+  .chest-light,
+  .loading-dots,
+  .particle {
+    animation: none !important;
+  }
+}
