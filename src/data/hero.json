@@ -1,0 +1,64 @@
+{
+  "profile": {
+    "name": "Vamsi Krishna",
+    "displayName": "Vamsi Krishna Kocherla",
+    "shortName": "Vamsi",
+    "title": "Masters Student",
+    "institution": "University of Minnesota",
+    "image": "/src/assets/MyImage.jpeg",
+    "resume": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf"
+  },
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/VamsiKrishna1211",
+      "icon": "FaGithub"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/",
+      "icon": "FaLinkedin"
+    },
+    {
+      "platform": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=Vm4R7eoAAAAJ&hl=en",
+      "icon": "FaGoogleScholar"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:koche156@umn.edu",
+      "icon": "FaEnvelope"
+    }
+  ],
+  "introduction": {
+    "greeting": "Hello World! 👋",
+    "paragraphs": [
+      "👋 I'm <span>Vamsi Krishna Kocherla</span> (or just <span>Vamsi</span> for short!), a Robotics enthusiast with a mind overflowing with algorithms, drones, and self-driving cars.",
+      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota</span>. When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
+      "Here are a few things I'm passionate about:"
+    ],
+    "passions": [
+      "Autonomous Systems (Drones & Robotics)",
+      "3D Vision & Perception (Reconstruction, SLAM, Visual Servoing)",
+      "AI for Real-World Applications (ADAS, Autonomous Navigation, etc.)",
+      "Physical AI"
+    ]
+  },
+  "actions": [
+    {
+      "type": "scroll",
+      "text": "Connect With me",
+      "target": "contact",
+      "className": "hero-connect"
+    },
+    {
+      "type": "download",
+      "text": "Download Resume",
+      "url": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf",
+      "className": "hero-resume"
+    }
+  ],
+  "settings": {
+    "iconSize": 20
+  }
+}
