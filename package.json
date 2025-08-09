@@ -14,7 +14,7 @@
     "test:selenium": "npx mocha tests/selenium/portfolio-comprehensive.test.cjs --timeout 60000",
     "test:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run test:selenium\""
   },
-  "homepage": "https://vamsikrishna1211.github.io//",
+  "homepage": "https://vamsikrishna1211.github.io/VamsiKrishna1211.github.io/",
   "dependencies": {
     "@react-three/drei": "^9.96.0",
     "@react-three/fiber": "^8.15.0",
