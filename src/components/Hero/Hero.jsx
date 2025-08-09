@@ -20,6 +20,10 @@ const Hero = () => {
     // Handle different action types
     const handleAction = (action) => {
         if (action.type === 'scroll') {
+            // Update URL hash
+            window.history.pushState(null, null, `#${action.target}`);
+            
+            // Scroll to section
             const targetSection = document.getElementById(action.target);
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });

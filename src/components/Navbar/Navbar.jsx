@@ -29,17 +29,57 @@ const Navbar = () => {
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
+          const sectionId = navItems[i].id;
+          setActiveSection(sectionId);
+          // Update URL hash without triggering scroll
+          if (window.location.hash !== `#${sectionId}`) {
+            window.history.replaceState(null, null, `#${sectionId}`);
+          }
           break;
         }
       }
     };
 
+    // Handle browser back/forward navigation
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1); // Remove the '#'
+      if (hash && navItems.some(item => item.id === hash)) {
+        setActiveSection(hash);
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (!hash) {
+        // If no hash, default to home
+        setActiveSection('home');
+        const homeElement = document.getElementById('home');
+        if (homeElement) {
+          homeElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    // Set initial active section based on URL hash
+    const initialHash = window.location.hash.slice(1);
+    if (initialHash && navItems.some(item => item.id === initialHash)) {
+      setActiveSection(initialHash);
+    }
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const handleNavClick = (sectionId) => {
+    // Update URL hash
+    window.history.pushState(null, null, `#${sectionId}`);
+    setActiveSection(sectionId);
+    
+    // Scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
