@@ -1,7 +1,6 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import './styles/globals.css';
-import { initGA, logPageView } from './utils/analytics';
 
 // Lazy load components for better performance
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
@@ -21,12 +20,6 @@ const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'))
 const BackgroundAnimation = lazy(() => import('./components/Background/BackgroundAnimation'));
 
 function App() {
-  useEffect(() => {
-    // Initialize Google Analytics
-    initGA();
-    logPageView();
-  }, []);
-
   return (
     <div className="App">
       <Suspense fallback={<LoadingSpinner />}>
