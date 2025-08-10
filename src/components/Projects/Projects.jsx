@@ -32,11 +32,11 @@ const Projects = () => {
               <div className="project-header">
                 <h3>{project.title}</h3>
                 <p className="project-category">{project.category}</p>
-                {project.status && (
+                {/* {project.status && (
                   <span className={`project-status status-${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
                     {project.status}
                   </span>
-                )}
+                )} */}
               </div>
               <p className="project-description">{project.description}</p>
               <div className="project-tech">
