@@ -1,0 +1,506 @@
+/* Research & Recognition Section - Enhanced CSS with Logical Properties */
+.research-recognition {
+  background: var(--bg-primary);
+  position: relative;
+  container-type: inline-size;
+  container-name: research-section;
+}
+
+.research-recognition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(255, 51, 102, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-block-end: var(--space-3xl);
+  container-type: inline-size;
+  container-name: section-header;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-inline-size: 600px;
+  margin-inline: auto;
+  margin-block-start: var(--space-lg);
+}
+
+/* Tabs Navigation */
+.tabs-container {
+  margin-block-end: var(--space-3xl);
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-primary);
+  backdrop-filter: blur(10px);
+  container-type: inline-size;
+  container-name: tabs-nav;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-block: var(--space-md);
+  padding-inline: var(--space-lg);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--tab-color, var(--primary)), transparent);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button:hover::before {
+  opacity: 0.1;
+}
+
+.tab-button.active {
+  color: var(--text-primary);
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--tab-color, var(--primary));
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.tab-button.active::before {
+  opacity: 0.15;
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+  z-index: 1;
+  position: relative;
+}
+
+.tab-label {
+  font-size: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.tab-count {
+  background: var(--tab-color, var(--primary));
+  color: var(--text-inverse);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-inline-size: 20px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* Content Container */
+.content-container {
+  container-type: inline-size;
+  container-name: content-area;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: var(--space-xl);
+  container-type: inline-size;
+  container-name: content-grid;
+}
+
+/* Research Cards */
+.research-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+  container-name: research-card;
+}
+
+.research-card::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 3px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.research-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+.research-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Variants */
+.publication-card::before {
+  background: var(--gradient-primary);
+}
+
+.patent-card::before {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.achievement-card::before {
+  background: var(--gradient-secondary);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: var(--space-lg);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: var(--radius-lg);
+  font-size: 1.5rem;
+  transition: var(--transition-normal);
+}
+
+.publication-icon {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.patent-icon {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.achievement-icon {
+  background: rgba(255, 51, 102, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(255, 51, 102, 0.2);
+}
+
+.research-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+}
+
+.status-icon {
+  font-size: 0.9rem;
+}
+
+.status-success { color: var(--accent); }
+.status-pending { color: var(--secondary); }
+.status-progress { color: var(--primary); }
+.status-default { color: var(--text-muted); }
+
+.status-text {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.achievement-rank {
+  display: flex;
+  align-items: center;
+}
+
+.rank-badge {
+  background: var(--gradient-secondary);
+  color: var(--text-inverse);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Card Content */
+.card-content {
+  margin-block-end: var(--space-lg);
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-block-end: var(--space-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-block-end: var(--space-md);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.meta-icon {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  inline-size: 1rem;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-block-end: var(--space-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.tag {
+  padding: 2px var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.publication-tag {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.patent-tag {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.achievement-tag {
+  background: rgba(255, 51, 102, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(255, 51, 102, 0.2);
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--border-primary);
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.card-link:hover {
+  color: var(--primary-light);
+  gap: var(--space-sm);
+}
+
+.card-link svg {
+  font-size: 0.8rem;
+  transition: var(--transition-fast);
+}
+
+.card-link:hover svg {
+  transform: translateX(2px);
+}
+
+/* Container Queries for Modern Responsive Design */
+@container tabs-nav (max-width: 600px) {
+  .tabs-nav {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .tab-button {
+    justify-content: center;
+    padding-inline: var(--space-md);
+  }
+}
+
+@container content-grid (max-width: 800px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@container research-card (max-width: 320px) {
+  .research-card {
+    padding: var(--space-lg);
+  }
+  
+  .card-meta {
+    gap: var(--space-xs);
+  }
+  
+  .meta-item {
+    font-size: 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
+
+@container research-card (max-width: 280px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .card-icon {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Legacy Media Queries for broader browser support */
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .tabs-nav {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .tab-button {
+    justify-content: center;
+    padding-inline: var(--space-md);
+  }
+  
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .research-card {
+    padding: var(--space-lg);
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .meta-item {
+    font-size: 0.8rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .research-recognition::before {
+    display: none;
+  }
+  
+  .research-card {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    page-break-inside: avoid;
+    margin-block-end: var(--space-lg);
+  }
+  
+  .card-link {
+    color: #000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .research-card,
+  .card-icon,
+  .tab-button,
+  .card-link {
+    transition: none !important;
+  }
+  
+  .research-card:hover {
+    transform: none !important;
+  }
+}
