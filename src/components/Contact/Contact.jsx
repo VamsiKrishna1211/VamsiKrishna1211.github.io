@@ -65,13 +65,13 @@ const Contact = () => {
       href: `mailto:${personalData.email}`,
       color: 'var(--primary)'
     },
-    {
-      icon: FaPhone,
-      label: 'Phone',
-      value: personalData.phone,
-      href: `tel:${personalData.phone}`,
-      color: 'var(--accent)'
-    },
+    // {
+    //   icon: FaPhone,
+    //   label: 'Phone',
+    //   value: personalData.phone,
+    //   href: `tel:${personalData.phone}`,
+    //   color: 'var(--accent)'
+    // },
     {
       icon: FaMapMarkerAlt,
       label: 'Location',

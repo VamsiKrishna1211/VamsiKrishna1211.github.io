@@ -31,7 +31,7 @@ const Publications = () => {
             >
               <h3>{pub.title}</h3>
               <p><strong>Journal:</strong> {pub.journal} ({pub.year})</p>
-              <p><strong>Authors:</strong> {pub.authors.join(', ')}</p>
+              <p><strong>Authors:</strong> {pub.authors.map(author => author.trim()).join(', ')}</p>
               <p>{pub.abstract}</p>
             </motion.div>
           ))}

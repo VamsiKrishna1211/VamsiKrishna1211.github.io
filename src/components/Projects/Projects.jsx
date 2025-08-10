@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaGithub, FaPlay } from 'react-icons/fa';
 import projectsData from '../../data/projects.json';
 import './Projects.css';
 
@@ -59,11 +60,20 @@ const Projects = () => {
                   </div>
                 </div>
               )}
-              {project.video && project.video.trim() !== '' && (
-                <div className="project-video">
-                  <a href={project.video} target="_blank" rel="noopener noreferrer" className="video-link">Watch Video</a>
-                </div>
-              )}
+              <div className="project-links">
+                {project.github && project.github.trim() !== '' && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
+                    <FaGithub className="link-icon" />
+                    GitHub
+                  </a>
+                )}
+                {project.video && project.video.trim() !== '' && (
+                  <a href={project.video} target="_blank" rel="noopener noreferrer" className="project-link video-link">
+                    <FaPlay className="link-icon" />
+                    Watch Video
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
