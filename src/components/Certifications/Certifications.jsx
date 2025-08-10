@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import certificationsData from '../../data/certifications.json';
+import './Certifications.css';
 
 const Certifications = () => {
   return (
@@ -22,7 +23,7 @@ const Certifications = () => {
           {certificationsData.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className="card"
+              className="certification-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

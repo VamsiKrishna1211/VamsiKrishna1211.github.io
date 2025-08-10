@@ -20,7 +20,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="projects-grid">
-          {projectsData.slice(0, 3).map((project, index) => (
+          {projectsData.slice(0, 6).map((project, index) => (
             <motion.div
               key={project.id}
               className="project-card"
@@ -32,13 +32,33 @@ const Projects = () => {
               <div className="project-header">
                 <h3>{project.title}</h3>
                 <p className="project-category">{project.category}</p>
+                {project.status && (
+                  <span className={`project-status status-${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {project.status}
+                  </span>
+                )}
               </div>
               <p className="project-description">{project.description}</p>
               <div className="project-tech">
-                {project.technologies.slice(0, 4).map((tech, i) => (
+                {project.technologies.slice(0, 8).map((tech, i) => (
                   <span key={i} className="tech-tag">{tech}</span>
                 ))}
               </div>
+              {project.learned && project.learned.length > 0 && (
+                <div className="project-learned">
+                  <h5>What I Learned:</h5>
+                  <div className="learned-items">
+                    {project.learned.map((item, li) => (
+                      <span key={li} className="learned-item">• {item}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {project.video && project.video.trim() !== '' && (
+                <div className="project-video">
+                  <a href={project.video} target="_blank" rel="noopener noreferrer" className="video-link">Watch Video</a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

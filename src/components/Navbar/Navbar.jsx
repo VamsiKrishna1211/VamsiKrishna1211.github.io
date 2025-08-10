@@ -41,30 +41,21 @@ const Navbar = () => {
       }
     };
 
-    // Handle browser back/forward navigation
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1); // Remove the '#'
-      if (hash && navItems.some(item => item.id === hash)) {
-        setActiveSection(hash);
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else if (!hash) {
-        // If no hash, default to home
-        setActiveSection('home');
-        const homeElement = document.getElementById('home');
-        if (homeElement) {
-          homeElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    };
-
     // Set initial active section based on URL hash
     const initialHash = window.location.hash.slice(1);
     if (initialHash && navItems.some(item => item.id === initialHash)) {
       setActiveSection(initialHash);
     }
+
+    // Listen for hash changes to update active section
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && navItems.some(item => item.id === hash)) {
+        setActiveSection(hash);
+      } else if (!hash) {
+        setActiveSection('home');
+      }
+    };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('hashchange', handleHashChange);

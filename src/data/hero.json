@@ -4,7 +4,7 @@
     "displayName": "Vamsi Krishna Kocherla",
     "shortName": "Vamsi",
     "title": "Masters Student",
-    "institution": "University of Minnesota",
+    "institution": "University of Minnesota - Twin Cities",
     "image": "/src/assets/MyImage.jpeg",
     "resume": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf"
   },
@@ -40,9 +40,9 @@
     ],
     "passions": [
       "Autonomous Systems (Drones & Robotics)",
-      "3D Vision & Perception (Reconstruction, SLAM, Visual Servoing)",
+      "3D Vision & Perception (Reconstruction, Gaussian Splats, SLAM, Visual Servoing)",
       "AI for Real-World Applications (ADAS, Autonomous Navigation, etc.)",
-      "Physical AI"
+      "Anything related to Physical AI!"
     ]
   },
   "actions": [

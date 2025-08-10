@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import './styles/globals.css';
+import { useHashRouting } from './hooks/useHashRouting';
 
 // Lazy load components for better performance
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
@@ -17,6 +18,9 @@ const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'))
 const BackgroundAnimation = lazy(() => import('./components/Background/BackgroundAnimation'));
 
 function App() {
+  // Handle hash routing initialization
+  useHashRouting();
+
   return (
     <div className="App">
       <Suspense fallback={<LoadingSpinner />}>
