@@ -10,10 +10,7 @@ const Experience = lazy(() => import('./components/Experience/Experience'));
 const Projects = lazy(() => import('./components/Projects/Projects'));
 const Skills = lazy(() => import('./components/Skills/Skills'));
 const Education = lazy(() => import('./components/Education/Education'));
-const Publications = lazy(() => import('./components/Publications/Publications'));
-const Patents = lazy(() => import('./components/Patents/Patents'));
-const Achievements = lazy(() => import('./components/Achievements/Achievements'));
-const Certifications = lazy(() => import('./components/Certifications/Certifications'));
+const ResearchRecognition = lazy(() => import('./components/ResearchRecognition/ResearchRecognition'));
 const Contact = lazy(() => import('./components/Contact/Contact'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'));
@@ -96,48 +93,15 @@ function App() {
             <Education />
           </motion.section>
 
-          {/* Publications Section */}
+          {/* Research & Recognition Section (Publications, Patents, Achievements) */}
           <motion.section
-            id="publications"
+            id="research"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <Publications />
-          </motion.section>
-
-          {/* Patents Section */}
-          <motion.section
-            id="patents"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Patents />
-          </motion.section>
-
-          {/* Achievements Section */}
-          <motion.section
-            id="achievements"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Achievements />
-          </motion.section>
-
-          {/* Certifications Section */}
-          <motion.section
-            id="certifications"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Certifications />
+            <ResearchRecognition />
           </motion.section>
 
           {/* Contact Section */}

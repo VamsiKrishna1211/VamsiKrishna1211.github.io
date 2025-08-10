@@ -58,7 +58,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="bio-card">
-              <h3>Pioneering the Future of Autonomous Systems</h3>
+              <h3>Pioneering the Future of Robotic Systems</h3>
               <p>{personalData.bio}</p>
               
               <div className="bio-highlights">

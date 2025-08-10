@@ -34,8 +34,9 @@
     "greeting": "Hello World! 👋",
     "paragraphs": [
       "👋 I'm <span>Vamsi Krishna Kocherla</span> (or just <span>Vamsi</span> for short!), a Robotics enthusiast with a mind overflowing with algorithms, drones, and self-driving cars.",
-      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota</span>. When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
-      "Here are a few things I'm passionate about:"
+      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota - Twin Cities</span>. My journey is all about bridging the gap between cutting-edge research and tangible, real-world applications.",
+      "When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
+      "<span><strong>Here are a few things I'm passionate about:</strong></span>"
     ],
     "passions": [
       "Autonomous Systems (Drones & Robotics)",

@@ -5,7 +5,7 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-3xl);
+  margin-block-end: var(--space-3xl);
 }
 
 .about-content {
@@ -13,12 +13,14 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
   align-items: start;
+  container-type: inline-size;
+  container-name: about-content;
 }
 
 /* Bio Section */
 .about-bio {
   position: sticky;
-  top: var(--space-xl);
+  inset-block-start: var(--space-xl);
 }
 
 .bio-card {
@@ -33,23 +35,22 @@
 .bio-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 2px;
   background: var(--gradient-primary);
 }
 
 .bio-card h3 {
   color: var(--text-primary);
-  margin-bottom: var(--space-lg);
+  margin-block-end: var(--space-lg);
   font-size: 1.5rem;
 }
 
 .bio-card p {
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: var(--space-xl);
+  margin-block-end: var(--space-xl);
   font-size: 1.1rem;
 }
 
@@ -57,7 +58,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
+  margin-block-end: var(--space-xl);
   padding: var(--space-lg);
   background: rgba(0, 212, 255, 0.05);
   border-radius: var(--radius-lg);
@@ -73,7 +74,7 @@
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: var(--space-xs);
+  margin-block-end: var(--space-xs);
 }
 
 .highlight-text {
@@ -86,7 +87,7 @@
 
 .current-focus h4 {
   color: var(--text-primary);
-  margin-bottom: var(--space-md);
+  margin-block-end: var(--space-md);
   font-size: 1.1rem;
 }
 
@@ -178,7 +179,50 @@
   margin: 0;
 }
 
-/* Responsive Design */
+/* Container Queries for Modern Responsive Design */
+@container about-content (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .about-bio {
+    position: static;
+  }
+
+  .specializations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container about-content (max-width: 768px) {
+  .bio-highlights {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .specializations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-card,
+  .specialization-card {
+    padding: var(--space-xl);
+  }
+}
+
+@container about-content (max-width: 480px) {
+  .bio-card,
+  .specialization-card {
+    padding: var(--space-lg);
+  }
+
+  .spec-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Legacy Media Queries for broader browser support */
 @media (max-width: 1024px) {
   .about-content {
     grid-template-columns: 1fr;
