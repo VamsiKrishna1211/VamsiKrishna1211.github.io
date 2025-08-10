@@ -1,4 +1,75 @@
 [
+    {
+    "id": 1,
+    "title": "Reinforcement Learning-based Robotic Manipulation with Koopman Generator",
+    "category": "Robotics & Machine Learning",
+    "description": "Advanced a reinforcement learning-based robotic object picking system using NVIDIA Isaac Sim and Proximal Policy Optimization (PPO), achieving a 30% improvement in task completion time and a 25% reduction in collision errors. Used a Koopman-based linear model to transform complex robot dynamics into a simplified linear form, achieving smoother and more stable robotic arm motions, with a 40% reduction in erratic movements.",
+    "longDescription": "This project involved developing a robotic manipulation system leveraging reinforcement learning and Koopman-based linear models. The system integrates advanced simulation tools and machine learning techniques to optimize robotic arm control and object manipulation tasks.",
+    "technologies": ["Isaac Sim", "Python", "PPO", "Koopman Generator", "C++", "Reinforcement Learning", "OpenCV"],
+    "frameworks": ["NVIDIA Isaac Gym", "PyTorch", "Koopman Operator"],
+    "image": "/src/assets/robotic-manipulation-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/DL-CSCI-5527-Project",
+    "demo": null,
+    "status": "Completed",
+    "featured": true,
+    "highlights": [
+      "30% improvement in task completion time",
+      "25% reduction in collision errors",
+      "Smoother and more stable robotic arm motions",
+      "40% reduction in erratic movements",
+      "Integration of Koopman-based linear models for dynamic simplification"
+    ],
+    "challenges": [
+      "Complex robot dynamics transformation",
+      "Real-time reinforcement learning constraints",
+      "Collision avoidance in dense environments",
+      "Optimizing PPO for robotic control"
+    ],
+    "learned": [
+      "Designing reinforcement learning pipelines",
+      "Implementing Koopman-based dynamic models",
+      "IsaacLab integration for multiscale simulation",
+      "Optimizing robotic control algorithms",
+      "Simulation-to-reality transfer techniques",
+      "Control strategies for robotic manipulation",
+      "Reward Function Engineering"
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Indoor Mapping Using Semantic 3D SLAM in ROS",
+    "category": "Robotics & Computer Vision",
+    "description": "Developed and implemented a semantic 3D SLAM algorithm within the ROS framework for autonomous indoor navigation of TurtleBot 3 in GPS-denied environments, achieving over 95% accuracy in 3D mapping and localization. Enhanced the navigation system with dynamic obstacle avoidance and adaptive behavior modes, validated through high-fidelity simulations using Isaac Sim, demonstrating a 70% improvement in navigation efficiency in complex indoor scenarios.",
+    "longDescription": "This project involved developing a comprehensive autonomous indoor navigation system using advanced computer vision and SLAM techniques. The system integrates multiple sensors and compute platforms to enable safe autonomous navigation in complex environments.",
+    "technologies": ["Isaac Sim", "Python", "ROS2", "Isaac ROS", "C++", "SLAM", "OpenCV", "Stereo Vision", "Camera Calibration"],
+    "frameworks": ["ORB-SLAM3", "RTAB-Map", "TurtleBot 3", "Isaac Sim"],
+    "image": "/src/assets/indoor-mapping-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/CV-CSCI-5561-Project",
+    "demo": null,
+    "status": "Completed",
+    "featured": true,
+    "highlights": [
+      "Semantic 3D SLAM implementation with ROS",
+      "Dynamic obstacle avoidance and adaptive behavior modes",
+      "High-fidelity simulations using Isaac Sim",
+      "Achieved over 95% accuracy in 3D mapping and localization",
+      "70% improvement in navigation efficiency in complex indoor scenarios"
+    ],
+    "challenges": [
+      "Autonomous navigation in GPS-denied environments",
+      "Real-time processing constraints on edge hardware",
+      "Sensor fusion and calibration accuracy",
+      "Safety protocols for autonomous navigation"
+    ],
+    "learned": [
+      "3D point cloud generation from stereo vision",
+      "Landmark detection and tracking in SLAM",
+      "ROS 2 integration for seamless sensor communication",
+      "Integrating with IMU and Camera systems"
+    ]
+  },
   {
     "id": 1,
     "title": "Autonomous Drone 3D Mapping with Stereo SLAM",
@@ -142,7 +213,7 @@
     "frameworks": ["Wave-UNet", "One Cycle Learning"],
     "image": "/src/assets/noise-cancellation-project.jpg",
     "video": null,
-    "github": "https://github.com/VamsiKrishna1211/audio-noise-cancellation",
+    "github": "https://github.com/VamsiKrishna1211/Noise-Reduction-Deep-Learning",
     "demo": null,
     "status": "Completed",
     "featured": false,
@@ -162,6 +233,40 @@
       "Audio data augmentation strategies",
       "Optimizing STFT/iSTFT pipelines",
       "Effective learning rate scheduling"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Pot-Hole Detection",
+    "category": "Computer Vision & Deep Learning",
+    "description": "Developed a comprehensive pothole detection system using deep learning techniques, achieving a mean Average Precision (mAP) exceeding 0.85 at 0.95 IoU. The system leverages advanced data augmentation and a ResNet50 backbone with RetinaNet architecture for accurate object detection.",
+    "longDescription": "This project involved creating a robust pothole detection system using computer vision and deep learning. The system processes road imagery to automatically identify and localize potholes, contributing to automated road maintenance and safety assessment systems.",
+    "technologies": ["Python", "PyTorch", "Fastai", "OpenCV", "Scikit-Learn", "Albumentations"],
+    "frameworks": ["ResNet50", "RetinaNet", "PascalVOC", "COCO"],
+    "image": "/src/assets/pothole-detection-project.jpg",
+    "video": null,
+    "github": "https://github.com/VamsiKrishna1211/Pothole-detection",
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Compiled dataset with annotated potholes in PascalVOC and COCO formats",
+      "Advanced data augmentation using Albumentations library",
+      "ResNet50 backbone with RetinaNet-based architecture",
+      "Achieved mAP exceeding 0.85 at 0.95 IoU",
+      "Semi-synthetic data generation for improved training"
+    ],
+    "challenges": [
+      "Dataset compilation and annotation quality",
+      "Handling varying lighting and weather conditions",
+      "Optimizing model performance for real-time detection",
+      "Balancing precision and recall for safety-critical applications"
+    ],
+    "learned": [
+      "Advanced data augmentation techniques with Albumentations",
+      "Object detection model architecture design",
+      "Performance evaluation metrics for detection tasks",
+      "Dataset preparation and annotation workflows"
     ]
   }
 ]

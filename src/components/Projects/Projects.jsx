@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import projectsData from '../../data/projects.json';
 import './Projects.css';
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayCount = 2;
+  // Display all projects if showAll is true, otherwise display the first 2
+  const displayedProjects = showAll ? projectsData : projectsData.slice(0, displayCount);
+
   return (
     <section className="projects section">
       <div className="container">
@@ -20,7 +25,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="projects-grid">
-          {projectsData.slice(0, 6).map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               className="project-card"
@@ -62,6 +67,24 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {projectsData.length > displayCount && (
+          <motion.div
+            className="show-more-container"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <button 
+              className="show-more-btn"
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'Show Less' : `Show More (${projectsData.length - displayCount} more)`}
+              <span className="btn-arrow">{showAll ? '↑' : '↓'}</span>
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
