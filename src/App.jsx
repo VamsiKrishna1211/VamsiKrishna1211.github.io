@@ -1,7 +1,9 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './styles/globals.css';
 import { useHashRouting } from './hooks/useHashRouting';
+import { useAnalyticsTracking } from './hooks/useAnalyticsTracking';
+import { initGA, trackPageView } from './utils/analytics';
 
 // Lazy load components for better performance
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
@@ -21,6 +23,25 @@ function App() {
   // Handle hash routing initialization
   useHashRouting();
 
+  // Analytics tracking refs for each section
+  const heroRef = useAnalyticsTracking('Hero');
+  const aboutRef = useAnalyticsTracking('About');
+  const experienceRef = useAnalyticsTracking('Experience');
+  const projectsRef = useAnalyticsTracking('Projects');
+  const skillsRef = useAnalyticsTracking('Skills');
+  const educationRef = useAnalyticsTracking('Education');
+  const researchRef = useAnalyticsTracking('Research & Recognition');
+  const contactRef = useAnalyticsTracking('Contact');
+
+  // Initialize Google Analytics
+  useEffect(() => {
+    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    if (measurementId && measurementId !== 'G-2PJDJW3LT8') {
+      initGA(measurementId);
+      trackPageView();
+    }
+  }, []);
+
   return (
     <div className="App">
       <Suspense fallback={<LoadingSpinner />}>
@@ -34,6 +55,7 @@ function App() {
         <main>
           {/* Hero Section */}
           <motion.section
+            ref={heroRef}
             id="home"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -44,6 +66,7 @@ function App() {
 
           {/* About Section */}
           <motion.section
+            ref={aboutRef}
             id="about"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,6 +78,7 @@ function App() {
 
           {/* Experience Section */}
           <motion.section
+            ref={experienceRef}
             id="experience"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,6 +90,7 @@ function App() {
 
           {/* Projects Section */}
           <motion.section
+            ref={projectsRef}
             id="projects"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,6 +102,7 @@ function App() {
 
           {/* Skills Section */}
           <motion.section
+            ref={skillsRef}
             id="skills"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,6 +114,7 @@ function App() {
 
           {/* Education Section */}
           <motion.section
+            ref={educationRef}
             id="education"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,6 +126,7 @@ function App() {
 
           {/* Research & Recognition Section (Publications, Patents, Achievements) */}
           <motion.section
+            ref={researchRef}
             id="research"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -110,6 +138,7 @@ function App() {
 
           {/* Contact Section */}
           <motion.section
+            ref={contactRef}
             id="contact"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

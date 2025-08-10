@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-gradient">{personalData.name}</span>
             </p>
             <p className="footer-subtitle">
-              Powered by React, Three.js, and a passion for autonomous robotics
+              Powered by React, Three.js, and a passion
             </p>
           </div>
           <div className="footer-year">

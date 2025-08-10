@@ -5,6 +5,7 @@ import resumePDF from "../../assets/UMN-Robotics-Resume-Sem-1.pdf";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import heroData from "../../data/hero.json";
+import { trackButtonClick, trackExternalLink, trackFileDownload } from "../../utils/analytics";
 
 
 
@@ -20,6 +21,9 @@ const Hero = () => {
     // Handle different action types
     const handleAction = (action) => {
         if (action.type === 'scroll') {
+            // Track navigation button click
+            trackButtonClick(`Navigate to ${action.target}`, 'Hero Section');
+            
             // Update URL hash
             window.history.pushState(null, null, `#${action.target}`);
             
@@ -29,6 +33,16 @@ const Hero = () => {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         }
+    };
+
+    // Handle social link clicks
+    const handleSocialClick = (link) => {
+        trackExternalLink(link.url, link.platform);
+    };
+
+    // Handle resume download
+    const handleResumeDownload = () => {
+        trackFileDownload('Resume', 'PDF');
     };
 
     return (
@@ -53,6 +67,7 @@ const Hero = () => {
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 title={link.platform}
+                                onClick={() => handleSocialClick(link)}
                             >
                                 <IconComponent size={heroData.settings.iconSize} />
                             </a>
@@ -100,6 +115,7 @@ const Hero = () => {
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     className={action.className}
+                                    onClick={handleResumeDownload}
                                 >
                                     <div>{action.text}</div>
                                 </a>

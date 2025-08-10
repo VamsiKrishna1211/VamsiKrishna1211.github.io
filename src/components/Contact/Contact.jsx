@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaRocket } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 import personalData from '../../data/personal.json';
+import { trackFormSubmission, trackButtonClick, trackExternalLink } from '../../utils/analytics';
 import './Contact.css';
 
 const Contact = () => {
@@ -31,6 +32,9 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    // Track form submission attempt
+    trackButtonClick('Contact Form Submit', 'Contact Section');
+
     try {
       // For now, we'll just open the default email client
       // You can configure EmailJS later with your service details
@@ -40,9 +44,13 @@ const Contact = () => {
       
       window.location.href = mailtoLink;
       
+      // Track successful form submission
+      trackFormSubmission('Contact Form', true);
       showNotification('Email client opened successfully!');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      // Track failed form submission
+      trackFormSubmission('Contact Form', false);
       showNotification('Failed to open email client. Please try again.', 'error');
     } finally {
       setIsLoading(false);

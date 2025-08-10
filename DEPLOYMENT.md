@@ -155,17 +155,17 @@ Your portfolio includes Google Analytics integration:
 1. **Get GA4 Tracking ID**:
    - Visit [Google Analytics](https://analytics.google.com/)
    - Create a new property or use existing
-   - Copy your GA4 tracking ID (format: `G-XXXXXXXXXX`)
+   - Copy your GA4 tracking ID (format: `G-2PJDJW3LT8`)
 
 2. **Configure Environment Variable**:
    ```bash
    # Create .env file in project root
-   echo "VITE_GA_TRACKING_ID=G-YOUR-ACTUAL-ID" > .env
+   echo "VITE_GA_MEASUREMENT_ID=G-2PJDJW3LT8" > .env
    ```
 
 3. **GitHub Secrets** (for production):
    - Go to repository **Settings** → **Secrets and variables** → **Actions**
-   - Add secret: `VITE_GA_TRACKING_ID` with your tracking ID
+   - Add secret: `VITE_GA_MEASUREMENT_ID` with your tracking ID
 
 ### **Additional Analytics**
 Consider adding:
