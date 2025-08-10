@@ -4,7 +4,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: var(--space-xl);
 }
 
@@ -22,15 +22,54 @@
   transform: translateY(-2px);
 }
 
+.project-header {
+  position: relative;
+}
+
 .project-header h3 {
   color: var(--text-primary);
   margin-bottom: var(--space-sm);
+  margin-right: var(--space-xl);
 }
 
 .project-category {
   color: var(--primary);
   font-size: 0.9rem;
   margin-bottom: var(--space-md);
+}
+
+.project-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.status-completed {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.status-in-progress {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.status-ongoing {
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.2);
 }
 
 .project-description {
@@ -43,6 +82,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .tech-tag {
@@ -52,4 +92,48 @@
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.project-learned {
+  margin-bottom: var(--space-md);
+}
+
+.project-learned h5 {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+
+.learned-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.learned-item {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.project-video {
+  margin-top: var(--space-md);
+}
+
+.video-link {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: var(--transition-normal);
+}
+
+.video-link:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.4);
 }

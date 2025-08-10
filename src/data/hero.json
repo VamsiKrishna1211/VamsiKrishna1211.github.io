@@ -4,7 +4,7 @@
     "displayName": "Vamsi Krishna Kocherla",
     "shortName": "Vamsi",
     "title": "Masters Student",
-    "institution": "University of Minnesota",
+    "institution": "University of Minnesota - Twin Cities",
     "image": "/src/assets/MyImage.jpeg",
     "resume": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf"
   },
@@ -34,14 +34,14 @@
     "greeting": "Hello World! 👋",
     "paragraphs": [
       "👋 I'm <span>Vamsi Krishna Kocherla</span> (or just <span>Vamsi</span> for short!), a Robotics enthusiast with a mind overflowing with algorithms, drones, and self-driving cars.",
-      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota</span>. When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
+      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota - Twin Cities</span>. When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
       "Here are a few things I'm passionate about:"
     ],
     "passions": [
       "Autonomous Systems (Drones & Robotics)",
-      "3D Vision & Perception (Reconstruction, SLAM, Visual Servoing)",
+      "3D Vision & Perception (Reconstruction, Gaussian Splats, SLAM, Visual Servoing)",
       "AI for Real-World Applications (ADAS, Autonomous Navigation, etc.)",
-      "Physical AI"
+      "Anything related to Physical AI!"
     ]
   },
   "actions": [

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import patentsData from '../../data/patents.json';
+import './Patents.css';
 
 const Patents = () => {
   return (
@@ -22,7 +23,7 @@ const Patents = () => {
           {patentsData.map((patent, index) => (
             <motion.div
               key={patent.id}
-              className="card"
+              className="patent-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

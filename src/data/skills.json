@@ -21,7 +21,7 @@
   },
   {
     "category": "Computer Vision",
-    "icon": "👁️",
+    "icon": "📷",
     "items": [
       "Object Detection",
       "Semantic/Instance Segmentation", 
