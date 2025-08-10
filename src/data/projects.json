@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "title": "Autonomous Drone Navigation with Stereo SLAM",
+    "title": "Autonomous Drone 3D Mapping with Stereo SLAM",
     "category": "Robotics & Computer Vision",
     "description": "Developed an autonomous drone system utilizing custom-built stereo vision system with real-time 3D mapping and localization in GPS-denied environments.",
     "longDescription": "This project involved developing a comprehensive autonomous drone navigation system using advanced computer vision and SLAM techniques. The system integrates multiple sensors and compute platforms to enable safe autonomous flight in complex environments.",
     "technologies": ["Python", "ROS 2", "ArduPilot", "C++", "SLAM", "OpenCV", "Stereo Vision", "Camera Calibration"],
     "frameworks": ["ORB-SLAM3", "RTAB-Map", "Jetson Orin Nano", "Pixhawk"],
     "image": "/src/assets/drone-slam-project.jpg",
-    "video": null,
-    "github": "https://github.com/VamsiKrishna1211/autonomous-drone-slam",
+    "video": "https://youtu.be/H-qnpfanvtA",
+    "github": "https://github.com/VamsiKrishna1211/Stereo-Vision",
     "demo": null,
     "status": "Completed",
     "featured": true,
@@ -25,6 +25,12 @@
       "Real-time processing constraints on edge hardware",
       "Sensor fusion and calibration accuracy",
       "Safety protocols for autonomous flight operations"
+    ],
+    "learned": [
+      "Practical stereo camera calibration workflow",
+      "Tuning visual-inertial SLAM for embedded GPUs",
+      "Designing safety fallbacks for autonomous drones",
+      "Team work and project management in robotics"
     ]
   },
   {
@@ -53,6 +59,12 @@
       "Accurate depth estimation for manipulation",
       "Visual servoing control loop stability",
       "Integration of multiple AI models in real-time pipeline"
+    ],
+    "learned": [
+      "Latency budgeting across perception-control loop",
+      "Optimizing deep models with TensorRT INT8",
+      "Ensuring stability in IBVS control laws",
+      "Collaboration and Team work"
     ]
   },
   {
@@ -81,6 +93,11 @@
       "Telemetry range extension",
       "Payload integration without affecting flight dynamics",
       "Safety protocols for high-altitude operations"
+    ],
+    "learned": [
+      "Battery and propeller trade-offs for endurance",
+      "Long-range telemetry configuration",
+      "MAVLink message debugging techniques"
     ]
   },
   {
@@ -108,6 +125,11 @@
       "Real-time processing requirements",
       "Quality preservation during upscaling",
       "Hardware resource management"
+    ],
+    "learned": [
+      "Stabilizing GAN training with perceptual loss",
+      "GPU memory profiling and optimization",
+      "Balancing speed vs quality in SR models"
     ]
   },
   {
@@ -135,6 +157,11 @@
       "Large dataset handling and preprocessing",
       "Model optimization for low-latency inference",
       "Quality metrics for noise cancellation evaluation"
+    ],
+    "learned": [
+      "Audio data augmentation strategies",
+      "Optimizing STFT/iSTFT pipelines",
+      "Effective learning rate scheduling"
     ]
   }
 ]

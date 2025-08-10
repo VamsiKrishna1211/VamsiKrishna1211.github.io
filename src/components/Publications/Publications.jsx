@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import publicationsData from '../../data/publications.json';
+import './Publications.css';
 
 const Publications = () => {
   return (
@@ -22,7 +23,7 @@ const Publications = () => {
           {publicationsData.map((pub, index) => (
             <motion.div
               key={pub.id}
-              className="card"
+              className="publication-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

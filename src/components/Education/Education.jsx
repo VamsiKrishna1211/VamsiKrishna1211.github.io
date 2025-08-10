@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import educationData from '../../data/education.json';
+import './Education.css';
 
 const Education = () => {
   return (
@@ -22,16 +23,18 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <motion.div
               key={edu.id}
-              className="card"
+              className="education-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-gradient">{edu.degree}</h3>
-              <h4>{edu.institution}</h4>
-              <p>{edu.startDate} - {edu.endDate}</p>
-              <p>{edu.description}</p>
+              <div className="edu-header">
+                <h3 className="text-gradient">{edu.degree}</h3>
+                <h4>{edu.institution}</h4>
+                <p className="edu-duration">{edu.startDate} - {edu.endDate}</p>
+              </div>
+              <p className="edu-description">{edu.description}</p>
             </motion.div>
           ))}
         </div>
