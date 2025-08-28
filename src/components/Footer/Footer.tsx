@@ -3,7 +3,7 @@ import { FaHeart, FaRocket } from 'react-icons/fa';
 import personalData from '../../data/personal.json';
 import './Footer.css';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (

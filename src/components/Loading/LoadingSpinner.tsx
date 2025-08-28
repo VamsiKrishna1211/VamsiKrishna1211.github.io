@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './LoadingSpinner.css';
 
-const LoadingSpinner = () => {
+const LoadingSpinner: React.FC = () => {
   return (
     <div className="loading-container">
       <div className="loading-content">

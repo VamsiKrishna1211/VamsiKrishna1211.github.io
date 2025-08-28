@@ -1,16 +1,16 @@
 import ReactGA from 'react-ga4';
 
 // Initialize Google Analytics
-export const initGA = (measurementId) => {
+export const initGA = (measurementId: string): void => {
   if (measurementId) {
     ReactGA.initialize(measurementId, {
-      debug: process.env.NODE_ENV === 'development',
+      testMode: process.env.NODE_ENV === 'development',
     });
   }
 };
 
 // Track page views
-export const trackPageView = (path) => {
+export const trackPageView = (path?: string): void => {
   ReactGA.send({ 
     hitType: 'pageview', 
     page: path || window.location.pathname + window.location.search 
@@ -18,7 +18,12 @@ export const trackPageView = (path) => {
 };
 
 // Track events
-export const trackEvent = (action, category = 'User Interaction', label = '', value = 0) => {
+export const trackEvent = (
+  action: string, 
+  category: string = 'User Interaction', 
+  label: string = '', 
+  value: number = 0
+): void => {
   ReactGA.event({
     action,
     category,
@@ -28,7 +33,7 @@ export const trackEvent = (action, category = 'User Interaction', label = '', va
 };
 
 // Track section views (for single page applications)
-export const trackSectionView = (sectionName) => {
+export const trackSectionView = (sectionName: string): void => {
   ReactGA.event({
     action: 'view_section',
     category: 'Navigation',
@@ -37,7 +42,7 @@ export const trackSectionView = (sectionName) => {
 };
 
 // Track button clicks
-export const trackButtonClick = (buttonName, location = '') => {
+export const trackButtonClick = (buttonName: string, location: string = ''): void => {
   ReactGA.event({
     action: 'click',
     category: 'Button',
@@ -46,7 +51,7 @@ export const trackButtonClick = (buttonName, location = '') => {
 };
 
 // Track contact form submissions
-export const trackFormSubmission = (formName, success = true) => {
+export const trackFormSubmission = (formName: string, success: boolean = true): void => {
   ReactGA.event({
     action: success ? 'form_submit_success' : 'form_submit_error',
     category: 'Form',
@@ -55,7 +60,7 @@ export const trackFormSubmission = (formName, success = true) => {
 };
 
 // Track file downloads
-export const trackFileDownload = (fileName, fileType = '') => {
+export const trackFileDownload = (fileName: string, fileType: string = ''): void => {
   ReactGA.event({
     action: 'download',
     category: 'File',
@@ -64,7 +69,7 @@ export const trackFileDownload = (fileName, fileType = '') => {
 };
 
 // Track external link clicks
-export const trackExternalLink = (url, linkText = '') => {
+export const trackExternalLink = (url: string, linkText: string = ''): void => {
   ReactGA.event({
     action: 'click_external_link',
     category: 'External Link',
