@@ -3,12 +3,17 @@ import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaRobot } from 'react-icons/fa';
 import './Navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+interface NavItem {
+  id: string;
+  label: string;
+}
 
-  const navItems = [
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
+
+  const navItems: NavItem[] = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
@@ -20,7 +25,7 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
@@ -34,7 +39,7 @@ const Navbar = () => {
           setActiveSection(sectionId);
           // Update URL hash without triggering scroll
           if (window.location.hash !== `#${sectionId}`) {
-            window.history.replaceState(null, null, `#${sectionId}`);
+            window.history.replaceState(null, '', `#${sectionId}`);
           }
           break;
         }
@@ -66,9 +71,9 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleNavClick = (sectionId) => {
+  const handleNavClick = (sectionId: string): void => {
     // Update URL hash
-    window.history.pushState(null, null, `#${sectionId}`);
+    window.history.pushState(null, '', `#${sectionId}`);
     setActiveSection(sectionId);
     
     // Scroll to section

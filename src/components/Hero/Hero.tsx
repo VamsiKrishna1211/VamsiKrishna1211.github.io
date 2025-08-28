@@ -4,14 +4,31 @@ import profile_img from "../../assets/MyImage.jpeg";
 import resumePDF from "../../assets/UMN-Robotics-Resume-Sem-1.pdf";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
+import { IconType } from "react-icons";
 import heroData from "../../data/hero.json";
 import { trackButtonClick, trackExternalLink, trackFileDownload } from "../../utils/analytics";
 
+interface HeroAction {
+    type: 'scroll' | 'external' | 'download';
+    text: string;
+    target?: string;
+    url?: string;
+    className: string;
+}
 
+interface SocialLink {
+    platform: string;
+    url: string;
+    icon: string;
+}
 
-const Hero = () => {
+interface IconMap {
+    [key: string]: IconType;
+}
+
+const Hero: React.FC = () => {
     // Icon mapping for dynamic rendering
-    const iconMap = {
+    const iconMap: IconMap = {
         FaGithub,
         FaLinkedin,
         FaGoogleScholar,
@@ -19,13 +36,13 @@ const Hero = () => {
     };
 
     // Handle different action types
-    const handleAction = (action) => {
-        if (action.type === 'scroll') {
+    const handleAction = (action: HeroAction): void => {
+        if (action.type === 'scroll' && action.target) {
             // Track navigation button click
             trackButtonClick(`Navigate to ${action.target}`, 'Hero Section');
             
             // Update URL hash
-            window.history.pushState(null, null, `#${action.target}`);
+            window.history.pushState(null, '', `#${action.target}`);
             
             // Scroll to section
             const targetSection = document.getElementById(action.target);
@@ -36,12 +53,13 @@ const Hero = () => {
     };
 
     // Handle social link clicks
-    const handleSocialClick = (link) => {
+    // Handle social link clicks
+    const handleSocialClick = (link: SocialLink): void => {
         trackExternalLink(link.url, link.platform);
     };
 
     // Handle resume download
-    const handleResumeDownload = () => {
+    const handleResumeDownload = (): void => {
         trackFileDownload('Resume', 'PDF');
     };
 
@@ -97,27 +115,28 @@ const Hero = () => {
                 {/* Action Buttons */}
                 <div className="hero-action">
                     {heroData.actions.map((action, index) => {
-                        if (action.type === 'scroll') {
+                        const typedAction = action as HeroAction;
+                        if (typedAction.type === 'scroll') {
                             return (
                                 <div 
                                     key={index}
-                                    className={action.className}
-                                    onClick={() => handleAction(action)}
+                                    className={typedAction.className}
+                                    onClick={() => handleAction(typedAction)}
                                 >
-                                    {action.text}
+                                    {typedAction.text}
                                 </div>
                             );
-                        } else if (action.type === 'download') {
+                        } else if (typedAction.type === 'download') {
                             return (
                                 <a 
                                     key={index}
                                     href={resumePDF} 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
-                                    className={action.className}
+                                    className={typedAction.className}
                                     onClick={handleResumeDownload}
                                 >
-                                    <div>{action.text}</div>
+                                    <div>{typedAction.text}</div>
                                 </a>
                             );
                         }

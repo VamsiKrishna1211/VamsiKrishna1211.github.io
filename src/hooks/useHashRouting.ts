@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
 
-export const useHashRouting = () => {
-  const isInitialized = useRef(false);
+export const useHashRouting = (): void => {
+  const isInitialized = useRef<boolean>(false);
 
   useEffect(() => {
-    const handleInitialHash = () => {
+    const handleInitialHash = (): void => {
       const hash = window.location.hash.slice(1);
       if (hash && !isInitialized.current) {
         // Wait for DOM to be fully rendered
-        const checkAndScroll = () => {
+        const checkAndScroll = (): void => {
           const targetSection = document.getElementById(hash);
           if (targetSection) {
             // Section found, scroll to it
@@ -29,7 +29,7 @@ export const useHashRouting = () => {
     handleInitialHash();
 
     // Also handle hash changes
-    const handleHashChange = () => {
+    const handleHashChange = (): void => {
       const hash = window.location.hash.slice(1);
       if (hash) {
         const targetSection = document.getElementById(hash);

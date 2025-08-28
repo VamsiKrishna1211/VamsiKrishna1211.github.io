@@ -19,7 +19,7 @@ const Footer = lazy(() => import('./components/Footer/Footer'));
 const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'));
 const BackgroundAnimation = lazy(() => import('./components/Background/BackgroundAnimation'));
 
-function App() {
+const App: React.FC = () => {
   // Handle hash routing initialization
   useHashRouting();
 

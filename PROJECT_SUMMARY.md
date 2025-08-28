@@ -42,7 +42,7 @@ All data is now modularized in JSON files:
 - Professional tagline
 
 #### `/src/data/experience.json`
-- **Upjao Agrotech** (Senior Computer Vision Scientist)
+- **Upjao AgroTech** (Senior Computer Vision Scientist)
 - **Tata Consultancy Services** (AI/ML Developer)
 - Detailed achievements and technologies
 

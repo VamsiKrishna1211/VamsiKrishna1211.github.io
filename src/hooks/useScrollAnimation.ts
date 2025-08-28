@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react';
-import { useInView, useAnimation } from 'framer-motion';
+import { useInView, useAnimation, AnimationControls, Variants } from 'framer-motion';
 
-export const useScrollAnimation = (threshold = 0.1) => {
-  const ref = useRef(null);
+interface UseScrollAnimationReturn {
+  ref: React.RefObject<any>;
+  controls: AnimationControls;
+}
+
+export const useScrollAnimation = (threshold: number = 0.1): UseScrollAnimationReturn => {
+  const ref = useRef<any>(null);
   const isInView = useInView(ref, { 
     once: true, 
-    threshold,
+    amount: threshold,
     margin: "-100px 0px -100px 0px"
   });
   const controls = useAnimation();
@@ -19,7 +24,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
   return { ref, controls };
 };
 
-export const fadeInUp = {
+export const fadeInUp: Variants = {
   hidden: { 
     opacity: 0, 
     y: 60,
@@ -36,7 +41,7 @@ export const fadeInUp = {
   }
 };
 
-export const fadeInLeft = {
+export const fadeInLeft: Variants = {
   hidden: { 
     opacity: 0, 
     x: -60,
@@ -53,7 +58,7 @@ export const fadeInLeft = {
   }
 };
 
-export const fadeInRight = {
+export const fadeInRight: Variants = {
   hidden: { 
     opacity: 0, 
     x: 60,
@@ -70,7 +75,7 @@ export const fadeInRight = {
   }
 };
 
-export const staggerContainer = {
+export const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -80,7 +85,7 @@ export const staggerContainer = {
   }
 };
 
-export const scaleIn = {
+export const scaleIn: Variants = {
   hidden: { 
     opacity: 0, 
     scale: 0.8,
@@ -97,7 +102,7 @@ export const scaleIn = {
   }
 };
 
-export const slideInFromBottom = {
+export const slideInFromBottom: Variants = {
   hidden: { 
     opacity: 0, 
     y: 100,
@@ -114,7 +119,7 @@ export const slideInFromBottom = {
   }
 };
 
-export const glowHover = {
+export const glowHover: Variants = {
   initial: { 
     boxShadow: "0 0 0px rgba(0, 212, 255, 0)"
   },
