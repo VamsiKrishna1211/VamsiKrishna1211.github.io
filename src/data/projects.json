@@ -1,11 +1,11 @@
 [
     {
     "id": 1,
-    "title": "Reinforcement Learning-based Robotic Manipulation with Koopman Generator",
+    "title": "Reinforcement Learning-based Robotic Manipulation with Koopman Operator",
     "category": "Robotics & Machine Learning",
     "description": "Advanced a reinforcement learning-based robotic object picking system using NVIDIA Isaac Sim and Proximal Policy Optimization (PPO), achieving a 30% improvement in task completion time and a 25% reduction in collision errors. Used a Koopman-based linear model to transform complex robot dynamics into a simplified linear form, achieving smoother and more stable robotic arm motions, with a 40% reduction in erratic movements.",
     "longDescription": "This project involved developing a robotic manipulation system leveraging reinforcement learning and Koopman-based linear models. The system integrates advanced simulation tools and machine learning techniques to optimize robotic arm control and object manipulation tasks.",
-    "technologies": ["Isaac Sim", "Python", "PPO", "Koopman Generator", "C++", "Reinforcement Learning", "OpenCV"],
+    "technologies": ["Isaac Sim", "Python", "PPO", "Koopman Operator", "C++", "Reinforcement Learning", "OpenCV"],
     "frameworks": ["NVIDIA Isaac Gym", "PyTorch", "Koopman Operator"],
     "image": "/src/assets/robotic-manipulation-project.jpg",
     "video": "https://youtu.be/FQf7SH3lpH0",
