@@ -37,7 +37,7 @@ const Experience = () => {
               <div className="exp-content">
                 <p>{exp.description}</p>
                 <ul>
-                  {exp.achievements.slice(0, 3).map((achievement, i) => (
+                  {exp.achievements.slice(0, 4).map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}
                 </ul>

@@ -1,7 +1,26 @@
 [
   {
     "id": 1,
-    "company": "Upjao Agrotech",
+    "company": "Parallax Worlds (Startup)",
+    "position": "Backend Engineering Intern",
+    "location": "San Francisco, CA, USA",
+    "startDate": "Jun 2025",
+    "endDate": "Aug 2025",
+    "duration": "3 months",
+    "type": "Internship",
+    "logo": "/src/assets/parallax-logo.png",
+    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
+    "achievements": [
+      "Designed and Deployed scalable asynchronous job scheduling platform using Argo Workflows, improving stability and reliability",
+      "Deployed 3D-Reconstruction pipeline using GPUs on Kubernetes, achieving 30% reduction in processing time",
+      "Implemented monitoring and alerting system using Prometheus and Grafana, reducing the failure response time by 40%",
+      "Refactored legacy codebase, improving maintainability and reducing technical debt by 15%"
+    ],
+    "description": "Contributed to backend engineering efforts, focusing on scalable deployment and optimization of 3D reconstruction pipelines."
+  },
+  {
+    "id": 1,
+    "company": "Upjao Agrotech (Startup)",
     "position": "Senior Computer Vision Scientist (Core Team)",
     "location": "Ahmedabad, India",
     "startDate": "Jan 2019",
