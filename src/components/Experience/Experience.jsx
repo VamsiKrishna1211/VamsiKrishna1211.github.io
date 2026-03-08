@@ -7,40 +7,45 @@ const Experience = () => {
   return (
     <section className="experience section">
       <div className="container">
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">
-            Professional <span className="text-gradient">Experience</span>
-          </h2>
-        </motion.div>
+        <span className="section-label">experience</span>
 
-        <div className="experience-timeline">
+        <div className="exp-timeline">
           {experienceData.map((exp, index) => (
             <motion.div
-              key={exp.id}
-              className="experience-card"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              key={`${exp.company}-${index}`}
+              className="exp-card card"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="exp-header">
-                <h3>{exp.position}</h3>
-                <h4>{exp.company}</h4>
-                <p className="exp-duration">{exp.startDate} - {exp.endDate}</p>
+              <div className="exp-top">
+                <div className="exp-role">
+                  <h3>{exp.position}</h3>
+                  <h4 className="code-variable">{exp.company}</h4>
+                </div>
+                <div className="exp-meta">
+                  <span className="exp-dates">
+                    {exp.startDate} → {exp.endDate}
+                  </span>
+                  <span className="exp-type tag">{exp.type}</span>
+                </div>
               </div>
-              <div className="exp-content">
-                <p>{exp.description}</p>
-                <ul>
-                  {exp.achievements.slice(0, 4).map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
+
+              <p className="exp-desc">{exp.description}</p>
+
+              <ul className="exp-achievements">
+                {exp.achievements.slice(0, 4).map((a, i) => (
+                  <li key={i}>
+                    <span className="bullet">›</span> {a}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="exp-tech">
+                {exp.technologies.slice(0, 6).map((tech, i) => (
+                  <span key={i} className="tag">{tech}</span>
+                ))}
               </div>
             </motion.div>
           ))}

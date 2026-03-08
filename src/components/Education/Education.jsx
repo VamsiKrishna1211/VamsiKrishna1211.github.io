@@ -7,34 +7,38 @@ const Education = () => {
   return (
     <section className="education section">
       <div className="container">
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">
-            <span className="text-gradient">Education</span>
-          </h2>
-        </motion.div>
-        
-        <div className="education-timeline">
+        <span className="section-label">education</span>
+
+        <div className="edu-list">
           {educationData.map((edu, index) => (
             <motion.div
               key={edu.id}
-              className="education-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="edu-card card"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="edu-header">
-                <h3 className="text-gradient">{edu.degree}</h3>
-                <h4>{edu.institution}</h4>
-                <p className="edu-duration">{edu.startDate} - {edu.endDate}</p>
+              <div className="edu-top">
+                <div>
+                  <h3>{edu.degree}</h3>
+                  <h4 className="code-variable">{edu.institution}</h4>
+                </div>
+                <span className="edu-dates">
+                  {edu.startDate} → {edu.endDate}
+                </span>
               </div>
-              <p className="edu-description">{edu.description}</p>
+              <p className="edu-desc">{edu.description}</p>
+              {edu.coursework && edu.coursework.length > 0 && (
+                <div className="edu-courses">
+                  <span className="code-comment">{'// coursework'}</span>
+                  <div className="course-tags">
+                    {edu.coursework.map((course, i) => (
+                      <span key={i} className="tag">{course}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

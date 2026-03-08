@@ -1,124 +1,90 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaRobot, FaEye, FaBrain, FaCode } from 'react-icons/fa';
 import personalData from '../../data/personal.json';
 import './About.css';
 
 const About = () => {
-  const specializations = [
-    {
-      icon: FaRobot,
-      title: 'Autonomous Robotics',
-      description: 'Developing intelligent robotic systems with advanced navigation, perception, and control capabilities',
-      color: 'var(--primary)'
-    },
-    {
-      icon: FaEye,
-      title: 'Computer Vision',
-      description: 'Implementing cutting-edge vision algorithms for object detection, SLAM, and 3D reconstruction',
-      color: 'var(--accent)'
-    },
-    {
-      icon: FaBrain,
-      title: 'Deep Learning',
-      description: 'Creating novel neural network architectures for real-time AI applications and edge deployment',
-      color: 'var(--secondary)'
-    },
-    {
-      icon: FaCode,
-      title: 'System Integration',
-      description: 'Building scalable AI infrastructure and deploying models on edge devices and cloud platforms',
-      color: 'var(--primary)'
-    }
+  const stats = [
+    { label: 'years_in_ai', value: '5+', type: 'number' },
+    { label: 'projects', value: '20+', type: 'number' },
+    { label: 'patents', value: '5', type: 'number' },
+  ];
+
+  const focus = [
+    'Visual-Inertial SLAM for autonomous navigation',
+    'Real-time computer vision on edge devices',
+    'Multimodal AI for robotic perception',
+    'Scalable inference systems for deep learning',
   ];
 
   return (
     <section className="about section">
       <div className="container">
-        {/* Section Header */}
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">
-            About <span className="text-gradient">Me</span>
-          </h2>
-        </motion.div>
+        <span className="section-label">about</span>
 
-        <div className="about-content">
-          {/* Bio Section */}
+        <div className="about-grid">
+          {/* Bio Card */}
           <motion.div
-            className="about-bio"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            className="about-bio card"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bio-card">
-              <h3>Pioneering the Future of Robotic Systems</h3>
-              <p>{personalData.bio}</p>
-              
-              <div className="bio-highlights">
-                <div className="highlight">
-                  <span className="highlight-number">5+</span>
-                  <span className="highlight-text">Years in AI/Robotics</span>
-                </div>
-                <div className="highlight">
-                  <span className="highlight-number">20+</span>
-                  <span className="highlight-text">AI Projects</span>
-                </div>
-                <div className="highlight">
-                  <span className="highlight-number">5</span>
-                  <span className="highlight-text">Patents Filed</span>
-                </div>
+            <div className="code-block">
+              <div className="code-line">
+                <span className="line-num">1</span>
+                <span className="code-keyword">const</span>{' '}
+                <span className="code-variable">engineer</span>{' '}
+                <span className="code-keyword">=</span>{' '}
+                <span className="code-string">"{personalData.name}"</span>;
               </div>
+              <div className="code-line">
+                <span className="line-num">2</span>
+                <span className="code-comment">// {personalData.subtitle}</span>
+              </div>
+              <div className="code-line">
+                <span className="line-num">3</span>
+              </div>
+              <div className="code-line bio-text">
+                <span className="line-num">4</span>
+                <p>{personalData.bio}</p>
+              </div>
+            </div>
 
-              <div className="current-focus">
-                <h4>Current Focus Areas</h4>
-                <ul>
-                  <li>Visual-Inertial SLAM for autonomous navigation</li>
-                  <li>Real-time computer vision on edge devices</li>
-                  <li>Multimodal AI for robotic perception</li>
-                  <li>Scalable inference systems for deep learning</li>
-                </ul>
-              </div>
+            {/* Stats */}
+            <div className="about-stats">
+              {stats.map((stat) => (
+                <div key={stat.label} className="stat-item">
+                  <span className="code-keyword">const</span>{' '}
+                  <span className="code-variable">{stat.label}</span>{' '}
+                  <span className="code-keyword">=</span>{' '}
+                  <span className="code-number">{stat.value}</span>;
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Specializations */}
+          {/* Focus Areas */}
           <motion.div
-            className="about-specializations"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            className="about-focus card"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3>Technical Specializations</h3>
-            <div className="specializations-grid">
-              {specializations.map((spec, index) => (
-                <motion.div
-                  key={spec.title}
-                  className="specialization-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div 
-                    className="spec-icon"
-                    style={{ color: spec.color }}
-                  >
-                    <spec.icon />
-                  </div>
-                  <h4>{spec.title}</h4>
-                  <p>{spec.description}</p>
-                </motion.div>
+            <h3>
+              <span className="code-comment">{'// '}</span>
+              current_focus
+            </h3>
+            <ul className="focus-list">
+              {focus.map((item, i) => (
+                <li key={i}>
+                  <span className="list-index">{String(i).padStart(2, '0')}</span>
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         </div>
       </div>

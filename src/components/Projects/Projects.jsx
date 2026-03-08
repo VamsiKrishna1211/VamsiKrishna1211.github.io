@@ -6,71 +6,57 @@ import './Projects.css';
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayCount = 2;
-  // Display all projects if showAll is true, otherwise display the first 2
+  const displayCount = 3;
   const displayedProjects = showAll ? projectsData : projectsData.slice(0, displayCount);
 
   return (
     <section className="projects section">
       <div className="container">
-        <motion.div
-          className="section-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="section-title">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-        </motion.div>
+        <span className="section-label">projects</span>
 
         <div className="projects-grid">
           {displayedProjects.map((project, index) => (
             <motion.div
-              key={project.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              key={`${project.title}-${index}`}
+              className="project-card card"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
               viewport={{ once: true }}
             >
-              <div className="project-header">
+              <div className="project-top">
                 <h3>{project.title}</h3>
-                <p className="project-category">{project.category}</p>
-                {/* {project.status && (
-                  <span className={`project-status status-${project.status.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {project.status}
-                  </span>
-                )} */}
+                <span className="project-cat code-comment">{project.category}</span>
               </div>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tech">
-                {project.technologies.slice(0, 8).map((tech, i) => (
-                  <span key={i} className="tech-tag">{tech}</span>
-                ))}
-              </div>
+
+              <p className="project-desc">{project.description}</p>
+
               {project.learned && project.learned.length > 0 && (
                 <div className="project-learned">
-                  <h5>What I Learned:</h5>
-                  <div className="learned-items">
+                  <span className="code-comment">{'// what I learned'}</span>
+                  <div className="learned-list">
                     {project.learned.map((item, li) => (
                       <span key={li} className="learned-item">• {item}</span>
                     ))}
                   </div>
                 </div>
               )}
+
+              <div className="project-tech">
+                {project.technologies.slice(0, 8).map((tech, i) => (
+                  <span key={i} className="tag">{tech}</span>
+                ))}
+              </div>
+
               <div className="project-links">
                 {project.github && project.github.trim() !== '' && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-                    <FaGithub className="link-icon" />
-                    GitHub
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                    <FaGithub size={13} /> code
                   </a>
                 )}
                 {project.video && project.video.trim() !== '' && (
-                  <a href={project.video} target="_blank" rel="noopener noreferrer" className="project-link video-link">
-                    <FaPlay className="link-icon" />
-                    Watch Video
+                  <a href={project.video} target="_blank" rel="noopener noreferrer" className="project-link">
+                    <FaPlay size={11} /> demo
                   </a>
                 )}
               </div>
@@ -79,21 +65,11 @@ const Projects = () => {
         </div>
 
         {projectsData.length > displayCount && (
-          <motion.div
-            className="show-more-container"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <button 
-              className="show-more-btn"
-              onClick={() => setShowAll(!showAll)}
-            >
-              {showAll ? 'Show Less' : `Show More (${projectsData.length - displayCount} more)`}
-              <span className="btn-arrow">{showAll ? '↑' : '↓'}</span>
+          <div className="show-more">
+            <button className="btn" onClick={() => setShowAll(!showAll)}>
+              {showAll ? '$ ls --less' : `$ ls --all (${projectsData.length - displayCount} more)`}
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>
