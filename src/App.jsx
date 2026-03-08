@@ -5,7 +5,7 @@ import { useHashRouting } from './hooks/useHashRouting';
 import { useAnalyticsTracking } from './hooks/useAnalyticsTracking';
 import { initGA, trackPageView } from './utils/analytics';
 
-// Lazy load components for better performance
+// Lazy load components
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
 const Hero = lazy(() => import('./components/Hero/Hero'));
 const About = lazy(() => import('./components/About/About'));
@@ -19,11 +19,16 @@ const Footer = lazy(() => import('./components/Footer/Footer'));
 const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'));
 const BackgroundAnimation = lazy(() => import('./components/Background/BackgroundAnimation'));
 
+const fadeIn = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  transition: { duration: 0.5 },
+  viewport: { once: true, margin: '-50px' },
+};
+
 function App() {
-  // Handle hash routing initialization
   useHashRouting();
 
-  // Analytics tracking refs for each section
   const heroRef = useAnalyticsTracking('Hero');
   const aboutRef = useAnalyticsTracking('About');
   const experienceRef = useAnalyticsTracking('Experience');
@@ -33,7 +38,6 @@ function App() {
   const researchRef = useAnalyticsTracking('Research & Recognition');
   const contactRef = useAnalyticsTracking('Contact');
 
-  // Initialize Google Analytics
   useEffect(() => {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
     if (measurementId && measurementId !== 'G-2PJDJW3LT8') {
@@ -45,111 +49,43 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={<LoadingSpinner />}>
-        {/* Background Animation with Three.js */}
         <BackgroundAnimation />
-        
-        {/* Navigation */}
         <Navbar />
-        
-        {/* Main Content */}
+
         <main>
-          {/* Hero Section */}
-          <motion.section
-            ref={heroRef}
-            id="home"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.section ref={heroRef} id="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
             <Hero />
           </motion.section>
 
-          {/* About Section */}
-          <motion.section
-            ref={aboutRef}
-            id="about"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={aboutRef} id="about" {...fadeIn}>
             <About />
           </motion.section>
 
-          {/* Experience Section */}
-          <motion.section
-            ref={experienceRef}
-            id="experience"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={experienceRef} id="experience" {...fadeIn}>
             <Experience />
           </motion.section>
 
-          {/* Projects Section */}
-          <motion.section
-            ref={projectsRef}
-            id="projects"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={projectsRef} id="projects" {...fadeIn}>
             <Projects />
           </motion.section>
 
-          {/* Skills Section */}
-          <motion.section
-            ref={skillsRef}
-            id="skills"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={skillsRef} id="skills" {...fadeIn}>
             <Skills />
           </motion.section>
 
-          {/* Education Section */}
-          <motion.section
-            ref={educationRef}
-            id="education"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={educationRef} id="education" {...fadeIn}>
             <Education />
           </motion.section>
 
-          {/* Research & Recognition Section (Publications, Patents, Achievements) */}
-          <motion.section
-            ref={researchRef}
-            id="research"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={researchRef} id="research" {...fadeIn}>
             <ResearchRecognition />
           </motion.section>
 
-          {/* Contact Section */}
-          <motion.section
-            ref={contactRef}
-            id="contact"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <motion.section ref={contactRef} id="contact" {...fadeIn}>
             <Contact />
           </motion.section>
         </main>
 
-        {/* Footer */}
         <Footer />
       </Suspense>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaHeart, FaRocket } from 'react-icons/fa';
 import personalData from '../../data/personal.json';
 import './Footer.css';
 
@@ -10,18 +9,14 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <div className="footer-text">
-            <p>
-              Built with <FaHeart className="heart-icon" /> and <FaRocket className="rocket-icon" /> by{' '}
-              <span className="text-gradient">{personalData.name}</span>
-            </p>
-            <p className="footer-subtitle">
-              Powered by React, Three.js, and a passion
-            </p>
-          </div>
-          <div className="footer-year">
-            <span>© {currentYear}</span>
-          </div>
+          <span className="footer-left">
+            <span className="code-comment">{'// '}</span>
+            built by{' '}
+            <span className="code-variable">{personalData.name}</span>
+          </span>
+          <span className="footer-right code-comment">
+            © {currentYear}
+          </span>
         </div>
       </div>
     </footer>

@@ -1,266 +1,87 @@
-.about {
-  background: var(--bg-primary);
-  position: relative;
-}
-
-.section-header {
-  text-align: center;
-  margin-block-end: var(--space-3xl);
-}
-
-.about-content {
+.about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
-  container-type: inline-size;
-  container-name: about-content;
+  grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-lg);
 }
 
-/* Bio Section */
-.about-bio {
-  position: sticky;
-  inset-block-start: var(--space-xl);
+/* Code Block Bio */
+.code-block {
+  margin-bottom: var(--space-lg);
 }
 
-.bio-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-xl);
-  padding: var(--space-2xl);
-  position: relative;
-  overflow: hidden;
+.code-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  min-height: 1.5em;
 }
 
-.bio-card::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: 2px;
-  background: var(--gradient-primary);
+.line-num {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  min-width: 20px;
+  text-align: right;
+  user-select: none;
+  opacity: 0.5;
 }
 
-.bio-card h3 {
-  color: var(--text-primary);
-  margin-block-end: var(--space-lg);
-  font-size: 1.5rem;
-}
-
-.bio-card p {
+.bio-text p {
   color: var(--text-secondary);
+  font-family: var(--font-sans);
+    font-size: 0.88rem;
   line-height: 1.7;
-  margin-block-end: var(--space-xl);
-  font-size: 1.1rem;
 }
 
-.bio-highlights {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-  margin-block-end: var(--space-xl);
-  padding: var(--space-lg);
-  background: rgba(0, 212, 255, 0.05);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+/* Stats */
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
 }
 
-.highlight {
-  text-align: center;
+.stat-item {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
 }
 
-.highlight-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-block-end: var(--space-xs);
+/* Focus Areas */
+.about-focus h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
 }
 
-.highlight-text {
-  display: block;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.current-focus h4 {
-  color: var(--text-primary);
-  margin-block-end: var(--space-md);
-  font-size: 1.1rem;
-}
-
-.current-focus ul {
+.focus-list {
   list-style: none;
   padding: 0;
 }
 
-.current-focus li {
-  position: relative;
-  padding: var(--space-sm) 0;
-  padding-left: var(--space-lg);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.current-focus li::before {
-  content: '▶';
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-size: 0.8rem;
-}
-
-/* Specializations */
-.about-specializations h3 {
-  color: var(--text-primary);
-  margin-bottom: var(--space-xl);
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.specializations-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-}
-
-.specialization-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  text-align: center;
-  transition: var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.specialization-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: var(--transition-normal);
-}
-
-.specialization-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-glow);
-  transform: translateY(-2px);
-}
-
-.specialization-card:hover::before {
-  opacity: 1;
-}
-
-.spec-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-lg);
+.focus-list li {
   display: flex;
-  justify-content: center;
-  filter: drop-shadow(0 0 10px currentColor);
-}
-
-.specialization-card h4 {
-  color: var(--text-primary);
-  margin-bottom: var(--space-md);
-  font-size: 1.2rem;
-}
-
-.specialization-card p {
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
+  font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
 }
 
-/* Container Queries for Modern Responsive Design */
-@container about-content (max-width: 1024px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .about-bio {
-    position: static;
-  }
-
-  .specializations-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.focus-list li:last-child {
+  border-bottom: none;
 }
 
-@container about-content (max-width: 768px) {
-  .bio-highlights {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .specializations-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bio-card,
-  .specialization-card {
-    padding: var(--space-xl);
-  }
+.list-index {
+  color: var(--comment);
+  font-size: 0.75rem;
+  min-width: 20px;
 }
 
-@container about-content (max-width: 480px) {
-  .bio-card,
-  .specialization-card {
-    padding: var(--space-lg);
-  }
-
-  .spec-icon {
-    font-size: 2rem;
-  }
-}
-
-/* Legacy Media Queries for broader browser support */
-@media (max-width: 1024px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .about-bio {
-    position: static;
-  }
-
-  .specializations-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  .bio-highlights {
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .specializations-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .bio-card,
-  .specialization-card {
-    padding: var(--space-xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .bio-card,
-  .specialization-card {
-    padding: var(--space-lg);
-  }
-
-  .spec-icon {
-    font-size: 2rem;
-  }
+  
 }
