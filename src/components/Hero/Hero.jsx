@@ -5,6 +5,7 @@ import resumePDF from '../../assets/UMN-Robotics-Resume-Sem-1.pdf';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
 import heroData from '../../data/hero.json';
+import personalData from '../../data/personal.json';
 import { trackButtonClick, trackExternalLink, trackFileDownload } from '../../utils/analytics';
 
 const ASCII_ROBOT = `
@@ -26,13 +27,13 @@ const Hero = () => {
 
     const handleAction = (action) => {
         if (action.type === 'scroll') {
-        trackButtonClick(`Navigate to ${action.target}`, 'Hero Section');
-        window.history.pushState(null, null, `#${action.target}`);
-          const targetSection = document.getElementById(action.target);
-          if (targetSection) {
-              targetSection.scrollIntoView({ behavior: 'smooth' });
-          }
-      }
+            trackButtonClick(`Navigate to ${action.target}`, 'Hero Section');
+            window.history.pushState(null, null, `#${action.target}`);
+            const targetSection = document.getElementById(action.target);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
   };
 
     const handleSocialClick = (link) => {
@@ -45,13 +46,19 @@ const Hero = () => {
 
     return (
         <div className="hero">
-          <div className="hero-left">
-              <div className="hero-avatar-wrap">
-                  <img src={profile_img} alt="profile" className="hero-img" />
-                  <pre className="ascii-robot" aria-hidden="true">{ASCII_ROBOT}</pre>
+            <div className="hero-left">
+                <div className="hero-avatar-wrap">
+                    <img src={profile_img} alt="profile" className="hero-img" />
+                    <pre className="ascii-robot" aria-hidden="true">{ASCII_ROBOT}</pre>
+                </div>
+
+              {/* Status indicator */}
+              <div className="hero-status">
+                  <span className="status-dot" />
+                  <span className="status-text">{personalData.status}</span>
               </div>
 
-              {/* Social links as inline tags */}
+              {/* Social links */}
               <div className="hero-links">
                   {heroData.socialLinks.map((link, index) => {
                       const IconComponent = iconMap[link.icon];
@@ -62,18 +69,21 @@ const Hero = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               title={link.platform}
-                    className="hero-social-link"
-                    onClick={() => handleSocialClick(link)}
-                >
-                      <IconComponent size={14} />
-                      <span>{link.platform.toLowerCase()}</span>
-                  </a>
-              );
+                              className="hero-social-link"
+                              onClick={() => handleSocialClick(link)}
+                          >
+                              <IconComponent size={14} />
+                              <span>{link.platform.toLowerCase()}</span>
+                          </a>
+                      );
           })}
               </div>
           </div>
 
           <div className="hero-right">
+              {/* Tagline — the hook */}
+              <h2 className="hero-tagline">{heroData.tagline}</h2>
+
               <div className="hero-terminal">
                   <div className="terminal-header">
                       <span className="terminal-dot dot-red" />
@@ -82,15 +92,6 @@ const Hero = () => {
                       <span className="terminal-title">~/portfolio</span>
                   </div>
                   <div className="terminal-body">
-                      <div className="terminal-line">
-                          <span className="t-prompt">$</span>
-                          <span className="t-cmd"> echo</span>
-                          <span className="t-string"> "{heroData.introduction.greeting}"</span>
-                      </div>
-                      <div className="terminal-output">
-                          {heroData.introduction.greeting}
-                      </div>
-
                       <div className="terminal-line">
                           <span className="t-prompt">$</span>
                           <span className="t-cmd"> cat</span>
@@ -127,24 +128,24 @@ const Hero = () => {
                   {heroData.actions.map((action, index) => {
                       if (action.type === 'scroll') {
                           return (
-                  <button
-                      key={index}
-                      className="btn btn-primary"
-                      onClick={() => handleAction(action)}
-                  >
-                      {action.text}
-                    </button>
-                );
+                              <button
+                                  key={index}
+                                  className="btn btn-primary"
+                                  onClick={() => handleAction(action)}
+                              >
+                                  {action.text}
+                              </button>
+                          );
             } else if (action.type === 'download') {
-                return (
-                    <a
-                        key={index}
-                        href={resumePDF}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      className="btn"
-                      onClick={handleResumeDownload}
-                  >
+                  return (
+                      <a
+                          key={index}
+                          href={resumePDF}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn"
+                          onClick={handleResumeDownload}
+                      >
                           {action.text}
                       </a>
                   );

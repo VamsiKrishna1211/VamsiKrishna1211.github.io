@@ -4,23 +4,27 @@ import personalData from '../../data/personal.json';
 import './About.css';
 
 const About = () => {
-  const stats = [
-    { label: 'years_in_ai', value: '5+', type: 'number' },
-    { label: 'projects', value: '20+', type: 'number' },
-    { label: 'patents', value: '5', type: 'number' },
-  ];
-
-  const focus = [
-    'Visual-Inertial SLAM for autonomous navigation',
-    'Real-time computer vision on edge devices',
-    'Multimodal AI for robotic perception',
-    'Scalable inference systems for deep learning',
-  ];
-
   return (
     <section className="about section">
       <div className="container">
         <span className="section-label">about</span>
+
+        {/* Stats bar — big numbers */}
+        <div className="stats-bar">
+          {personalData.stats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              className="stat-block"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <span className="stat-value">{stat.value}</span>
+              <span className="stat-label">{stat.label}</span>
+            </motion.div>
+          ))}
+        </div>
 
         <div className="about-grid">
           {/* Bio Card */}
@@ -51,18 +55,6 @@ const About = () => {
                 <p>{personalData.bio}</p>
               </div>
             </div>
-
-            {/* Stats */}
-            <div className="about-stats">
-              {stats.map((stat) => (
-                <div key={stat.label} className="stat-item">
-                  <span className="code-keyword">const</span>{' '}
-                  <span className="code-variable">{stat.label}</span>{' '}
-                  <span className="code-keyword">=</span>{' '}
-                  <span className="code-number">{stat.value}</span>;
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Focus Areas */}
@@ -78,7 +70,7 @@ const About = () => {
               current_focus
             </h3>
             <ul className="focus-list">
-              {focus.map((item, i) => (
+              {personalData.focus.map((item, i) => (
                 <li key={i}>
                   <span className="list-index">{String(i).padStart(2, '0')}</span>
                   {item}

@@ -30,31 +30,30 @@
       "icon": "FaEnvelope"
     }
   ],
+  "tagline": "I teach robots to see, think, and not crash into things.",
   "introduction": {
     "greeting": "Hello World! 👋",
     "paragraphs": [
-      "👋 I'm <span>Vamsi Krishna Kocherla</span> (or just <span>Vamsi</span> for short!), a Robotics builder with a mind overflowing with algorithms, drones, and self-driving cars.",
-      "Currently, I'm on a journey of discovery, pursuing my <span>Master's of Science in Robotics</span> at the <span>University of Minnesota - Twin Cities</span>. My journey is all about bridging the gap between cutting-edge research and tangible, real-world applications.",
-      "When I'm not immersed in research papers or wrestling with code, you can find me exploring the fascinating world of AI & Robotics, fueled by caffeine and an insatiable curiosity. 🚀🎩🤓😂",
-      "<span><strong>Here are a few things I'm passionate about:</strong></span>"
+      "I'm <span>Vamsi</span> — I build robots that perceive, navigate, and manipulate the physical world. Think drones that fly without GPS, arms that pick objects by sight, and CV models that run on edge hardware.",
+      "Currently chasing an <span>MS in Robotics</span> at <span>UMN</span>, turning research papers into systems that actually ship."
     ],
     "passions": [
-      "Autonomous Systems (Drones & Robotics)",
-      "3D Vision & Perception (Reconstruction, Gaussian Splats, SLAM, Visual Servoing)",
-      "AI for Real-World Applications (ADAS, Autonomous Navigation, etc.)",
-      "Anything related to Physical AI!"
+      "Autonomous drones & robotic manipulation",
+      "3D vision — SLAM, Gaussian Splats, stereo depth",
+      "Edge AI — making big models run on tiny hardware",
+      "Physical AI — where software meets the real world"
     ]
   },
   "actions": [
     {
       "type": "scroll",
-      "text": "Connect With me",
+      "text": "let's talk →",
       "target": "contact",
       "className": "hero-connect"
     },
     {
       "type": "download",
-      "text": "Download Resume",
+      "text": "grab my resume",
       "url": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf",
       "className": "hero-resume"
     }

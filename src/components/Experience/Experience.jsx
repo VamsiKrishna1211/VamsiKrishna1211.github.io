@@ -19,6 +19,13 @@ const Experience = () => {
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
+              {/* Headline metric bar */}
+              {exp.headline && (
+                <div className="exp-headline">
+                  {exp.headline}
+                </div>
+              )}
+
               <div className="exp-top">
                 <div className="exp-role">
                   <h3>{exp.position}</h3>

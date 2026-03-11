@@ -1,25 +1,57 @@
 [
   {
     "id": 1,
-    "company": "Parallax Worlds (Startup)",
-    "position": "Backend Engineering Intern",
-    "location": "San Francisco, CA, USA",
-    "startDate": "Jun 2025",
-    "endDate": "Aug 2025",
-    "duration": "3 months",
-    "type": "Internship",
+    "company": "University of Minnesota - Twin Cities",
+    "position": "Graduate Research Assistant",
+    "location": "Minneapolis, MN, USA",
+    "startDate": "Sep 2024",
+    "endDate": "May 2025",
+    "duration": "7 months",
+    "type": "Research",
+    "headline": "Adding features to Gaussian Splatting for 3D Reconstruction",
     "logo": "/src/assets/parallax-logo.png",
-    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
-    "achievements": [
-      "Designed and Deployed scalable asynchronous job scheduling platform using Argo Workflows, improving stability and reliability",
-      "Deployed 3D-Reconstruction pipeline using GPUs on Kubernetes, achieving 30% reduction in processing time",
-      "Implemented monitoring and alerting system using Prometheus and Grafana, reducing the failure response time by 40%",
-      "Refactored legacy codebase, improving maintainability and reducing technical debt by 15%"
+    "technologies": [
+      "PyTorch",
+      "OpenCV",
+      "Foundation Models",
+      "Gaussian Splatting",
+      "Open3D",
+      "SAM",
+      "DINOv2"
     ],
-    "description": "Contributed to backend engineering efforts, focusing on scalable deployment and optimization of 3D reconstruction pipelines."
+    "achievements": [
+      "Implemented multiple research papers into end-to-end pipelines for novel 3D Reconstruction techniques",
+      "Built a custom Gaussian Splatting pipeline from scratch for high-fidelity 3D scene reconstruction",
+      "Researched City-Scale Gaussian Splatting with a focus on memory-efficient scene representations",
+      "Integrated CLIP language features for fine-grained semantic queries, enabling natural language-based 3D scene search",
+      "Incorporated spatial feature encoding using DINOv2 for enhanced scene understanding and object localization",
+      "Combining the use of CLIP and DINOv2 features for better scene understanding and object localization"
+    ],
+    "description": "Working on 3D Reconstruction using Gaussian Splatting, and adding features to it to make it more user friendly and efficient."
   },
   {
     "id": 1,
+    "company": "Parallax Worlds (Startup)",
+    "position": "Robotics Perception Intern",
+    "location": "San Francisco, CA, USA",
+    "startDate": "Jun 2025",
+    "endDate": "Dec 2025",
+    "duration": "7 months",
+    "type": "Internship",
+    "headline": "30% faster 3D reconstruction · 20% less downtime",
+    "logo": "/src/assets/parallax-logo.png",
+    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
+    "achievements": [
+      "Research and implement a Physics Estimation Pipeline (Young's Modulus, Poisson's ratio, Density, Friction) for 3D Reconstructed models, including deformable and rigid objects based on Visual Features & Textures",
+      "Deployed the Physics estimation pipeline with the existing 3D reconstruction pipeline",
+      "Designed and Deployed scalable asynchronous job scheduling platform using Argo Workflows, improving stability and reliability",
+      "Deployed 3D-Reconstruction (Gaussian Splatting) pipeline using dynamic GPU allocation (H100s, A100s, T4s) on Kubernetes, achieving 30% reduction in processing time",
+      "Implemented monitoring and alerting system using Prometheus and Grafana, reducing the failure response time by 40%"
+    ],
+    "description": "Built physics estimation pipelines for 3D models, scaled Gaussian Splatting reconstruction on Kubernetes with GPU acceleration, and built production monitoring systems."
+  },
+  {
+    "id": 2,
     "company": "Upjao Agrotech (Startup)",
     "position": "Senior Computer Vision Scientist (Core Team)",
     "location": "Ahmedabad, India",
@@ -27,19 +59,20 @@
     "endDate": "Jul 2024",
     "duration": "5 years 7 months",
     "type": "Full-time",
+    "headline": "50% faster inference · 60% cost reduction · <500ms latency",
     "logo": "/src/assets/upjao-logo.png",
     "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
     "achievements": [
-      "Developed novel deep learning models based on Visual Transformers, Faster-RCNN, Mask-RCN, YOLO incorporating custom loss functions, achieving up to 20% improvement in accuracy",
-      "Designed high-performance serverless inference platform on Kubernetes with NVIDIA Triton Inference Server, achieving <500ms latency",
-      "Optimized deep learning models for edge devices, achieving 40% reduction in inference time and 20% reduction in model size",
-      "Improved inference performance by 50% and reduced infrastructure costs by 60% through optimization techniques",
-      "Implemented model caching algorithm reducing scale-up time from 15-20 minutes to 3-4 seconds"
+      "Developed novel deep learning models based on Visual Transformers, Faster-RCNN, Mask-RCNN, YOLO — up to 20% accuracy improvement",
+      "Designed serverless inference platform on Kubernetes with NVIDIA Triton, achieving <500ms latency",
+      "Optimized models for edge: 40% less inference time, 20% smaller model size",
+      "Improved inference performance by 50% and reduced infra costs by 60%",
+      "Built model caching that cut scale-up from 15-20 min to 3-4 seconds"
     ],
-    "description": "Led computer vision initiatives developing cutting-edge AI solutions for agricultural applications, focusing on scalable deployment and edge optimization."
+    "description": "Led CV team building production AI for agriculture — from custom model architectures to edge-optimized deployment."
   },
   {
-    "id": 2,
+    "id": 3,
     "company": "Tata Consultancy Services",
     "position": "AI / ML Developer",
     "location": "Hyderabad, India",
@@ -47,14 +80,15 @@
     "endDate": "Apr 2023",
     "duration": "1 year 11 months",
     "type": "Full-time",
+    "headline": "Best Team Award · Elite R&D cohort · 20% efficiency gain",
     "logo": "/src/assets/tcs-logo.png",
     "technologies": ["BERT", "Transformers", "Flask", "React", "Vite", "Python", "NLP"],
     "achievements": [
-      "Selected into TCS Rapid Labs Cohort, an elite R&D team focused on cutting-edge AI and Robotics",
-      "Developed multiple NLP-based proof-of-concept projects using BERT & Transformer models",
-      "Created novel algorithm for complex repeated data removal from PDFs, improving efficiency by 20%",
-      "Awarded Best Team Award in the TCS Rapid Labs Cohort"
+      "Selected into TCS Rapid Labs Cohort — elite R&D team for AI and Robotics",
+      "Shipped multiple NLP proof-of-concepts using BERT & Transformer models",
+      "Built novel algorithm for complex repeated data removal from PDFs, +20% efficiency",
+      "Awarded Best Team Award in TCS Rapid Labs"
     ],
-    "description": "Developed innovative AI solutions as part of an elite research team, focusing on natural language processing and data optimization algorithms."
+    "description": "Built NLP solutions in an elite R&D team, won Best Team Award for AI innovation."
   }
 ]
