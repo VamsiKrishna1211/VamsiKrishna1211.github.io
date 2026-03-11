@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaPlay } from 'react-icons/fa';
+import { FaGithub, FaPlay, FaStar } from 'react-icons/fa';
 import projectsData from '../../data/projects.json';
 import './Projects.css';
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayCount = 3;
+  const displayCount = 4;
   const displayedProjects = showAll ? projectsData : projectsData.slice(0, displayCount);
 
   return (
@@ -18,32 +18,35 @@ const Projects = () => {
           {displayedProjects.map((project, index) => (
             <motion.div
               key={`${project.title}-${index}`}
-              className="project-card card"
+              className={`project-card card ${project.featured ? 'featured' : ''}`}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               viewport={{ once: true }}
             >
+              {/* Featured badge */}
+              {project.featured && (
+                <span className="featured-badge">
+                  <FaStar size={10} /> featured
+                </span>
+              )}
+
               <div className="project-top">
                 <h3>{project.title}</h3>
                 <span className="project-cat code-comment">{project.category}</span>
               </div>
 
-              <p className="project-desc">{project.description}</p>
-
-              {project.learned && project.learned.length > 0 && (
-                <div className="project-learned">
-                  <span className="code-comment">{'// what I learned'}</span>
-                  <div className="learned-list">
-                    {project.learned.map((item, li) => (
-                      <span key={li} className="learned-item">• {item}</span>
-                    ))}
-                  </div>
+              {/* Headline metrics */}
+              {project.headline && (
+                <div className="project-headline">
+                  {project.headline}
                 </div>
               )}
 
+              <p className="project-desc">{project.description}</p>
+
               <div className="project-tech">
-                {project.technologies.slice(0, 8).map((tech, i) => (
+                {project.technologies.slice(0, 6).map((tech, i) => (
                   <span key={i} className="tag">{tech}</span>
                 ))}
               </div>

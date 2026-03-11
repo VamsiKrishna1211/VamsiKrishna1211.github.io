@@ -8,6 +8,19 @@
   position: relative;
 }
 
+/* Headline metric bar */
+.exp-headline {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--amber);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(229, 192, 123, 0.06);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.3px;
+}
 .exp-card::before {
   content: '';
   position: absolute;
@@ -70,7 +83,7 @@
   font-size: 0.85rem;
   color: var(--text-secondary);
   padding: 3px 0;
-    line-height: 1.5;
+  line-height: 1.5;
     font-family: var(--font-sans);
   }
   
