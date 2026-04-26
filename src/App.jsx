@@ -4,6 +4,7 @@ import './styles/globals.css';
 import { useHashRouting } from './hooks/useHashRouting';
 import { useAnalyticsTracking } from './hooks/useAnalyticsTracking';
 import { initGA, trackPageView } from './utils/analytics';
+import CookieBanner from './components/CookieBanner/CookieBanner';
 
 // Lazy load components
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
@@ -88,6 +89,7 @@ function App() {
 
         <Footer />
       </Suspense>
+      <CookieBanner />
     </div>
   );
 }
