@@ -69,7 +69,7 @@
       "Improved inference performance by 50% and reduced infra costs by 60%",
       "Built model caching that cut scale-up from 15-20 min to 3-4 seconds"
     ],
-    "description": "Led CV team building production AI for agriculture — from custom model architectures to edge-optimized deployment."
+    "description": "Led CV team at an agriculture AI startup — custom model architectures, edge deployment on Jetson, distributed inference on Kubernetes. Five years of production constraints will teach you more about robustness than any textbook. Eventually decided to go formalize what was working with a proper robotics degree."
   },
   {
     "id": 3,

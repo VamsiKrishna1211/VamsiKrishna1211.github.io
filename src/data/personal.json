@@ -1,7 +1,7 @@
 {
   "name": "Vamsi Krishna Kocherla",
   "title": "Deep Learning | Computer Vision | Robotics | GenAI",
-  "subtitle": "Robotics Grad Student & AI Research Engineer",
+  "subtitle": "Robotics MS Student · ex-Production CV Scientist · recovering ECE undergrad",
   "status": "building autonomous drones & SLAM systems at UMN",
   "location": "Minneapolis, USA",
   "email": "koche156@umn.edu",
@@ -11,7 +11,7 @@
   "portfolio": "https://vamsikrishna1211.github.io",
   "resume": "/src/assets/UMN-Robotics-Resume-internships.pdf",
   "tagline": "I teach robots to see, think, and not crash into things.",
-  "bio": "Robotics grad student at UMN. I build autonomous systems that actually work in the real world — from edge-optimized vision models to drones that navigate without GPS. 5+ years shipping AI from prototype to production.",
+  "bio": "Started with signals and circuits, ended up writing CV models for farm equipment. Spent 5+ years at a startup turning research into production systems — YOLO on Jetson, serverless inference on Kubernetes, models that had to work outdoors in bad lighting. Now at UMN doing robotics research and mostly learning why the things that worked actually worked.",
   "avatar": "/src/assets/anime_profile_img.jpeg",
   "heroVideo": null,
   "stats": [

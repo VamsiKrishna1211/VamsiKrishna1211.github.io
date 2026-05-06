@@ -34,8 +34,8 @@
   "introduction": {
     "greeting": "Hello World! 👋",
     "paragraphs": [
-      "I'm <span>Vamsi</span> — I build robots that perceive, navigate, and manipulate the physical world. Think drones that fly without GPS, arms that pick objects by sight, and CV models that run on edge hardware.",
-      "Currently chasing an <span>MS in Robotics</span> at <span>UMN</span>, turning research papers into systems that actually ship."
+      "I'm <span>Vamsi</span> — ECE grad who fell into computer vision, spent five years shipping production AI at a startup, filed a few patents along the way, and then went back to grad school to understand the theory behind what was working.",
+      "Currently doing an <span>MS in Robotics</span> at <span>UMN</span>, building drones that navigate without GPS and 3D reconstruction systems that run at scale. Turns out the coursework makes a lot more sense when you have production context."
     ],
     "passions": [
       "Autonomous drones & robotic manipulation",
