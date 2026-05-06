@@ -1,112 +1,40 @@
 [
   {
-    "category": "Programming Languages",
-    "icon": "💻",
-    "items": ["Python", "C++", "Golang", "CUDA", "NodeJS"]
-  },
-  {
-    "category": "Machine Learning & Deep Learning",
-    "icon": "🧠",
+    "category": "Hardware & Signals",
+    "icon": "🔌",
     "items": [
-      "PyTorch",
-      "TensorFlow", 
-      "OpenCV",
-      "Scikit-learn",
-      "Transformers",
-      "CNNs",
-      "GANs",
-      "TensorRT",
-      "ONNX"
+      "CUDA", "C++", "Jetson Orin Nano", "Jetson AGX",
+      "Raspberry Pi", "Arduino", "Sensor Fusion", "Sensor Integration", "MQTT"
     ]
   },
   {
-    "category": "Computer Vision",
-    "icon": "📷",
+    "category": "Vision & Intelligence",
+    "icon": "👁️",
     "items": [
-      "Object Detection",
-      "Semantic/Instance Segmentation", 
-      "Stereo Vision",
-      "SLAM",
-      "3D Reconstruction",
-      "Feature Matching",
-      "Depth/Disparity Maps",
-      "Multi view 3D Geometry",
-      "ViT",
-      "Faster-RCNN",
-      "Mask-RCN",
-      "YOLO"
+      "PyTorch", "TensorFlow", "OpenCV", "TensorRT", "ONNX",
+      "Object Detection", "Semantic/Instance Segmentation", "Stereo Vision",
+      "3D Reconstruction", "Feature Matching", "Depth/Disparity Maps",
+      "Multi-view 3D Geometry", "ViT", "Faster-RCNN", "Mask-RCNN",
+      "YOLO", "Transformers", "CNNs", "GANs", "Scikit-learn"
     ]
   },
   {
-    "category": "Robotics & Embedded Systems",
+    "category": "Autonomy & Robotics",
     "icon": "🤖",
     "items": [
-      "ROS/ROS2",
-      "Isaac Sim (Omniverse)",
-      "Gazebo",
-      "OpenAI Gym",
-      "Ardupilot",
-      "PX4",
-      "MQTT"
+      "ROS/ROS2", "SLAM", "Gaussian Splatting", "Isaac Sim (Omniverse)",
+      "Gazebo", "OpenAI Gym", "Ardupilot", "PX4"
     ]
   },
   {
-    "category": "Edge & IoT Hardware",
-    "icon": "🔧",
+    "category": "Production & Scale",
+    "icon": "🚀",
     "items": [
-      "Jetson Orin Nano",
-      "Jetson AGX",
-      "Raspberry Pi",
-      "Arduino",
-      "Sensor Fusion",
-      "Sensor Integration"
-    ]
-  },
-  {
-    "category": "Cloud & Deployment",
-    "icon": "☁️",
-    "items": [
-      "Kubernetes",
-      "KNative",
-      "Docker",
-      "KServe",
-      "Triton Inference Server",
-      "AWS",
-      "GCP",
-      "Azure",
-      "REST APIs",
-      "gRPC",
-      "WebSockets"
-    ]
-  },
-  {
-    "category": "Databases & Tools",
-    "icon": "🗄️",
-    "items": [
-      "MongoDB",
-      "MySQL",
-      "PostgreSQL", 
-      "Redis",
-      "ClickHouse",
-      "RabbitMQ",
-      "Apache Kafka",
-      "Prometheus",
-      "Grafana"
-    ]
-  },
-  {
-    "category": "Development Tools",
-    "icon": "🛠️",
-    "items": [
-      "Git",
-      "DVC", 
-      "Ubuntu",
-      "Linux",
-      "Linux File System",
-      "Flask",
-      "Fast API",
-      "Gitlab CI/CD",
-      "Matplotlib"
+      "Python", "Golang", "Kubernetes", "KNative", "Docker",
+      "KServe", "Triton Inference Server", "AWS", "GCP", "Azure",
+      "REST APIs", "gRPC", "Apache Kafka", "Redis", "PostgreSQL",
+      "MongoDB", "Prometheus", "Grafana", "Flask", "FastAPI",
+      "Git", "GitLab CI/CD"
     ]
   }
 ]
