@@ -129,4 +129,4 @@ MIT — do whatever you want with it. Credit is cool but not required. Ship it. 
 
 ---
 
-*Built with ☕ and an mass of curiosity.*
+*Built with ☕ and a mass of curiosity.*
