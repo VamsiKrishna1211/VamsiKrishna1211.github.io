@@ -95,6 +95,18 @@
   margin-top: var(--space-xl);
 }
 
+.show-more .btn {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.show-more .btn:hover {
+  background: var(--cyan);
+  color: var(--bg-primary);
+}
+
 @media (min-width: 769px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
