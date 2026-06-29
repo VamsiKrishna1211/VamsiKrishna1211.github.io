@@ -5,10 +5,12 @@
   right: 0;
   z-index: var(--z-sticky);
   padding: 0 var(--space-lg);
-    background: rgba(30, 30, 46, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+  background: rgba(30, 30, 46, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
   transition: var(--transition-normal);
+  will-change: backdrop-filter;
+  animation: fadeIn 0.4s ease;
 }
 
 .navbar-scrolled {

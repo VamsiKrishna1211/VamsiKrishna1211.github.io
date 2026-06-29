@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
 import personalData from '../../data/personal.json';
 import { trackFormSubmission, trackButtonClick, trackExternalLink } from '../../utils/analytics';
@@ -33,19 +32,24 @@ const Contact = () => {
     trackButtonClick('Contact Form Submit', 'Contact Section');
 
     try {
-      const mailtoLink = `mailto:${personalData.email}?subject=${encodeURIComponent(
-        formData.subject
-      )}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
+      const formDataObj = new FormData(e.target);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataObj,
+      });
 
-      window.location.href = mailtoLink;
-      trackFormSubmission('Contact Form', true);
-      showNotification('Email client opened!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const result = await response.json();
+
+      if (result.success) {
+        trackFormSubmission('Contact Form', true);
+        showNotification('Message sent! I\'ll get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
     } catch (error) {
       trackFormSubmission('Contact Form', false);
-      showNotification('Failed to open email client.', 'error');
+      showNotification('Failed to send message. Please try again.', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -103,6 +107,7 @@ const Contact = () => {
           {/* Form */}
           <div className="contact-form-wrap card">
             <form onSubmit={handleSubmit} className="contact-form">
+              <input type="hidden" name="access_key" value="1763a221-b65f-4ab4-a5b5-2e69968ed636" />
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">name</label>
@@ -170,16 +175,10 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Notification */}
         {notification && (
-          <motion.div
-            className={`notification ${notification.type}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+          <div className={`notification ${notification.type}`}>
             {notification.message}
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

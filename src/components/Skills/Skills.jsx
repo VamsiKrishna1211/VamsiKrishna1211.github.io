@@ -1,23 +1,21 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import skillsData from '../../data/skills.json';
+import { useInView } from '../../hooks/useInView';
 import './Skills.css';
 
 const Skills = () => {
+  const containerRef = useInView();
   return (
-    <section className="skills section">
+    <section ref={containerRef} className="skills section">
       <div className="container">
         <span className="section-label">skills</span>
 
         <div className="skills-grid">
           {skillsData.map((category, index) => (
-            <motion.div
+            <div
               key={category.category}
-              className="skill-card card"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              viewport={{ once: true }}
+              className="skill-card card fade-in"
+              style={{ '--fade-delay': `${index * 0.05}s` }}
             >
               <h3>
                 <span className="skill-icon">{category.icon}</span>
@@ -28,7 +26,7 @@ const Skills = () => {
                   <span key={i} className="tag">{skill}</span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

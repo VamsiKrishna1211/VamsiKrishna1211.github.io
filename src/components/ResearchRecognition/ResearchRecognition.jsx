@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaExternalLinkAlt } from 'react-icons/fa';
 import publicationsData from '../../data/publications.json';
 import patentsData from '../../data/patents.json';
 import achievementsData from '../../data/achievements.json';
@@ -93,17 +91,12 @@ const ResearchRecognition = () => {
           ))}
         </div>
 
-        {/* Tab Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
+        {/* Tab Content — key causes remount → CSS animation fires fresh */}
+        <div key={activeTab} className="research-content">
           {activeTab === 'publications' && renderPublications()}
           {activeTab === 'patents' && renderPatents()}
           {activeTab === 'achievements' && renderAchievements()}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

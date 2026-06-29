@@ -185,6 +185,7 @@ a:hover {
 .section {
   padding: var(--space-3xl) 0;
   position: relative;
+  contain: layout;
 }
 
 /* ── Cards ──────────────────────────────────────── */
@@ -252,25 +253,35 @@ a:hover {
 /* ── Animations ─────────────────────────────────── */
 
 @keyframes blink {
-
-  0%,
-    100% {
-    opacity: 1;
-  
-
-    50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-    to {
-    opacity: 1;
-  
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll-triggered fade-in system */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: var(--fade-delay, 0s);
+  animation-play-state: paused;
+}
+.in-view .fade-in,
+.in-view.fade-in {
+  animation-play-state: running;
+}
+
+/* Hero entrance (fires on mount, no scroll trigger needed) */
+#home {
+  animation: fadeIn 0.6s ease;
 }
 
 .cursor-blink::after {

@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaGithub, FaPlay, FaStar } from 'react-icons/fa';
 import projectsData from '../../data/projects.json';
+import { useInView } from '../../hooks/useInView';
 import './Projects.css';
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
+  const containerRef = useInView();
   const displayCount = 4;
   const displayedProjects = showAll ? projectsData : projectsData.slice(0, displayCount);
 
   return (
-    <section className="projects section">
+    <section ref={containerRef} className="projects section">
       <div className="container">
         <span className="section-label">projects</span>
 
         <div className="projects-grid">
           {displayedProjects.map((project, index) => (
-            <motion.div
+            <div
               key={`${project.title}-${index}`}
-              className={`project-card card ${project.featured ? 'featured' : ''}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              viewport={{ once: true }}
+              className={`project-card card fade-in ${project.featured ? 'featured' : ''}`}
+              style={{ '--fade-delay': `${index * 0.08}s` }}
             >
               {/* Featured badge */}
               {project.featured && (
@@ -63,7 +61,7 @@ const Projects = () => {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

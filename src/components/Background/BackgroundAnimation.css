@@ -26,6 +26,7 @@
   background-repeat: repeat;
   animation: scanMove 8s linear infinite;
   opacity: 0.5;
+  will-change: transform;
 }
 
 @keyframes scanMove {

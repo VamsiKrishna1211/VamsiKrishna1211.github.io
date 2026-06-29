@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -20,23 +19,28 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
+    let rafId = null;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        setScrolled(window.scrollY > 50);
 
-      const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+        const sections = navItems.map((item) => document.getElementById(item.id));
+        const scrollPosition = window.scrollY + 100;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          const sectionId = navItems[i].id;
-          setActiveSection(sectionId);
-          if (window.location.hash !== `#${sectionId}`) {
-            window.history.replaceState(null, null, `#${sectionId}`);
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          if (section && section.offsetTop <= scrollPosition) {
+            const sectionId = navItems[i].id;
+            setActiveSection(sectionId);
+            if (window.location.hash !== `#${sectionId}`) {
+              window.history.replaceState(null, null, `#${sectionId}`);
+            }
+            break;
           }
-          break;
         }
-      }
+      });
     };
 
     const initialHash = window.location.hash.slice(1);
@@ -53,12 +57,13 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('hashchange', handleHashChange);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('hashchange', handleHashChange);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -73,12 +78,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav
-      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-    >
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo" onClick={() => handleNavClick('home')}>
@@ -130,7 +130,7 @@ const Navbar = () => {
         {/* Overlay */}
         {isOpen && <div className="navbar-overlay" onClick={() => setIsOpen(false)} />}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

@@ -1,40 +1,30 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import personalData from '../../data/personal.json';
+import { useInView } from '../../hooks/useInView';
 import './About.css';
 
 const About = () => {
+  const containerRef = useInView();
   return (
-    <section className="about section">
+    <section ref={containerRef} className="about section">
       <div className="container">
         <span className="section-label">about</span>
 
-        {/* Stats bar — big numbers */}
         <div className="stats-bar">
-          {personalData.stats.map((stat) => (
-            <motion.div
+          {personalData.stats.map((stat, i) => (
+            <div
               key={stat.label}
-              className="stat-block"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
+              className="stat-block fade-in"
+              style={{ '--fade-delay': `${i * 0.08}s` }}
             >
               <span className="stat-value">{stat.value}</span>
               <span className="stat-label">{stat.label}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         <div className="about-grid">
-          {/* Bio Card */}
-          <motion.div
-            className="about-bio card"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
+          <div className="about-bio card fade-in" style={{ '--fade-delay': '0.1s' }}>
             <div className="code-block">
               <div className="code-line">
                 <span className="line-num">1</span>
@@ -55,16 +45,9 @@ const About = () => {
                 <p>{personalData.bio}</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Focus Areas */}
-          <motion.div
-            className="about-focus card"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          <div className="about-focus card fade-in" style={{ '--fade-delay': '0.2s' }}>
             <h3>
               <span className="code-comment">{'// '}</span>
               current_focus
@@ -77,7 +60,7 @@ const About = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

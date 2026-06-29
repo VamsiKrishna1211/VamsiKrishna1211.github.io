@@ -1,12 +1,10 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import './styles/globals.css';
 import { useHashRouting } from './hooks/useHashRouting';
 import { useAnalyticsTracking } from './hooks/useAnalyticsTracking';
 import { initGA, trackPageView } from './utils/analytics';
 import CookieBanner from './components/CookieBanner/CookieBanner';
 
-// Lazy load components
 const Navbar = lazy(() => import('./components/Navbar/Navbar'));
 const Hero = lazy(() => import('./components/Hero/Hero'));
 const About = lazy(() => import('./components/About/About'));
@@ -19,13 +17,6 @@ const Contact = lazy(() => import('./components/Contact/Contact'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
 const LoadingSpinner = lazy(() => import('./components/Loading/LoadingSpinner'));
 const BackgroundAnimation = lazy(() => import('./components/Background/BackgroundAnimation'));
-
-const fadeIn = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  transition: { duration: 0.5 },
-  viewport: { once: true, margin: '-50px' },
-};
 
 function App() {
   useHashRouting();
@@ -54,37 +45,37 @@ function App() {
         <Navbar />
 
         <main>
-          <motion.section ref={heroRef} id="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+          <section ref={heroRef} id="home">
             <Hero />
-          </motion.section>
+          </section>
 
-          <motion.section ref={aboutRef} id="about" {...fadeIn}>
+          <section ref={aboutRef} id="about">
             <About />
-          </motion.section>
+          </section>
 
-          <motion.section ref={experienceRef} id="experience" {...fadeIn}>
+          <section ref={experienceRef} id="experience">
             <Experience />
-          </motion.section>
+          </section>
 
-          <motion.section ref={projectsRef} id="projects" {...fadeIn}>
+          <section ref={projectsRef} id="projects">
             <Projects />
-          </motion.section>
+          </section>
 
-          <motion.section ref={skillsRef} id="skills" {...fadeIn}>
+          <section ref={skillsRef} id="skills">
             <Skills />
-          </motion.section>
+          </section>
 
-          <motion.section ref={educationRef} id="education" {...fadeIn}>
+          <section ref={educationRef} id="education">
             <Education />
-          </motion.section>
+          </section>
 
-          <motion.section ref={researchRef} id="research" {...fadeIn}>
+          <section ref={researchRef} id="research">
             <ResearchRecognition />
-          </motion.section>
+          </section>
 
-          <motion.section ref={contactRef} id="contact" {...fadeIn}>
+          <section ref={contactRef} id="contact">
             <Contact />
-          </motion.section>
+          </section>
         </main>
 
         <Footer />

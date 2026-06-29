@@ -30,18 +30,34 @@
 .terminal-text {
   overflow: hidden;
   white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: typeReveal 1.5s ease-out forwards;
+}
+
+@keyframes typeReveal {
+  to { clip-path: inset(0 0% 0 0); }
 }
 
 .loading-progress {
   width: 200px;
   height: 2px;
-    background: var(--border);
-    border-radius: 1px;
+  background: var(--border);
+  border-radius: 1px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
+  width: 100%;
   background: var(--cyan);
-    border-radius: 1px;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: progressBar 2.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes progressBar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
 }

@@ -38,6 +38,10 @@
     border-radius: var(--radius-sm);
 }
 
+.research-content {
+  animation: fadeIn 0.3s ease;
+}
+
 /* List */
 .research-list {
   display: flex;
