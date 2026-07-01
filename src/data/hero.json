@@ -6,7 +6,7 @@
     "title": "Masters in Robotics Student",
     "institution": "University of Minnesota - Twin Cities",
     "image": "/src/assets/MyImage.jpeg",
-    "resume": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf"
+    "resume": "/src/assets/Robotics-Resume-Mar-2026.pdf"
   },
   "socialLinks": [
     {
@@ -54,7 +54,7 @@
     {
       "type": "download",
       "text": "grab my resume",
-      "url": "/src/assets/UMN-Robotics-Resume-Sem-1.pdf",
+      "url": "/src/assets/Robotics-Resume-Mar-2026.pdf",
       "className": "hero-resume"
     }
   ],

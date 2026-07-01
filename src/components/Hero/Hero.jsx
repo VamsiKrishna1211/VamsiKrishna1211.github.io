@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import profile_img from '../../assets/MyImage.jpeg';
-import resumePDF from '../../assets/UMN-Robotics-Resume-Sem-1.pdf';
+import resumePDF from '../../assets/Robotics-Resume-Mar-2026.pdf';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FaGoogleScholar } from 'react-icons/fa6';
 import heroData from '../../data/hero.json';
