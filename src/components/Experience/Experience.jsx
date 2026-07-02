@@ -8,13 +8,13 @@ const Experience = () => {
   return (
     <section ref={containerRef} className="experience section">
       <div className="container">
-        <span className="section-label">experience</span>
+        <h2 className="section-label">experience</h2>
 
         <div className="exp-timeline">
           {experienceData.map((exp, index) => (
             <div
               key={`${exp.company}-${index}`}
-              className="exp-card card fade-in"
+              className="exp-card card fade-in-left"
               style={{ '--fade-delay': `${index * 0.1}s` }}
             >
               {/* Headline metric bar */}

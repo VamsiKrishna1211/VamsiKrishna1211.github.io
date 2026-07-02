@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { sections as navItems } from '../../data/sections';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { id: 'home', label: 'home' },
-    { id: 'about', label: 'about' },
-    { id: 'experience', label: 'experience' },
-    { id: 'projects', label: 'projects' },
-    { id: 'skills', label: 'skills' },
-    { id: 'education', label: 'education' },
-    { id: 'research', label: 'research' },
-    { id: 'contact', label: 'contact' },
-  ];
+  const [activeSection, setActiveSection] = useState(() => {
+    const initialHash = window.location.hash.slice(1);
+    return initialHash && navItems.some((item) => item.id === initialHash) ? initialHash : 'home';
+  });
 
   useEffect(() => {
     let rafId = null;
@@ -42,11 +35,6 @@ const Navbar = () => {
         }
       });
     };
-
-    const initialHash = window.location.hash.slice(1);
-    if (initialHash && navItems.some((item) => item.id === initialHash)) {
-      setActiveSection(initialHash);
-    }
 
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);

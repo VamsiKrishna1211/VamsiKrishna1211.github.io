@@ -8,13 +8,13 @@ const Education = () => {
   return (
     <section ref={containerRef} className="education section">
       <div className="container">
-        <span className="section-label">education</span>
+        <h2 className="section-label">education</h2>
 
         <div className="edu-list">
           {educationData.map((edu, index) => (
             <div
               key={edu.id}
-              className="edu-card card fade-in"
+              className="edu-card card fade-in-left"
               style={{ '--fade-delay': `${index * 0.1}s` }}
             >
               <div className="edu-top">

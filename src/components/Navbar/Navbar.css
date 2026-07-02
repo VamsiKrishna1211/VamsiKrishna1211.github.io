@@ -5,16 +5,16 @@
   right: 0;
   z-index: var(--z-sticky);
   padding: 0 var(--space-lg);
-  background: rgba(30, 30, 46, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(30, 30, 46, 0.95);
   border-bottom: 1px solid var(--border);
-  transition: var(--transition-normal);
-  will-change: backdrop-filter;
+  box-shadow: none;
+  transition: var(--transition-normal), box-shadow var(--transition-normal);
   animation: fadeIn 0.4s ease;
 }
 
 .navbar-scrolled {
   background: rgba(30, 30, 46, 0.95);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar-container {
@@ -108,6 +108,7 @@
   border-bottom: 1px solid var(--border);
     padding: var(--space-sm) 0;
     z-index: var(--z-overlay);
+    animation: slideUp 0.25s ease;
 }
 
 .navbar-mobile-item {

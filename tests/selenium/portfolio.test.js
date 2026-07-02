@@ -133,7 +133,7 @@ async function testPortfolioWebsite() {
     // Test 7: Social links functionality
     testsTotal++;
     try {
-      const socialLinks = await driver.findElements(By.className('social-link'));
+      const socialLinks = await driver.findElements(By.className('hero-social-link'));
       if (socialLinks.length > 0) {
         // Check if links have proper href attributes
         let validLinks = 0;

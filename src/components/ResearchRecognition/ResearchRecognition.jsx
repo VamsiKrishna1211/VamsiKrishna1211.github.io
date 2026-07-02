@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import publicationsData from '../../data/publications.json';
 import patentsData from '../../data/patents.json';
 import achievementsData from '../../data/achievements.json';
+import certificationsData from '../../data/certifications.json';
+import { useInView } from '../../hooks/useInView';
 import './ResearchRecognition.css';
 
 const ResearchRecognition = () => {
+  const containerRef = useInView();
   const [activeTab, setActiveTab] = useState('publications');
+  const tabRefs = useRef({});
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+
+  useLayoutEffect(() => {
+    const updateIndicator = () => {
+      const activeEl = tabRefs.current[activeTab];
+      if (activeEl) {
+        setIndicatorStyle({ left: activeEl.offsetLeft, width: activeEl.offsetWidth });
+      }
+    };
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [activeTab]);
 
   const tabs = [
     { id: 'publications', label: 'publications', count: publicationsData.length },
     { id: 'patents', label: 'patents', count: patentsData.length },
     { id: 'achievements', label: 'achievements', count: achievementsData.length },
+    { id: 'certifications', label: 'certifications', count: certificationsData.length },
   ];
 
   const renderPublications = () => (
@@ -72,16 +90,52 @@ const ResearchRecognition = () => {
     </div>
   );
 
+  const renderCertifications = () => (
+    <div className="research-list">
+      {certificationsData.map((cert) => (
+        <div key={cert.id} className="research-item card">
+          <div className="achievement-top">
+            <span className="achievement-icon">{cert.icon}</span>
+            <div>
+              <h4>{cert.title}</h4>
+              <p className="research-meta">
+                {cert.issuer} — <span className="code-number">{cert.issueDate}</span>
+              </p>
+            </div>
+          </div>
+          <p className="research-desc">{cert.description}</p>
+          {cert.skills && (
+            <div className="research-tags">
+              {cert.skills.map((skill, i) => (
+                <span key={i} className="tag">{skill}</span>
+              ))}
+            </div>
+          )}
+          {cert.url && (
+            <a href={cert.url} target="_blank" rel="noopener noreferrer" className="research-credential-link">
+              view credential
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+
   return (
-    <section className="research section">
+    <section ref={containerRef} className="research section">
       <div className="container">
-        <span className="section-label">research & recognition</span>
+        <h2 className="section-label">research & recognition</h2>
 
         {/* Tab Navigation */}
-        <div className="research-tabs">
+        <div className="research-tabs fade-in-up" role="tablist" aria-label="Research and recognition categories">
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              ref={(el) => { tabRefs.current[tab.id] = el; }}
+              role="tab"
+              id={`research-tab-${tab.id}`}
+              aria-selected={activeTab === tab.id}
+              aria-controls="research-panel"
               className={`research-tab ${activeTab === tab.id ? 'active' : ''}`}
               onClick={() => setActiveTab(tab.id)}
             >
@@ -89,13 +143,24 @@ const ResearchRecognition = () => {
               <span className="tab-count">{tab.count}</span>
             </button>
           ))}
+          <span
+            className="research-tab-indicator"
+            style={{ transform: `translateX(${indicatorStyle.left}px)`, width: `${indicatorStyle.width}px` }}
+          />
         </div>
 
         {/* Tab Content — key causes remount → CSS animation fires fresh */}
-        <div key={activeTab} className="research-content">
+        <div
+          key={activeTab}
+          className="research-content"
+          role="tabpanel"
+          id="research-panel"
+          aria-labelledby={`research-tab-${activeTab}`}
+        >
           {activeTab === 'publications' && renderPublications()}
           {activeTab === 'patents' && renderPatents()}
           {activeTab === 'achievements' && renderAchievements()}
+          {activeTab === 'certifications' && renderCertifications()}
         </div>
       </div>
     </section>

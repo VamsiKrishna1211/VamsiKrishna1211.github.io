@@ -62,6 +62,18 @@
   /* Transitions */
   --transition-fast: 0.15s ease;
     --transition-normal: 0.25s ease;
+
+    /* Elevation (neutral) */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    /* Accent glows (colored, matching the syntax palette) */
+    --shadow-glow-cyan: 0 0 0 1px rgba(86, 182, 194, 0.35), 0 0 24px rgba(86, 182, 194, 0.18);
+    --shadow-glow-amber: 0 0 0 1px rgba(229, 192, 123, 0.35), 0 0 24px rgba(229, 192, 123, 0.18);
+    --shadow-glow-green: 0 0 0 1px rgba(152, 195, 121, 0.35), 0 0 24px rgba(152, 195, 121, 0.18);
+    --shadow-glow-purple: 0 0 0 1px rgba(198, 120, 221, 0.35), 0 0 24px rgba(198, 120, 221, 0.18);
+    --shadow-glow-red: 0 0 0 1px rgba(224, 108, 117, 0.35), 0 0 24px rgba(224, 108, 117, 0.18);
+
     /* Z-index */
   --z-background: -1;
   --z-normal: 0;
@@ -161,7 +173,7 @@ a:hover {
   font-size: 1.3rem;
   font-weight: 600;
   font-style: normal;
-  margin-bottom: var(--space-xl);
+  margin: 0 0 var(--space-xl);
   display: inline-block;
   padding-bottom: var(--space-sm);
   border-bottom: 2px solid var(--border);
@@ -194,12 +206,14 @@ a:hover {
   border: 1px solid var(--border);
     border-radius: var(--radius-md);
   padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
   transition: var(--transition-normal);
   position: relative;
 }
 
 .card:hover {
   border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow-cyan);
 }
 
 /* ── Buttons ────────────────────────────────────── */
@@ -214,20 +228,23 @@ a:hover {
     font-family: var(--font-mono);
     font-size: 0.85rem;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
   background: transparent;
     color: var(--text-secondary);
   }
-  
+
   .btn:hover {
     border-color: var(--cyan);
     color: var(--cyan);
+    box-shadow: var(--shadow-glow-cyan);
 }
 
 .btn-primary {
   background: var(--cyan);
   color: var(--text-inverse);
   border-color: var(--cyan);
+  box-shadow: none;
 }
 
 .btn-primary:hover {
@@ -235,6 +252,7 @@ a:hover {
     border-color: var(--blue);
     color: var(--text-inverse);
     text-decoration: none;
+    box-shadow: var(--shadow-glow-cyan);
 }
 
 /* ── Tags ───────────────────────────────────────── */
@@ -248,6 +266,44 @@ a:hover {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--green);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Reticle (signature detection motif) ─────────── */
+/* Dashed corner-bracket frame + confidence label, evoking an
+   object-detection bounding box. Used sparingly — hero photo
+   and featured project cards only. */
+.reticle {
+  position: relative;
+}
+
+.reticle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%2356b6c2' stroke-width='1.4' stroke-dasharray='4 3' stroke-linecap='round'%3E%3Cpath d='M3,16 L3,3 L16,3'/%3E%3Cpath d='M84,3 L97,3 L97,16'/%3E%3Cpath d='M97,84 L97,97 L84,97'/%3E%3Cpath d='M16,97 L3,97 L3,84'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: var(--transition-normal);
+}
+
+.reticle::after {
+  content: 'vamsi.detect() \2192 0.98';
+  position: absolute;
+  left: 6px;
+  bottom: -10px;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2px;
+  color: var(--cyan);
+  background: var(--bg-code);
+  border: 1px solid rgba(86, 182, 194, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  white-space: nowrap;
+  transition: var(--transition-normal);
 }
 
 /* ── Animations ─────────────────────────────────── */
@@ -267,6 +323,21 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* Scroll-triggered fade-in system */
 .fade-in {
   opacity: 0;
@@ -274,8 +345,36 @@ a:hover {
   animation-delay: var(--fade-delay, 0s);
   animation-play-state: paused;
 }
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: var(--fade-delay, 0s);
+  animation-play-state: paused;
+}
+
+.fade-in-left {
+  opacity: 0;
+  animation: fadeInLeft 0.5s ease forwards;
+  animation-delay: var(--fade-delay, 0s);
+  animation-play-state: paused;
+}
+
+.fade-in-scale {
+  opacity: 0;
+  animation: fadeInScale 0.5s ease forwards;
+  animation-delay: var(--fade-delay, 0s);
+  animation-play-state: paused;
+}
+
 .in-view .fade-in,
-.in-view.fade-in {
+.in-view.fade-in,
+.in-view .fade-in-up,
+.in-view.fade-in-up,
+.in-view .fade-in-left,
+.in-view.fade-in-left,
+.in-view .fade-in-scale,
+.in-view.fade-in-scale {
   animation-play-state: running;
 }
 
@@ -317,12 +416,43 @@ a:hover {
 }
 
 /* ── Focus ──────────────────────────────────────── */
-*:focus {
+*:focus-visible {
   outline: 1px solid var(--cyan);
   outline-offset: 2px;
 }
 
+/* ── Skip Link ──────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-lg);
+  z-index: 9999;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-elevated);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus-visible {
+  top: var(--space-lg);
+}
+
 /* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 880px;
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+}
 
 @media (max-width: 768px) {
   html {
@@ -348,6 +478,13 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Pause decorative infinite animations while the tab isn't visible */
+body.tab-hidden *,
+body.tab-hidden *::before,
+body.tab-hidden *::after {
+  animation-play-state: paused !important;
 }
 
 /* ── Print ──────────────────────────────────────── */
