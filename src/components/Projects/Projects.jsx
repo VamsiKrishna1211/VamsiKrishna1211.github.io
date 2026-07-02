@@ -13,13 +13,13 @@ const Projects = () => {
   return (
     <section ref={containerRef} className="projects section">
       <div className="container">
-        <span className="section-label">projects</span>
+        <h2 className="section-label">projects</h2>
 
         <div className="projects-grid">
           {displayedProjects.map((project, index) => (
             <div
               key={`${project.title}-${index}`}
-              className={`project-card card fade-in ${project.featured ? 'featured' : ''}`}
+              className={`project-card card fade-in-scale ${project.featured ? 'featured reticle' : ''}`}
               style={{ '--fade-delay': `${index * 0.08}s` }}
             >
               {/* Featured badge */}
@@ -67,7 +67,11 @@ const Projects = () => {
 
         {projectsData.length > displayCount && (
           <div className="show-more">
-            <button className="btn" onClick={() => setShowAll(!showAll)}>
+            <button
+              className="btn"
+              aria-expanded={showAll}
+              onClick={() => setShowAll(!showAll)}
+            >
               {showAll ? '$ ls --less' : `$ ls --all (${projectsData.length - displayCount} more)`}
             </button>
           </div>

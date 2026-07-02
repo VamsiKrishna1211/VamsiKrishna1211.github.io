@@ -25,6 +25,13 @@ const ASCII_ROBOT = `
 const Hero = () => {
     const iconMap = { FaGithub, FaLinkedin, FaGoogleScholar, FaEnvelope };
 
+    const socialUrls = {
+        GitHub: personalData.github,
+        LinkedIn: personalData.linkedin,
+        'Google Scholar': personalData.scholar,
+        Email: `mailto:${personalData.email}`,
+    };
+
     const handleAction = (action) => {
         if (action.type === 'scroll') {
             trackButtonClick(`Navigate to ${action.target}`, 'Hero Section');
@@ -48,7 +55,9 @@ const Hero = () => {
         <div className="hero">
             <div className="hero-left">
                 <div className="hero-avatar-wrap">
-                    <img src={profile_img} alt="profile" className="hero-img" />
+                    <div className="hero-img-frame reticle">
+                        <img src={profile_img} alt={personalData.name} className="hero-img" />
+                    </div>
                     <pre className="ascii-robot" aria-hidden="true">{ASCII_ROBOT}</pre>
                 </div>
 
@@ -62,15 +71,16 @@ const Hero = () => {
               <div className="hero-links">
                   {heroData.socialLinks.map((link, index) => {
                       const IconComponent = iconMap[link.icon];
+                      const url = socialUrls[link.platform];
                       return (
                           <a
                               key={index}
-                              href={link.url}
+                              href={url}
                               target="_blank"
                               rel="noopener noreferrer"
                               title={link.platform}
                               className="hero-social-link"
-                              onClick={() => handleSocialClick(link)}
+                              onClick={() => handleSocialClick({ ...link, url })}
                           >
                               <IconComponent size={14} />
                               <span>{link.platform.toLowerCase()}</span>
@@ -81,8 +91,14 @@ const Hero = () => {
           </div>
 
           <div className="hero-right">
+              <h1 className="hero-name">
+                  <span className="code-keyword">const</span> engineer{' '}
+                  <span className="code-keyword">=</span>{' '}
+                  <span className="code-string">&quot;{personalData.name}&quot;</span>;
+              </h1>
+
               {/* Tagline — the hook */}
-              <h2 className="hero-tagline">{heroData.tagline}</h2>
+              <h2 className="hero-tagline">{personalData.tagline}</h2>
 
               <div className="hero-terminal">
                   <div className="terminal-header">

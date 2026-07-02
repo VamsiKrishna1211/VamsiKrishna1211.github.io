@@ -38,13 +38,22 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      document.body.classList.toggle('tab-hidden', document.hidden);
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
+
   return (
     <div className="App">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Suspense fallback={<LoadingSpinner />}>
         <BackgroundAnimation />
         <Navbar />
 
-        <main>
+        <main id="main-content">
           <section ref={heroRef} id="home">
             <Hero />
           </section>

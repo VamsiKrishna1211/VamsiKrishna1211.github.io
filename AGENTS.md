@@ -8,7 +8,7 @@ Guide for AI agents (and humans) working on this codebase. Read this before maki
 
 A minimalist, code-editor-themed personal portfolio for a Robotics & Computer Vision engineer. Deployed at [vamsikrishna1211.github.io](https://vamsikrishna1211.github.io/).
 
-**Stack**: React 18 · Vite 5 · Framer Motion · Vanilla CSS · Google Analytics 4
+**Stack**: React 19 · Vite 8 · Vanilla CSS · Google Analytics 4
 **Theme**: Terminal/code-editor aesthetic — JetBrains Mono font, syntax-highlighting color palette, ASCII art, CLI-style UI elements
 **Deployment**: GitHub Pages via GitHub Actions (push to `main` triggers deploy)
 
@@ -27,7 +27,7 @@ A minimalist, code-editor-themed personal portfolio for a Robotics & Computer Vi
 | `npm run test:selenium` | Run Mocha-based Selenium suite (requires running dev server) |
 | `npm run test:dev` | Start dev server + run Selenium tests concurrently |
 
-**Always run `npm run lint` before committing.** The config is at `.eslintrc.cjs` with `--max-warnings 0`.
+**Always run `npm run lint` before committing.** The config is at `eslint.config.js` (flat config, ESLint 9) with `--max-warnings 0`.
 
 ---
 
@@ -35,66 +35,57 @@ A minimalist, code-editor-themed personal portfolio for a Robotics & Computer Vi
 
 ```
 ├── index.html              # Entry HTML — SEO meta, Open Graph, JSON-LD, Google Analytics, font imports
-├── vite.config.js          # Vite config — manual chunks for vendor/three/animations
-├── .eslintrc.cjs           # ESLint — React 18, hooks, refresh plugins
+├── vite.config.js          # Vite config — manual chunk for vendor (React/React-DOM)
+├── eslint.config.js        # ESLint flat config (ESLint 9) — React 19, hooks, refresh plugins
 ├── .env                    # VITE_GA_MEASUREMENT_ID (gitignored)
 ├── .env.example            # Empty — should document VITE_GA_MEASUREMENT_ID
-├── plugins/
-│   └── html-env-replace.js # Empty/vestigial — unused
 ├── public/
 │   ├── .nojekyll           # Prevents GitHub Pages Jekyll processing
+│   ├── favicon.svg
+│   ├── og-image.jpg
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
 │   ├── main.jsx            # ReactDOM.createRoot entry point
 │   ├── App.jsx             # Root component — lazy loads all sections, analytics init
-│   ├── App.css             # ⚠ LEGACY — leftover Vite boilerplate, not actively used
-│   ├── index.css           # ⚠ LEGACY — leftover Vite boilerplate, conflicts with globals.css
-│   ├── assets/             # Profile image, resume PDFs, SVGs
+│   ├── assets/             # Profile image, resume PDFs
 │   ├── components/         # React components (each folder = .jsx + .css)
 │   │   ├── About/              # Code-block bio with line numbers
-│   │   ├── Achievements/       # ⚠ ORPHANED — rendered inside ResearchRecognition, not in App.jsx
 │   │   ├── Background/         # CSS-only dot grid + scan line (no Three.js)
-│   │   ├── Certifications/     # Certification cards
-│   │   ├── Contact/            # mailto:-based form, analytics tracking
+│   │   ├── Contact/            # Web3Forms-based form, analytics tracking
 │   │   ├── CookieBanner/       # GA4 consent management (localStorage)
-│   │   ├── Education/          # Degree cards with coursework tags
-│   │   ├── Experience/         # Timeline with left-border pseudo-element
-│   │   ├── Extras/             # Additional content
-│   │   ├── Favicon/            # ⚠ DEAD — hidden div, does nothing
+│   │   ├── Education/          # Degree cards with coursework tags, real timeline spine
+│   │   ├── Experience/         # Timeline with left-border pseudo-element + spine
 │   │   ├── Footer/             # Code-comment themed footer
-│   │   ├── Hero/               # Terminal/CLI intro, ASCII robot, icon mapping
+│   │   ├── Hero/               # Terminal/CLI intro, ASCII robot, icon mapping, reticle-framed photo
 │   │   ├── Loading/            # Terminal-themed Suspense fallback
 │   │   ├── Navbar/             # Hash-based routing, scroll detection, hamburger menu
-│   │   ├── Particles/          # Particle effects
-│   │   ├── Patents/            # ⚠ ORPHANED — rendered inside ResearchRecognition, not in App.jsx
-│   │   ├── Projects/           # Show-more toggle, featured badges
-│   │   ├── Publications/       # ⚠ ORPHANED — rendered inside ResearchRecognition, not in App.jsx
-│   │   ├── ResearchRecognition/ # Tabbed UI: publications + patents + achievements
-│   │   ├── SectionDivider/     # Section separators
-│   │   └── Skills/             # Category grid with emoji icons
+│   │   ├── Projects/           # Show-more toggle, featured badges, reticle motif
+│   │   ├── ResearchRecognition/ # Tabbed UI: publications + patents + achievements + certifications
+│   │   └── Skills/             # Category grid with icon-per-category
 │   ├── data/               # ← ALL CONTENT LIVES HERE (JSON-driven)
-│   │   ├── personal.json       # Name, bio, stats, focus, contact info, avatar, resume path
-│   │   ├── hero.json           # Profile, social links, tagline, paragraphs, passions, actions
+│   │   ├── personal.json       # Single source of truth: name, contact info, socials, resume, tagline, stats, focus
+│   │   ├── hero.json           # Hero-only display config: social icon order, intro paragraphs, passions, actions
+│   │   ├── sections.js         # Single source of truth for section id/label pairs (used by Navbar)
 │   │   ├── experience.json     # Work entries with achievements, technologies, headline metrics
 │   │   ├── projects.json       # Project cards with tech stacks, links, featured flags
-│   │   ├── skills.json         # Skill categories with emoji icons and tag arrays
+│   │   ├── skills.json         # Skill categories and tag arrays
 │   │   ├── education.json      # Degrees, GPA, coursework, status
 │   │   ├── publications.json   # Papers with authors, journal, DOI, keywords, citations
 │   │   ├── patents.json        # Patents with status, filing/grant dates, inventors, claims
 │   │   ├── achievements.json   # Awards, organizations, year, type, icon
-│   │   └── certifications.json # Issuer, dates, credential ID, skills, URL
+│   │   └── certifications.json # Issuer, dates, credential ID, skills, URL — rendered in ResearchRecognition
 │   ├── hooks/
 │   │   ├── useAnalyticsTracking.js  # Intersection Observer → GA section view events
 │   │   ├── useHashRouting.js        # Hash-based deep linking with retry polling
-│   │   └── useScrollAnimation.js    # ⚠ DEAD — exports variants used by nothing
+│   │   └── useInView.js             # IntersectionObserver → `.in-view` class, drives all scroll-reveal
 │   ├── styles/
 │   │   └── globals.css        # THE design system — CSS variables, base styles, utilities
 │   └── utils/
 │       └── analytics.js       # GA4 wrapper (initGA, trackPageView, trackEvent, etc.)
 └── tests/
     └── selenium/              # E2E tests (Selenium + Mocha + ChromeDriver)
-        ├── portfolio-comprehensive.test.cjs  # Main test suite
+        ├── portfolio-comprehensive.test.cjs  # Main test suite (canonical — referenced by package.json)
         ├── portfolio.test.js                 # Basic standalone tests
         ├── simple-test.cjs                   # Single page load test
         ├── debug-test.cjs                    # Non-headless debug test
@@ -120,21 +111,23 @@ src/data/*.json ──direct import──> Component.jsx ──render──> JSX
 
 | JSON File | Component(s) That Import It | Notes |
 |-----------|---------------------------|-------|
-| `personal.json` | About, Contact, Footer, Hero | Shared across 4 components — overlaps with hero.json |
-| `hero.json` | Hero | Contains profile, social links (duplicated in personal.json) |
+| `personal.json` | About, Contact, Footer, Hero | Single source of truth for identity/contact fields |
+| `hero.json` | Hero | Hero-only display config (social icon order, intro copy, actions) — no longer duplicates personal.json |
+| `sections.js` | Navbar | Single source of truth for section id/label pairs |
 | `experience.json` | Experience | — |
 | `projects.json` | Projects | — |
 | `skills.json` | Skills | — |
 | `education.json` | Education | — |
-| `publications.json` | Publications (orphaned), ResearchRecognition (active) | Dual import path |
-| `patents.json` | Patents (orphaned), ResearchRecognition (active) | Dual import path |
-| `achievements.json` | Achievements (orphaned), ResearchRecognition (active) | Dual import path |
-| `certifications.json` | Certifications | — |
+| `publications.json` | ResearchRecognition | — |
+| `patents.json` | ResearchRecognition | — |
+| `achievements.json` | ResearchRecognition | — |
+| `certifications.json` | ResearchRecognition | — |
 
 ### App Assembly (App.jsx)
 
 - All section components are **lazy-loaded** via `React.lazy()` + `Suspense`
-- Each section is wrapped in `<motion.section>` with an `id` for hash routing
+- Each section is wrapped in a plain `<section>` with an `id` for hash routing (no Framer Motion — removed as an unused dependency; see Animation Pattern below)
+- A `.skip-link` anchors to `<main id="main-content">` for keyboard users
 - `useHashRouting()` handles deep links
 - `useAnalyticsTracking()` tracks section views via Intersection Observer
 - GA4 is initialized only if `VITE_GA_MEASUREMENT_ID` env var is set and non-default
@@ -147,29 +140,28 @@ src/data/*.json ──direct import──> Component.jsx ──render──> JSX
 ### Component Pattern
 
 ```jsx
-import { motion } from 'framer-motion';
 import dataFile from '../../data/something.json';
+import { useInView } from '../../hooks/useInView';
 import './ComponentName.css';
 
 const ComponentName = () => {
+  const containerRef = useInView();
   // Minimal state (useState only when needed, e.g., showAll toggle, form data)
   // No props — components are self-contained, reading their own JSON data
 
   return (
-    <section className="component-name" id="section-id">
+    <section ref={containerRef} className="component-name section" id="section-id">
       <div className="container">
-        <span className="section-label">Display Name</span>
+        <h2 className="section-label">Display Name</h2>
         {/* Content rendered from JSON */}
         {dataFile.map((item, index) => (
-          <motion.div
+          <div
             key={item.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
+            className="card fade-in-up"
+            style={{ '--fade-delay': `${index * 0.1}s` }}
           >
             {/* Card content */}
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
@@ -228,29 +220,18 @@ export default ComponentName;
 
 ### Animation Pattern
 
-**Use inline framer-motion props** — this is the established pattern:
+**Hand-rolled CSS + IntersectionObserver** — this is the established pattern (no animation library; Framer Motion was removed as an unused dependency):
 
-```jsx
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: index * 0.1 }}
-  viewport={{ once: true }}
->
-```
+- Call `const containerRef = useInView()` (from `src/hooks/useInView.js`) and attach it to the section's `ref`. On first intersection it adds a one-shot `.in-view` class to that element and disconnects.
+- Child elements get one of `.fade-in`, `.fade-in-up`, `.fade-in-left`, `.fade-in-scale` — each starts `opacity: 0` with `animation-play-state: paused` and only runs once an ancestor has `.in-view` (see `globals.css`).
+- Stagger via the `--fade-delay` CSS custom property, e.g. `style={{ '--fade-delay': `${index * 0.1}s` }}`.
+- Variant choice by section: About/Skills/Contact/ResearchRecognition tabs → `fade-in-up`; Experience/Education cards → `fade-in-left` (slides in from the timeline spine); Projects → `fade-in-scale`.
 
-**Do NOT use** `useScrollAnimation.js` — it exports `fadeInUp`, `staggerContainer`, etc. but **no component uses them**. They are dead code.
-
-**Common stagger delays:** `index * 0.05` (Skills), `index * 0.08` (Projects), `index * 0.1` (Education, Experience), `index * 0.2` (Achievements, Certifications)
+**Common stagger delays:** `index * 0.05` (Skills), `index * 0.08` (Projects), `index * 0.1` (Education, Experience)
 
 ### Section Labeling
 
-Two competing patterns exist in the codebase. **Use `.section-label` for new components** — it's the more common and more on-theme pattern:
-
-| Pattern | CSS | Used By |
-|---------|-----|---------|
-| `.section-label` | `// Section Name` via `::before` pseudo-element | About, Education, Skills, Projects, ResearchRecognition |
-| `.section-header` + `.section-title` + `.text-gradient` | Heading-style | Achievements, Certifications, Publications, Patents (all orphaned) |
+**`.section-label` is the only pattern** — a real `<h2 className="section-label">` (not a `<span>`) so it's a real heading landmark for screen readers, styled as `// Section Name` via a `::before` pseudo-element. Used by About, Experience, Projects, Skills, Education, Contact, ResearchRecognition. The hero name uses a dedicated `<h1 className="hero-name">` (the only `<h1>` on the page); the hero tagline stays an `<h2 className="hero-tagline">`.
 
 ### Code-Theme Utility Classes
 
@@ -296,12 +277,11 @@ import { FaGoogleScholar } from 'react-icons/fa6'; // FA6 for scholar icon
 
 1. Create `src/data/newsection.json` with your data
 2. Create `src/components/NewSection/NewSection.jsx` + `NewSection.css`
-3. Follow the component pattern (functional, self-serve JSON import, framer-motion whileInView)
+3. Follow the component pattern (functional, self-serve JSON import, `useInView` + `.fade-in-*` scroll-reveal)
 4. Add lazy import in `App.jsx`: `const NewSection = lazy(() => import('./components/NewSection/NewSection'));`
-5. Add `<motion.section>` wrapper in `App.jsx` with `id`, `ref` for analytics, and `fadeIn` spread
+5. Add a `<section>` wrapper in `App.jsx` with `id` and `ref` for analytics
 6. Add `useAnalyticsTracking('New Section')` call in App.jsx
-7. Update `Navbar.jsx` nav items array (currently hardcoded)
-8. Update section IDs in `useHashRouting.js` if needed
+7. Add the section to `src/data/sections.js` (single source of truth for Navbar's nav items and scroll-spy)
 
 ### Modifying Existing Content
 
@@ -332,86 +312,34 @@ Set in `.env` (gitignored). The `index.html` has a hardcoded fallback ID (`G-2PJ
 
 ## Anti-Patterns & Gotchas
 
-### Critical — Orphaned Components
-
-Three standalone components exist but are **not rendered in App.jsx** — ResearchRecognition handles all three via tabs:
-
-| Orphaned Component | Active Replacement |
-|-------------------|-------------------|
-| `Publications/Publications.jsx` | `ResearchRecognition` (publications tab) |
-| `Patents/Patents.jsx` | `ResearchRecognition` (patents tab) |
-| `Achievements/Achievements.jsx` | `ResearchRecognition` (achievements tab) |
-
-**Action needed**: Delete these three component folders and their CSS. They create dual-import paths for the same JSON data.
-
 ### Dead Code
 
 | File | Issue |
 |------|-------|
-| `src/hooks/useScrollAnimation.js` | Exports 6 animation variants — none used by any component |
-| `src/components/Favicon/Favicon.jsx` | Hidden `<div>` that does nothing; does not actually set a favicon |
-| `src/App.css` | Legacy Vite boilerplate; `.card` class conflicts with `globals.css` `.card` |
-| `src/index.css` | Legacy Vite boilerplate; sets `font-family: "Outfit"` which conflicts with `globals.css` JetBrains Mono |
-| `plugins/html-env-replace.js` | Empty file — vestigial Vite plugin |
 | `.env.example` | Empty — should contain `VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX` |
-| `ResearchRecognition.jsx` | Imports `FaExternalLinkAlt` but never uses it |
 
-### Lint Issues (pre-existing, 97 errors + 1 warning)
+Resolved in a past cleanup pass (kept here as history, not action items): `useScrollAnimation.js`, `App.css`, `index.css`, `plugins/html-env-replace.js`, the orphaned `Publications`/`Patents`/`Achievements`/`Certifications` standalone components, and the unused `framer-motion`/`three`/`@react-three/*`/`emailjs-com`/`react-scroll`/`react-anchor-link-smooth-scroll`/`react-intersection-observer` dependencies were all deleted/removed.
+
+### Lint Issues (pre-existing, 20 errors, 0 warnings)
 
 These are known lint violations in the codebase that have not been addressed:
 
-- **Unused `React` imports** — Every component imports `React` at the top, but with React 17+ JSX transform this is unnecessary. Affects: App.jsx, About, Achievements, Background, Certifications, Contact, Education, Experience, Favicon, Footer, Hero, Loading, Navbar, Patents, Projects, Publications, ResearchRecognition, Skills (18 files)
-- **`FaExternalLinkAlt` unused import** — `ResearchRecognition.jsx:3`
+- **Unused `React` imports** — Every component imports `React` at the top, but with React 17+ JSX transform this is unnecessary. Affects: App.jsx, About, Background, Contact, Education, Experience, Footer, Hero, Loading, Navbar, Projects, ResearchRecognition, Skills (13 files)
 - **`process` not defined** — `src/utils/analytics.js:7` references `process.env.NODE_ENV` without proper config
-- **Unescaped entities in JSX** — `About.jsx:44` has unescaped `"` characters
-- **Comment inside children** — `About.jsx:48`, `CookieBanner.jsx:23` have `//` comments as text nodes
-- **Missing useEffect dependency** — `Navbar.jsx:63` — `navItems` not in dependency array
+- **Unescaped entities in JSX** — `About.jsx:34` has unescaped `"` characters
+- **Comment inside children** — `About.jsx:38`, `CookieBanner.jsx:23` have `//` comments as text nodes
 - **Empty block statement** — `CookieBanner.jsx:11` — empty `catch(e) {}`
+- **Unused import** — `tests/selenium/portfolio.test.js:1` — `Key` imported but never used
 - **Test files** — Selenium test files use CJS `require`/`module`/`process` which ESLint doesn't recognize (ESM config); these should be excluded via `.eslintignore`
-
-### Stale Test Suite
-
-The Selenium tests reference CSS classes and DOM structures that **do not match** the actual components:
-
-| Test Looks For | Actual Implementation |
-|---------------|----------------------|
-| `.hero-title` | `.hero-tagline` |
-| `.typing-text` | Does not exist |
-| `.hero-stats` / `.stat` | `.stats-bar` / `.stat-block` |
-| `.hero-buttons` | `.hero-actions` |
-| `.hero-social` / `.social-link` | `.hero-links` / `.hero-social-link` |
-| `.profile-image` | `.hero-img` |
-| `.experience-card` | `.exp-card` |
-| `.skill-category` / `.skill-tag` | `.skill-card` / `.tag` |
-| `.contact-details` | `.contact-info` |
-| Three.js `<canvas>` | BackgroundAnimation uses CSS only (no canvas) |
-| `<h1>` elements | No component renders `<h1>`; sections use `<h2>` or `.section-label` |
-
-**Before relying on tests, fix the selectors.** The tests will mostly fail against the current code.
-
-### Data Duplication
-
-`personal.json` and `hero.json` overlap significantly:
-
-| Field | In personal.json | In hero.json |
-|-------|-----------------|-------------|
-| Name/title/tagline | ✓ | ✓ |
-| Social links | ✓ | ✓ |
-| Resume path | ✓ | ✓ |
-| Profile image | ✓ | ✓ |
-| Bio | ✓ | ✗ |
-
-**Preferred**: Use `personal.json` as the single source for personal info. `hero.json` should reference or deduplicate. Currently, changing your name requires editing two files.
 
 ### Other Gotchas
 
 - **`dangerouslySetInnerHTML`** in Hero.jsx — used for rendering HTML-styled paragraphs from hero.json. Sanitize if ever accepting external input.
 - **No TypeScript** — the codebase is plain JSX. A `feature/typescript` branch exists but was never merged.
-- **Global CSS collisions** — `App.css` defines `.card` with `padding: 2em` which conflicts with `globals.css` `.card` with `padding: var(--space-xl)`. Since App.css is imported but not actively used, this is latent.
-- **Hardcoded nav items** in `Navbar.jsx` — not driven by a config or JSON. Adding a section requires manually updating the nav items array.
-- **Hero icon mapping** — Hero.jsx maps string icon names from hero.json to actual React icon components via an `iconMap` object. Adding a new social icon requires adding the icon to both `iconMap` and `react-icons` import.
+- **Hero icon mapping** — Hero.jsx maps string icon names from hero.json to actual React icon components via an `iconMap` object; social link URLs resolve from `personalData` via a `socialUrls` lookup keyed by platform name. Adding a new social icon requires adding it to `iconMap`, `socialUrls`, and the `react-icons` import.
 - **Cookie consent** in `index.html` is hardcoded to check `localStorage` before React loads (for GA consent mode v2). The CookieBanner component updates the same `localStorage` key.
 - **Single Suspense boundary** — all lazy components share one `Suspense` wrapper. A failure in any component will show LoadingSpinner for the entire page.
+- **`certifications.json`** has no entries with a `url` (credential link) field set yet — `ResearchRecognition.jsx`'s certifications tab renders one conditionally if added later.
 
 ---
 
@@ -453,11 +381,8 @@ Mixed — no strict convention. Examples from history:
 
 **Code splitting** (vite.config.js):
 
-- `vendor` chunk: React + React-DOM
-- `three` chunk: Three.js + @react-three/fiber + @react-three/drei (bundled but BackgroundAnimation uses CSS, not Three.js)
-- `animations` chunk: Framer Motion
-
-**The Three.js chunk is ~808KB** but the BackgroundAnimation component doesn't use it. This is dead weight in the production bundle — the Three.js dependencies could potentially be removed if no other component uses them.
+- `vendor` chunk: React + React-DOM — the only manual chunk configured.
+- No Three.js, Framer Motion, or other animation library is in the dependency graph — `package.json` only lists `react`, `react-dom`, `react-ga4`, and `react-icons` as runtime dependencies. `BackgroundAnimation` is CSS-only (dot grid + scan line, no canvas).
 
 ---
 
@@ -476,13 +401,15 @@ Mixed — no strict convention. Examples from history:
 | `#research` | ResearchRecognition |
 | `#contact` | Contact |
 
-### Responsive Breakpoint
+### Responsive Breakpoints
 
-Single breakpoint: **768px** — used across all components. Mobile is `< 768px`, desktop is `≥ 768px`.
+Two breakpoints: **768px** (mobile, used across all components) and **1024px** (tablet — intermediate rules on `.about-grid`, `.contact-grid`, and `.hero` layout only, in About.css/Contact.css/Hero.css).
 
 ### Accessibility
 
 - `prefers-reduced-motion` is respected in `globals.css` (kills all animations/transitions)
-- Focus styles: `outline: 1px solid var(--cyan); outline-offset: 2px;` on all elements
+- Focus styles use `:focus-visible` (not `:focus`) so the cyan ring only shows for keyboard navigation: `outline: 1px solid var(--cyan); outline-offset: 2px;`
+- A `.skip-link` (first element in `App.jsx`) jumps to `#main-content` on keyboard focus
+- Exactly one `<h1>` on the page — `.hero-name` in Hero.jsx. Every section has a real `<h2 className="section-label">` heading (not a `<span>`)
+- ResearchRecognition tabs use `role="tablist"`/`role="tab"`/`aria-selected`/`aria-controls`/`role="tabpanel"`; Projects' show-more button has `aria-expanded`
 - Print styles exist in `globals.css`
-- No ARIA labels on interactive elements (improvement opportunity)

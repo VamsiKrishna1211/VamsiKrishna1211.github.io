@@ -143,34 +143,26 @@ describe('Portfolio Website - Comprehensive Tests', function() {
     it('should display hero section with name and title', async function() {
       const heroSection = await driver.findElement(By.className('hero'));
       assert(heroSection, 'Hero section should be present');
-      
-      const heroTitle = await driver.findElement(By.className('hero-title'));
-      const titleText = await heroTitle.getText();
+
+      const heroName = await driver.findElement(By.className('hero-name'));
+      const titleText = await heroName.getText();
       assert(titleText.includes('Vamsi Krishna'), 'Hero should display the name');
     });
 
-    it('should display typing animation text', async function() {
-      try {
-        const typingText = await driver.findElement(By.className('typing-text'));
-        assert(typingText, 'Typing text element should be present');
-        
-        const text = await typingText.getText();
-        assert(text.length > 0, 'Typing text should not be empty');
-      } catch (error) {
-        console.log('Typing animation might not be immediately available');
-      }
-    });
+    it('should display stats in the About section', async function() {
+      const aboutSection = await driver.wait(until.elementLocated(By.id('about')), TIMEOUT);
+      await driver.executeScript('arguments[0].scrollIntoView(true);', aboutSection);
+      await driver.sleep(500);
 
-    it('should display hero stats', async function() {
-      const heroStats = await driver.findElement(By.className('hero-stats'));
-      assert(heroStats, 'Hero stats section should be present');
-      
-      const stats = await driver.findElements(By.className('stat'));
+      const statsBar = await driver.findElement(By.className('stats-bar'));
+      assert(statsBar, 'Stats bar should be present');
+
+      const stats = await driver.findElements(By.className('stat-block'));
       assert(stats.length >= 2, 'Should have at least 2 stat items');
     });
 
     it('should display action buttons', async function() {
-      const heroButtons = await driver.findElement(By.className('hero-buttons'));
+      const heroButtons = await driver.findElement(By.className('hero-actions'));
       assert(heroButtons, 'Hero buttons section should be present');
       
       // Check for download resume button
@@ -183,16 +175,16 @@ describe('Portfolio Website - Comprehensive Tests', function() {
     });
 
     it('should display social links', async function() {
-      const socialSection = await driver.findElement(By.className('hero-social'));
+      const socialSection = await driver.findElement(By.className('hero-links'));
       assert(socialSection, 'Social links section should be present');
-      
-      const socialLinks = await driver.findElements(By.className('social-link'));
+
+      const socialLinks = await driver.findElements(By.className('hero-social-link'));
       assert(socialLinks.length >= 2, 'Should have at least 2 social links');
     });
 
     it('should display profile image', async function() {
       try {
-        const profileImage = await driver.findElement(By.className('profile-image'));
+        const profileImage = await driver.findElement(By.className('hero-img'));
         assert(profileImage, 'Profile image should be present');
         
         const src = await profileImage.getAttribute('src');
@@ -271,7 +263,7 @@ describe('Portfolio Website - Comprehensive Tests', function() {
       await driver.sleep(1000);
       
       try {
-        const experienceCards = await driver.findElements(By.className('experience-card'));
+        const experienceCards = await driver.findElements(By.className('exp-card'));
         assert(experienceCards.length >= 1, 'Should display at least one experience item');
         
         if (experienceCards.length > 0) {
@@ -309,10 +301,10 @@ describe('Portfolio Website - Comprehensive Tests', function() {
       await driver.sleep(1000);
       
       try {
-        const skillCategories = await driver.findElements(By.className('skill-category'));
+        const skillCategories = await driver.findElements(By.className('skill-card'));
         assert(skillCategories.length >= 1, 'Should display at least one skill category');
-        
-        const skillTags = await driver.findElements(By.className('skill-tag'));
+
+        const skillTags = await driver.findElements(By.className('tag'));
         assert(skillTags.length >= 5, 'Should display at least 5 skill tags');
       } catch (error) {
         console.log('Skills might have different class structure');
@@ -369,11 +361,11 @@ describe('Portfolio Website - Comprehensive Tests', function() {
 
     it('should display contact information', async function() {
       try {
-        const contactDetails = await driver.findElement(By.className('contact-details'));
+        const contactDetails = await driver.findElement(By.className('contact-info'));
         assert(contactDetails, 'Contact details should be present');
-        
+
         const contactText = await contactDetails.getText();
-        assert(contactText.includes('koche156@umn.edu'), 'Should display email address');
+        assert(contactText.includes('vamsikmails@gmail.com'), 'Should display email address');
       } catch (error) {
         console.log('Contact details might have different structure');
       }
@@ -500,7 +492,7 @@ describe('Portfolio Website - Comprehensive Tests', function() {
 
     it('should have working social media links', async function() {
       try {
-        const socialLinks = await driver.findElements(By.className('social-link'));
+        const socialLinks = await driver.findElements(By.className('hero-social-link'));
         
         for (let link of socialLinks) {
           const href = await link.getAttribute('href');
@@ -533,4 +525,4 @@ describe('Portfolio Website - Comprehensive Tests', function() {
 // Helper function to run tests
 console.log('Portfolio Selenium Test Suite');
 console.log('Make sure to start the development server with "npm run dev" before running tests');
-console.log('Run tests with: npm test or node tests/selenium/portfolio-comprehensive.test.js');
+console.log('Run tests with: npm test or npx mocha tests/selenium/portfolio-comprehensive.test.cjs');

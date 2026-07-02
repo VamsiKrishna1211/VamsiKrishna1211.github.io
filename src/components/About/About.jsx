@@ -8,13 +8,13 @@ const About = () => {
   return (
     <section ref={containerRef} className="about section">
       <div className="container">
-        <span className="section-label">about</span>
+        <h2 className="section-label">about</h2>
 
         <div className="stats-bar">
           {personalData.stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="stat-block fade-in"
+              className="stat-block fade-in-up"
               style={{ '--fade-delay': `${i * 0.08}s` }}
             >
               <span className="stat-value">{stat.value}</span>
@@ -24,7 +24,7 @@ const About = () => {
         </div>
 
         <div className="about-grid">
-          <div className="about-bio card fade-in" style={{ '--fade-delay': '0.1s' }}>
+          <div className="about-bio card fade-in-up" style={{ '--fade-delay': '0.1s' }}>
             <div className="code-block">
               <div className="code-line">
                 <span className="line-num">1</span>
@@ -47,7 +47,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="about-focus card fade-in" style={{ '--fade-delay': '0.2s' }}>
+          <div className="about-focus card fade-in-up" style={{ '--fade-delay': '0.2s' }}>
             <h3>
               <span className="code-comment">{'// '}</span>
               current_focus

@@ -1,7 +1,41 @@
 .edu-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  padding-left: 28px;
+}
+
+.edu-list::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+
+.edu-card {
+  position: relative;
+}
+
+.edu-card::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 24px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--cyan);
+  transition: var(--transition-normal);
+  z-index: 1;
+}
+
+.edu-card:hover::after {
+  box-shadow: var(--shadow-glow-cyan);
 }
 
 .edu-top {
@@ -49,6 +83,20 @@
 }
 
 @media (max-width: 768px) {
+  .edu-list {
+    padding-left: 18px;
+  }
+
+  .edu-list::before {
+    left: 5px;
+  }
+
+  .edu-card::after {
+    left: -15px;
+    width: 8px;
+    height: 8px;
+  }
+
   .edu-top {
     flex-direction: column;
   }

@@ -8,14 +8,17 @@ export const useHashRouting = () => {
       const hash = window.location.hash.slice(1);
       if (hash && !isInitialized.current) {
         // Wait for DOM to be fully rendered
+        let attempts = 0;
+        const maxAttempts = 20;
         const checkAndScroll = () => {
           const targetSection = document.getElementById(hash);
           if (targetSection) {
             // Section found, scroll to it
             targetSection.scrollIntoView({ behavior: 'smooth' });
             isInitialized.current = true;
-          } else {
+          } else if (attempts < maxAttempts) {
             // Section not ready yet, try again in 50ms
+            attempts += 1;
             setTimeout(checkAndScroll, 50);
           }
         };

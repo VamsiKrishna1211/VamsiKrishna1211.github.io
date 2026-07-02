@@ -13,7 +13,8 @@
 }
 
 .skill-icon {
-  font-size: 1.1rem;
+  display: inline-flex;
+  color: var(--cyan);
 }
 
 .skill-tags {

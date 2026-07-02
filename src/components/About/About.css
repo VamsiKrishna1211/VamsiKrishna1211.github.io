@@ -12,11 +12,13 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
   transition: var(--transition-normal);
 }
 
 .stat-block:hover {
   border-color: var(--cyan);
+  box-shadow: var(--shadow-glow-cyan);
 }
 
 .stat-value {
@@ -106,13 +108,19 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .stats-bar {
       grid-template-columns: repeat(2, 1fr);
     }
   .about-grid {
     grid-template-columns: 1fr;
-  
+  }
 
     .stat-value {
       font-size: 1.5rem;

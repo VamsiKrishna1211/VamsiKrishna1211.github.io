@@ -14,6 +14,18 @@
 
 .project-card.featured:hover {
   border-color: var(--amber);
+  box-shadow: var(--shadow-glow-amber);
+}
+
+/* Reticle stays quiet until hover — "snapping into focus" */
+.project-card.reticle::before,
+.project-card.reticle::after {
+  opacity: 0;
+}
+
+.project-card.reticle:hover::before,
+.project-card.reticle:hover::after {
+  opacity: 1;
 }
 
 /* Featured badge */

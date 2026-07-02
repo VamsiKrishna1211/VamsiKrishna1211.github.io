@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
 import personalData from '../../data/personal.json';
+import { useInView } from '../../hooks/useInView';
 import { trackFormSubmission, trackButtonClick, trackExternalLink } from '../../utils/analytics';
 import './Contact.css';
 
 const Contact = () => {
+  const containerRef = useInView();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,7 +49,7 @@ const Contact = () => {
       } else {
         throw new Error(result.message || 'Submission failed');
       }
-    } catch (error) {
+    } catch {
       trackFormSubmission('Contact Form', false);
       showNotification('Failed to send message. Please try again.', 'error');
     } finally {
@@ -56,13 +58,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact section">
+    <section ref={containerRef} className="contact section">
       <div className="container">
-        <span className="section-label">contact</span>
+        <h2 className="section-label">contact</h2>
 
         <div className="contact-grid">
           {/* Info Side */}
-          <div className="contact-info">
+          <div className="contact-info fade-in-up">
             <div className="info-block">
               <span className="code-comment">{'// reach out'}</span>
               <div className="info-items">
@@ -105,7 +107,7 @@ const Contact = () => {
           </div>
 
           {/* Form */}
-          <div className="contact-form-wrap card">
+          <div className="contact-form-wrap card fade-in-up" style={{ '--fade-delay': '0.1s' }}>
             <form onSubmit={handleSubmit} className="contact-form">
               <input type="hidden" name="access_key" value="1763a221-b65f-4ab4-a5b5-2e69968ed636" />
               <div className="form-row">

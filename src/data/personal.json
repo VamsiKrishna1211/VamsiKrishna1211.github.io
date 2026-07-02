@@ -8,11 +8,11 @@
   "phone": "+1-763-900-1422",
   "linkedin": "https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/",
   "github": "https://github.com/VamsiKrishna1211",
+  "scholar": "https://scholar.google.com/citations?user=Vm4R7eoAAAAJ&hl=en",
   "portfolio": "https://vamsikrishna1211.github.io",
   "resume": "/src/assets/Robotics-Resume-Mar-2026.pdf",
   "tagline": "I teach robots to see, think, and not crash into things.",
   "bio": "Started with signals and circuits, ended up writing CV models for farm equipment. Spent 5+ years at a startup turning research into production systems — YOLO on Jetson, serverless inference on Kubernetes, models that had to work outdoors in bad lighting. Now at UMN doing robotics research and mostly learning why the things that worked actually worked.",
-  "avatar": "/src/assets/anime_profile_img.jpeg",
   "heroVideo": null,
   "stats": [
     {
@@ -34,7 +34,7 @@
   ],
   "focus": [
     "Visual-Inertial SLAM & autonomous navigation",
-    "Real-time CV on edge GPUs (Jetson, <500ms)",
+    "Real-time CV on edge GPUs",
     "Multimodal perception for robotic manipulation",
     "Scalable inference — Triton, KServe, K8s"
   ]

@@ -1,7 +1,6 @@
 [
   {
     "category": "Hardware & Signals",
-    "icon": "🔌",
     "items": [
       "CUDA", "C++", "Jetson Orin Nano", "Jetson AGX",
       "Raspberry Pi", "Arduino", "Sensor Fusion", "Sensor Integration", "MQTT"
@@ -9,7 +8,6 @@
   },
   {
     "category": "Vision & Intelligence",
-    "icon": "👁️",
     "items": [
       "PyTorch", "TensorFlow", "OpenCV", "TensorRT", "ONNX",
       "Object Detection", "Semantic/Instance Segmentation", "Stereo Vision",
@@ -20,7 +18,6 @@
   },
   {
     "category": "Autonomy & Robotics",
-    "icon": "🤖",
     "items": [
       "ROS/ROS2", "SLAM", "Gaussian Splatting", "Isaac Sim (Omniverse)",
       "Gazebo", "OpenAI Gym", "Ardupilot", "PX4"
@@ -28,7 +25,6 @@
   },
   {
     "category": "Production & Scale",
-    "icon": "🚀",
     "items": [
       "Python", "Golang", "Kubernetes", "KNative", "Docker",
       "KServe", "Triton Inference Server", "AWS", "GCP", "Azure",

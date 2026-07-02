@@ -23,6 +23,12 @@
   align-items: center;
   gap: var(--space-sm);
 }
+
+.hero-img-frame {
+  width: 160px;
+  height: 160px;
+}
+
 .hero-img {
   width: 160px;
     height: 160px;
@@ -132,6 +138,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+}
+
+.hero-name {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
 }
 
 /* Tagline — the hook */
@@ -254,6 +267,16 @@
 
 /* ── Responsive ────────────────────── */
 
+@media (max-width: 1024px) {
+  .hero {
+    gap: var(--space-xl);
+  }
+
+  .hero-left {
+    flex: 0 0 180px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -263,6 +286,11 @@
 
     .hero-left {
     flex: none;
+    }
+
+    .hero-img-frame {
+      width: 120px;
+      height: 120px;
     }
 
     .hero-img {

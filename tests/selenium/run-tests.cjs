@@ -81,7 +81,7 @@ function runSeleniumTests() {
   return new Promise((resolve, reject) => {
     console.log(colors.cyan + '🧪 Running Selenium tests...' + colors.reset);
     
-    const testProcess = exec('npx mocha tests/selenium/portfolio-comprehensive.test.js --timeout 60000', {
+    const testProcess = exec('npx mocha tests/selenium/portfolio-comprehensive.test.cjs --timeout 60000', {
       cwd: path.join(__dirname, '../..')
     });
 
