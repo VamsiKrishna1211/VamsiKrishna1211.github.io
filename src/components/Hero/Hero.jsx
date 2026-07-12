@@ -100,6 +100,13 @@ const Hero = () => {
               {/* Tagline — the hook */}
               <h2 className="hero-tagline">{personalData.tagline}</h2>
 
+              {/* North star — the three pillars this site is centered on */}
+              <div className="hero-pillars" aria-label="Focus areas">
+                  {personalData.pillars.map((pillar) => (
+                      <span key={pillar} className="tag hero-pillar">{pillar}</span>
+                  ))}
+              </div>
+
               <div className="hero-terminal">
                   <div className="terminal-header">
                       <span className="terminal-dot dot-red" />

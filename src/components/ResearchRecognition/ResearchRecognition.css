@@ -75,13 +75,19 @@
 
 .research-venue {
   font-size: 0.85rem;
-  color: var(--purple);
+  color: var(--text-secondary);
+  font-style: italic;
   margin-bottom: var(--space-sm);
 }
 
 .research-desc {
   font-family: var(--font-sans);
   font-size: 0.85rem;
+}
+
+.research-note {
+  font-size: 0.78rem;
+  margin-bottom: var(--space-sm);
 }
 
 .research-credential-link {
@@ -123,15 +129,15 @@
 
 .status-granted {
   color: var(--green);
-  background: rgba(152, 195, 121, 0.1);
-  border: 1px solid rgba(152, 195, 121, 0.2);
+  background: rgba(var(--green-rgb), 0.1);
+  border: 1px solid rgba(var(--green-rgb), 0.2);
 }
 
 .status-provisional,
 .status-filed {
   color: var(--amber);
-  background: rgba(229, 192, 123, 0.1);
-  border: 1px solid rgba(229, 192, 123, 0.2);
+  background: rgba(var(--amber-rgb), 0.1);
+  border: 1px solid rgba(var(--amber-rgb), 0.2);
 }
 
 /* Achievements */

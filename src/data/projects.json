@@ -2,8 +2,8 @@
   {
     "id": 1,
     "title": "RL-based Robotic Manipulation with Koopman Operator",
-    "category": "Robotics & ML",
-    "headline": "30% faster task completion · 40% smoother motion",
+    "category": "Robot Manipulation",
+    "headline": "30% faster task completion via Koopman-linearized arm dynamics",
     "description": "RL-based robotic picking system using Isaac Sim + PPO, with Koopman-based linear models for smoother arm dynamics.",
     "technologies": [
       "Isaac Sim",
@@ -25,9 +25,8 @@
     "status": "Completed",
     "featured": true,
     "highlights": [
-      "30% improvement in task completion time",
-      "25% reduction in collision errors",
-      "40% reduction in erratic movements"
+      "30% faster task completion vs. baseline PPO policy",
+      "25% fewer collision errors — smoother, more predictable trajectories"
     ],
     "learned": [
       "RL pipeline design for robotics",
@@ -39,8 +38,8 @@
   {
     "id": 2,
     "title": "Indoor Mapping with Semantic 3D SLAM",
-    "category": "Robotics & CV",
-    "headline": "95% mapping accuracy · 70% better navigation",
+    "category": "3D Perception",
+    "headline": "95% mapping accuracy in GPS-denied indoor navigation",
     "description": "Semantic 3D SLAM in ROS for TurtleBot 3 autonomous indoor navigation in GPS-denied environments.",
     "technologies": [
       "Isaac Sim",
@@ -65,8 +64,7 @@
     "featured": true,
     "highlights": [
       "95% accuracy in 3D mapping and localization",
-      "70% improvement in navigation efficiency",
-      "Dynamic obstacle avoidance"
+      "Real-time dynamic obstacle avoidance in GPS-denied environments"
     ],
     "learned": [
       "3D point clouds from stereo vision",
@@ -77,7 +75,7 @@
   {
     "id": 3,
     "title": "Autonomous Drone 3D Mapping with Stereo SLAM",
-    "category": "Robotics & CV",
+    "category": "3D Perception",
     "headline": "Custom stereo rig · GPS-denied flight · real-time 3D maps",
     "description": "Custom-built stereo vision system on a drone for real-time 3D mapping and localization without GPS.",
     "technologies": [
@@ -114,7 +112,7 @@
   {
     "id": 4,
     "title": "Image-Based Visual Servoing for Robotic Arm",
-    "category": "CV & Robotics",
+    "category": "Robot Manipulation",
     "headline": "<5ms inference · real-time visual feedback control",
     "description": "Real-time visual feedback control for precise robotic arm manipulation using stereo vision + YOLOv8.",
     "technologies": ["Python", "ROS", "OpenCV", "PyTorch", "Open3D", "TensorRT"],
@@ -169,7 +167,7 @@
   {
     "id": 6,
     "title": "Image Super Resolution — SRGAN",
-    "category": "Deep Learning & CV",
+    "category": "Deep Learning · Computer Vision",
     "headline": "720p → 4K upscaling · 40% less GPU memory",
     "description": "SRGAN for real-time video upscaling from 720p to 4K with heavy memory optimization.",
     "technologies": ["Python", "PyTorch", "OpenCV", "CUDA"],
@@ -196,7 +194,7 @@
   {
     "id": 7,
     "title": "Real-Time Audio Noise Cancellation",
-    "category": "Deep Learning & Signal Processing",
+    "category": "Deep Learning · Signal Processing",
     "headline": "Wave-UNet architecture · MSE ~0.2 · real-time",
     "description": "Deep learning noise cancellation using Wave-UNet with one-cycle learning on Mozilla Common Voice + UrbanSound8k.",
     "technologies": ["Python", "PyTorch", "Torchaudio", "Librosa", "STFT"],
@@ -223,7 +221,7 @@
   {
     "id": 8,
     "title": "Pothole Detection System",
-    "category": "CV & Deep Learning",
+    "category": "Computer Vision · Deep Learning",
     "headline": "mAP > 0.85 @ IoU 0.95 · ResNet50 + RetinaNet",
     "description": "Production-grade pothole detection with advanced augmentation, ResNet50 backbone, and semi-synthetic data generation.",
     "technologies": ["Python", "PyTorch", "Fastai", "OpenCV", "Scikit-Learn", "Albumentations"],

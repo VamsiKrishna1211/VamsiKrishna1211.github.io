@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { sections as navItems } from '../../data/sections';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -90,14 +91,18 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="navbar-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        <div className="navbar-actions">
+          <ThemeToggle />
+
+          {/* Mobile Toggle */}
+          <button
+            className="navbar-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         {isOpen && (

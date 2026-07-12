@@ -1,12 +1,5 @@
 [
   {
-    "category": "Hardware & Signals",
-    "items": [
-      "CUDA", "C++", "Jetson Orin Nano", "Jetson AGX",
-      "Raspberry Pi", "Arduino", "Sensor Fusion", "Sensor Integration", "MQTT"
-    ]
-  },
-  {
     "category": "Vision & Intelligence",
     "items": [
       "PyTorch", "TensorFlow", "OpenCV", "TensorRT", "ONNX",
@@ -24,13 +17,21 @@
     ]
   },
   {
+    "category": "Hardware & Signals",
+    "items": [
+      "CUDA", "C++", "Jetson Orin Nano", "Jetson AGX",
+      "Raspberry Pi", "Arduino", "Sensor Fusion", "Sensor Integration", "MQTT"
+    ]
+  },
+  {
     "category": "Production & Scale",
     "items": [
-      "Python", "Golang", "Kubernetes", "KNative", "Docker",
-      "KServe", "Triton Inference Server", "AWS", "GCP", "Azure",
-      "REST APIs", "gRPC", "Apache Kafka", "Redis", "PostgreSQL",
-      "MongoDB", "Prometheus", "Grafana", "Flask", "FastAPI",
-      "Git", "GitLab CI/CD"
+      "Python", "Kubernetes", "Docker", "KServe", "Triton Inference Server",
+      "Prometheus", "Grafana", "Flask", "Git", "REST APIs"
+    ],
+    "secondary": [
+      "Golang", "KNative", "AWS", "GCP", "Azure", "gRPC",
+      "Apache Kafka", "Redis", "PostgreSQL", "MongoDB", "FastAPI", "GitLab CI/CD"
     ]
   }
 ]

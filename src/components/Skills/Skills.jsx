@@ -38,6 +38,16 @@ const Skills = () => {
                     <span key={i} className="tag">{skill}</span>
                   ))}
                 </div>
+                {category.secondary && (
+                  <div className="skill-secondary">
+                    <span className="skill-secondary-label code-comment">{'// also worked with'}</span>
+                    <div className="skill-tags">
+                      {category.secondary.map((skill, i) => (
+                        <span key={i} className="tag tag-secondary">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}

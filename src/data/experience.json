@@ -8,7 +8,7 @@
     "endDate": "May 2025",
     "duration": "7 months",
     "type": "Research",
-    "headline": "Adding features to Gaussian Splatting for 3D Reconstruction",
+    "headline": "Teaching Gaussian Splats to understand 3D scenes, not just render them",
     "logo": "/src/assets/parallax-logo.png",
     "technologies": [
       "PyTorch",
@@ -20,12 +20,11 @@
       "DINOv2"
     ],
     "achievements": [
-      "Implemented multiple research papers into end-to-end pipelines for novel 3D Reconstruction techniques",
+      "Integrated CLIP language features for fine-grained semantic queries, enabling natural-language search over reconstructed 3D scenes",
+      "Fused CLIP semantics with DINOv2 spatial features for object localization and finer-grained scene understanding — not just geometry",
       "Built a custom Gaussian Splatting pipeline from scratch for high-fidelity 3D scene reconstruction",
-      "Researched City-Scale Gaussian Splatting with a focus on memory-efficient scene representations",
-      "Integrated CLIP language features for fine-grained semantic queries, enabling natural language-based 3D scene search",
-      "Incorporated spatial feature encoding using DINOv2 for enhanced scene understanding and object localization",
-      "Combining the use of CLIP and DINOv2 features for better scene understanding and object localization"
+      "Implemented multiple research papers into end-to-end pipelines for novel 3D reconstruction techniques",
+      "Researched city-scale Gaussian Splatting, focused on memory-efficient scene representations"
     ],
     "description": "Working on 3D Reconstruction using Gaussian Splatting, and adding features to it to make it more user friendly and efficient."
   },
@@ -38,15 +37,15 @@
     "endDate": "Dec 2025",
     "duration": "7 months",
     "type": "Internship",
-    "headline": "30% faster 3D reconstruction · 20% less downtime",
+    "headline": "Estimating material physics from pixels, not sensors",
     "logo": "/src/assets/parallax-logo.png",
     "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
     "achievements": [
-      "Research and implement a Physics Estimation Pipeline (Young's Modulus, Poisson's ratio, Density, Friction) for 3D Reconstructed models, including deformable and rigid objects based on Visual Features & Textures",
-      "Deployed the Physics estimation pipeline with the existing 3D reconstruction pipeline",
-      "Designed and Deployed scalable asynchronous job scheduling platform using Argo Workflows, improving stability and reliability",
-      "Deployed 3D-Reconstruction (Gaussian Splatting) pipeline using dynamic GPU allocation (H100s, A100s, T4s) on Kubernetes, achieving 30% reduction in processing time",
-      "Implemented monitoring and alerting system using Prometheus and Grafana, reducing the failure response time by 40%"
+      "Researched and built a physics-estimation pipeline — inferring Young's Modulus, Poisson's ratio, density, and friction for reconstructed 3D objects (deformable and rigid) from visual features and surface texture alone, no contact sensing",
+      "Deployed the physics-estimation pipeline alongside the existing 3D reconstruction pipeline in production",
+      "Deployed Gaussian Splatting reconstruction on Kubernetes with dynamic GPU allocation (H100s, A100s, T4s), cutting processing time 30%",
+      "Designed and deployed an asynchronous job-scheduling platform on Argo Workflows for pipeline stability and reliability",
+      "Built Prometheus/Grafana monitoring and alerting, cutting failure response time 40%"
     ],
     "description": "Built physics estimation pipelines for 3D models, scaled Gaussian Splatting reconstruction on Kubernetes with GPU acceleration, and built production monitoring systems."
   },
@@ -63,13 +62,12 @@
     "logo": "/src/assets/upjao-logo.png",
     "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
     "achievements": [
-      "Developed novel deep learning models based on Visual Transformers, Faster-RCNN, Mask-RCNN, YOLO — up to 20% accuracy improvement",
-      "Designed serverless inference platform on Kubernetes with NVIDIA Triton, achieving <500ms latency",
-      "Optimized models for edge: 40% less inference time, 20% smaller model size",
-      "Improved inference performance by 50% and reduced infra costs by 60%",
-      "Built model caching that cut scale-up from 15-20 min to 3-4 seconds"
+      "Designed serverless inference platform on Kubernetes with NVIDIA Triton, holding <500ms latency under production load",
+      "Developed detection and segmentation architectures across Vision Transformers, Faster-RCNN, Mask-RCNN, and YOLO, tuned for outdoor field conditions",
+      "Optimized models for Jetson edge deployment, shrinking model size while holding accuracy",
+      "Built model caching that cut cold-start scale-up from 15-20 minutes to 3-4 seconds"
     ],
-    "description": "Led CV team at an agriculture AI startup — custom model architectures, edge deployment on Jetson, distributed inference on Kubernetes. Five years of production constraints will teach you more about robustness than any textbook. Eventually decided to go formalize what was working with a proper robotics degree."
+    "description": "Led CV team at an agriculture AI startup — custom model architectures, edge deployment on Jetson, distributed inference on Kubernetes. Five years of production constraints taught more about robustness than any textbook — the foundation the current robotics research builds on."
   },
   {
     "id": 3,
@@ -80,13 +78,13 @@
     "endDate": "Apr 2023",
     "duration": "1 year 11 months",
     "type": "Full-time",
-    "headline": "Best Team Award · Elite R&D cohort · 20% efficiency gain",
+    "headline": "Best Team Award · Elite R&D cohort",
     "logo": "/src/assets/tcs-logo.png",
     "technologies": ["BERT", "Transformers", "Flask", "React", "Vite", "Python", "NLP"],
     "achievements": [
       "Selected into TCS Rapid Labs Cohort — elite R&D team for AI and Robotics",
       "Shipped multiple NLP proof-of-concepts using BERT & Transformer models",
-      "Built novel algorithm for complex repeated data removal from PDFs, +20% efficiency",
+      "Built an algorithm to strip duplicated/repeated blocks out of large PDF corpora before downstream NLP processing",
       "Awarded Best Team Award in TCS Rapid Labs"
     ],
     "description": "Built NLP solutions in an elite R&D team, won Best Team Award for AI innovation."

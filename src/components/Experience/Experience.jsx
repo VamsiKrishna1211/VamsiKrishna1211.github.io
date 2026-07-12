@@ -10,6 +10,8 @@ const Experience = () => {
       <div className="container">
         <h2 className="section-label">experience</h2>
 
+        <p className="exp-trajectory-label">trajectory — keyframes, most recent first</p>
+
         <div className="exp-timeline">
           {experienceData.map((exp, index) => (
             <div
@@ -17,6 +19,10 @@ const Experience = () => {
               className="exp-card card fade-in-left"
               style={{ '--fade-delay': `${index * 0.1}s` }}
             >
+              <span className="exp-keyframe" aria-hidden="true">
+                kf_{String(index).padStart(2, '0')}
+              </span>
+
               {/* Headline metric bar */}
               {exp.headline && (
                 <div className="exp-headline">
@@ -31,7 +37,7 @@ const Experience = () => {
                 </div>
                 <div className="exp-meta">
                   <span className="exp-dates">
-                    {exp.startDate} → {exp.endDate}
+                    <span className="code-comment">t:</span> {exp.startDate} → {exp.endDate}
                   </span>
                   <span className="exp-type tag">{exp.type}</span>
                 </div>
