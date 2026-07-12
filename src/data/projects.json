@@ -1,5 +1,42 @@
 [
   {
+    "id": 0,
+    "title": "Real-Time Multi-Sensor 3D Mapping Pipeline for Agricultural Robotics",
+    "category": "Robotics & CV",
+    "headline": "Jetson Orin · RGB-D + LiDAR fusion · Gaussian Splatting-ready output",
+    "description": "Real-time SLAM and 3D mapping pipeline fusing RealSense RGB-D/IMU and LiDAR on Jetson Orin for autonomous agricultural field mapping, feeding downstream Gaussian Splatting reconstruction.",
+    "technologies": [
+      "ROS 2",
+      "Python",
+      "C++",
+      "SLAM",
+      "LiDAR",
+      "RGB-D",
+      "COLMAP"
+    ],
+    "frameworks": [
+      "Isaac ROS Visual SLAM",
+      "KISS-ICP",
+      "FastDDS",
+      "Jetson Orin"
+    ],
+    "video": "https://youtu.be/CE7-9YBA2-8",
+    "github": "https://github.com/agri-robotics/3D-Mapping",
+    "demo": null,
+    "status": "Completed",
+    "featured": true,
+    "highlights": [
+      "LiDAR-camera extrinsic calibration via Koide direct visual-LiDAR method",
+      "Distributed multi-machine ROS 2 over Tailscale-meshed FastDDS discovery",
+      "KISS-ICP odometry tuned for stable outdoor trajectories"
+    ],
+    "learned": [
+      "Multi-sensor extrinsic calibration",
+      "Distributed ROS 2 discovery over mesh networks",
+      "Keyframe capture pipelines for COLMAP/3DGS"
+    ]
+  },
+  {
     "id": 1,
     "title": "RL-based Robotic Manipulation with Koopman Operator",
     "category": "Robotics & ML",
