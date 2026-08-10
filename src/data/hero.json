@@ -20,14 +20,14 @@
   "introduction": {
     "greeting": "Hello World! 👋",
     "paragraphs": [
-      "I'm <span>Vamsi</span> — ECE grad who fell into computer vision, spent five years shipping production AI at a startup, filed a few patents along the way, and then went back to grad school to understand the theory behind what was working.",
-      "Currently doing an <span>MS in Robotics</span> at <span>UMN</span>, building drones that navigate without GPS and 3D reconstruction systems that run at scale. Turns out the coursework makes a lot more sense when you have production context."
+      "I'm <span>Vamsi</span> — ECE grad who fell into computer vision, spent five years shipping production AI at a startup, filed a few patents along the way, then went back to grad school to turn hard-won intuition into rigorous method.",
+      "Currently an <span>MS in Robotics</span> at <span>UMN</span>, working across the perception-to-action loop: how robots see the world in 3D, how they act on what they see, and how well a simulated physics model has to be before you can trust it."
     ],
     "passions": [
-      "Autonomous drones & robotic manipulation",
-      "3D vision — SLAM, Gaussian Splats, stereo depth",
-      "Edge AI — making big models run on tiny hardware",
-      "Physical AI — where software meets the real world"
+      "3D perception — turning pixels into a scene a robot can act on",
+      "Robot manipulation — closing the loop from what it sees to what it does",
+      "Physics-informed simulation — sim-to-real that survives contact with reality",
+      "Edge AI — making it all run on hardware that fits on a drone"
     ]
   },
   "actions": [

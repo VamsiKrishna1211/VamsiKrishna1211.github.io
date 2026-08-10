@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { FaGithub, FaPlay, FaStar } from 'react-icons/fa';
 import projectsData from '../../data/projects.json';
+import personalData from '../../data/personal.json';
 import { useInView } from '../../hooks/useInView';
+import { trackExternalLink } from '../../utils/analytics';
 import './Projects.css';
 
 const Projects = () => {
@@ -76,6 +78,18 @@ const Projects = () => {
             </button>
           </div>
         )}
+
+        <p className="projects-archive-note code-comment">
+          {'// '}{projectsData.length} shown here — browse the rest on{' '}
+          <a
+            href={personalData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackExternalLink(personalData.github, 'GitHub — projects archive')}
+          >
+            GitHub
+          </a>
+        </p>
       </div>
     </section>
   );

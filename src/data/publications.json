@@ -12,6 +12,7 @@
     "abstract": "This paper presents a novel approach to noise cancellation and speech enhancement using deep convolutional neural networks, demonstrating significant improvements in audio quality metrics.",
     "keywords": ["Deep Learning", "Audio Processing", "CNN", "Noise Cancellation", "Speech Enhancement"],
     "citations": null,
-    "featured": true
+    "featured": true,
+    "note": "Undergrad research (2021), audio ML — predates the current 3D perception / manipulation / physics-sim focus, kept as the earliest applied-deep-learning work."
   }
 ]

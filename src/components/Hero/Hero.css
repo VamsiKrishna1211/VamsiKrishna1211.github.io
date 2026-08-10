@@ -155,6 +155,21 @@
   line-height: 1.3;
   letter-spacing: -0.5px;
 }
+/* North star — the three pillars, styled like a HUD readout */
+.hero-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-pillar {
+  color: var(--cyan);
+  border-color: rgba(var(--cyan-rgb), 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-size: 0.68rem;
+}
+
 .hero-terminal {
   background: var(--bg-code);
   border: 1px solid var(--border);

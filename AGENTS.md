@@ -62,7 +62,8 @@ A minimalist, code-editor-themed personal portfolio for a Robotics & Computer Vi
 │   │   ├── Navbar/             # Hash-based routing, scroll detection, hamburger menu
 │   │   ├── Projects/           # Show-more toggle, featured badges, reticle motif
 │   │   ├── ResearchRecognition/ # Tabbed UI: publications + patents + achievements + certifications
-│   │   └── Skills/             # Category grid with icon-per-category
+│   │   ├── Skills/             # Category grid with icon-per-category
+│   │   └── ThemeToggle/        # Light/dark switch — reads/writes `useTheme`, lives in Navbar
 │   ├── data/               # ← ALL CONTENT LIVES HERE (JSON-driven)
 │   │   ├── personal.json       # Single source of truth: name, contact info, socials, resume, tagline, stats, focus
 │   │   ├── hero.json           # Hero-only display config: social icon order, intro paragraphs, passions, actions
@@ -78,7 +79,8 @@ A minimalist, code-editor-themed personal portfolio for a Robotics & Computer Vi
 │   ├── hooks/
 │   │   ├── useAnalyticsTracking.js  # Intersection Observer → GA section view events
 │   │   ├── useHashRouting.js        # Hash-based deep linking with retry polling
-│   │   └── useInView.js             # IntersectionObserver → `.in-view` class, drives all scroll-reveal
+│   │   ├── useInView.js             # IntersectionObserver → `.in-view` class, drives all scroll-reveal
+│   │   └── useTheme.js              # Reads/writes `data-theme` on `<html>` + `localStorage['theme']`
 │   ├── styles/
 │   │   └── globals.css        # THE design system — CSS variables, base styles, utilities
 │   └── utils/
@@ -188,10 +190,12 @@ export default ComponentName;
 - **CSS custom properties** in `globals.css` — always use `var(--token)` not raw values
 - **No `App.css` or `index.css`** — these are legacy Vite boilerplate; `globals.css` is the single source of truth
 
-### Design Tokens (globals.css)
+### Design Tokens (globals.css) — Light/Dark Theming
+
+Theme-agnostic tokens (fonts, spacing, radius, transitions, z-index) live in the top-level `:root`. Everything that differs between themes — syntax colors, backgrounds, text, borders, shadows — is redeclared in two selector blocks: `:root, [data-theme='dark']` (default) and `[data-theme='light']`. A `data-theme` attribute on `<html>` selects which block wins; nothing else in the codebase should branch on theme.
 
 ```css
-/* Syntax-Highlighting Palette */
+/* Syntax-Highlighting Palette (dark values shown; light block redeclares deepened/muskier hues) */
 --green: #98c379;    /* strings, tags, success */
 --cyan: #56b6c2;     /* keywords, links, primary accent */
 --amber: #e5c07b;    /* numbers, constants, highlights */
@@ -217,6 +221,15 @@ export default ComponentName;
 /* Border Radius */
 --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-full: 9999px;
 ```
+
+**Translucent overlays (glows, tag backgrounds, hover tints) must not hardcode rgba().** Every accent/background color also has an `-rgb` triplet token (`--cyan-rgb`, `--amber-rgb`, `--bg-primary-rgb`, `--shadow-rgb`, etc.) so overlays stay themed: write `rgba(var(--cyan-rgb), 0.35)`, never `rgba(86, 182, 194, 0.35)`. A literal hex or rgba() in component CSS is almost always a theming bug — grep for `rgba?\(` / `#[0-9a-f]{3,8}` outside `var(--...)` before landing a change.
+
+The reticle SVG (`.reticle::before`) bakes its stroke color into a data-URI, which can't reference CSS vars directly — it's swapped wholesale per theme via the `--reticle-svg` token instead.
+
+**Theme switching mechanics:**
+- `src/hooks/useTheme.js` reads/writes the `data-theme` attribute on `<html>` and mirrors it to `localStorage['theme']`.
+- `index.html` has an inline synchronous script in `<head>` (before any stylesheet/font load) that sets `data-theme` from `localStorage` or `prefers-color-scheme` before first paint — this prevents a flash of the wrong theme. It also keeps a `<meta name="theme-color" id="theme-color-meta">` in sync for mobile browser chrome; `useTheme.js` updates the same meta tag on toggle.
+- `ThemeToggle` component (rendered in `Navbar`) is the only UI entry point; it calls `useTheme().toggleTheme()`.
 
 ### Animation Pattern
 

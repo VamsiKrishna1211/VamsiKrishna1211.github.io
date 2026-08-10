@@ -23,6 +23,23 @@
   gap: 6px;
 }
 
+.skill-secondary {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px dashed var(--border);
+}
+
+.skill-secondary-label {
+  display: block;
+  font-size: 0.7rem;
+  margin-bottom: var(--space-xs);
+}
+
+.tag-secondary {
+  opacity: 0.6;
+  color: var(--comment);
+}
+
 @media (max-width: 768px) {
   .skills-grid {
     grid-template-columns: 1fr;

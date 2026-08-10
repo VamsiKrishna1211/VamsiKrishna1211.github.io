@@ -40,6 +40,9 @@ const ResearchRecognition = () => {
             {pub.authors.join(', ')} — <span className="code-number">{pub.year}</span>
           </p>
           <p className="research-venue">{pub.journal}</p>
+          {pub.note && (
+            <p className="research-note code-comment">{'// '}{pub.note}</p>
+          )}
           {pub.keywords && (
             <div className="research-tags">
               {pub.keywords.map((kw, i) => (

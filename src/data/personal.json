@@ -1,6 +1,6 @@
 {
   "name": "Vamsi Krishna Kocherla",
-  "title": "Deep Learning | Computer Vision | Robotics | GenAI",
+  "title": "3D Perception · Robot Manipulation · Physics-Informed Simulation",
   "subtitle": "Robotics MS Student · ex-Production CV Scientist · recovering ECE undergrad",
   "status": "building autonomous drones & SLAM systems at UMN",
   "location": "Minneapolis, USA",
@@ -11,8 +11,8 @@
   "scholar": "https://scholar.google.com/citations?user=Vm4R7eoAAAAJ&hl=en",
   "portfolio": "https://vamsikrishna1211.github.io",
   "resume": "/src/assets/Robotics-Resume-Mar-2026.pdf",
-  "tagline": "I teach robots to see, think, and not crash into things.",
-  "bio": "Started with signals and circuits, ended up writing CV models for farm equipment. Spent 5+ years at a startup turning research into production systems — YOLO on Jetson, serverless inference on Kubernetes, models that had to work outdoors in bad lighting. Now at UMN doing robotics research and mostly learning why the things that worked actually worked.",
+  "tagline": "I teach robots to see the world, touch it, and get the physics right.",
+  "bio": "Started with signals and circuits, ended up teaching cameras to understand 3D space. Five years turning research into production computer vision — detection models on tractors, inference at the edge, systems that had to survive real outdoor light. That built a working intuition for what actually holds up in the physical world. Now at UMN, turning that intuition into rigorous method: how robots perceive the world in 3D, manipulate what they perceive, and simulate its physics well enough to trust the simulation.",
   "heroVideo": null,
   "stats": [
     {
@@ -33,9 +33,10 @@
     }
   ],
   "focus": [
-    "Visual-Inertial SLAM & autonomous navigation",
-    "Real-time CV on edge GPUs",
-    "Multimodal perception for robotic manipulation",
-    "Scalable inference — Triton, KServe, K8s"
-  ]
+    "City-scale Gaussian Splatting with CLIP/DINOv2 semantics for language-queryable 3D scenes",
+    "Visual servoing & RL for contact-rich manipulation, trained in Isaac Sim",
+    "Estimating material properties (Young's Modulus, friction, density) from vision for sim-to-real transfer",
+    "Production inference at scale — Triton, KServe, Kubernetes, sub-500ms latency"
+  ],
+  "pillars": ["Perception", "Manipulation", "Physics-Sim"]
 }
