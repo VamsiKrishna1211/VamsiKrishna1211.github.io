@@ -17,6 +17,7 @@ export default function ProjectDetail({ params }) {
   const path = usePath();
   const index = projectsData.findIndex((p) => p.slug === params.slug);
   const project = index === -1 ? null : projectsData[index];
+  const next = projectsData[(index + 1) % projectsData.length];
   const [playing, setPlaying] = useState(false);
 
   const meta = useMemo(
@@ -84,7 +85,7 @@ export default function ProjectDetail({ params }) {
 
       <div className="project-detail-body">
         <div>
-          <h2>What I built</h2>
+          <h2>What I Built</h2>
           <ul>
             {project.highlights.map((item) => (
               <li key={item}>{item}</li>
@@ -92,7 +93,7 @@ export default function ProjectDetail({ params }) {
           </ul>
         </div>
         <div>
-          <h2>What I learned</h2>
+          <h2>What It Taught Me</h2>
           <ul>
             {project.learned.map((item) => (
               <li key={item}>{item}</li>
@@ -129,7 +130,7 @@ export default function ProjectDetail({ params }) {
       <div className="project-detail-links">
         {project.github && (
           <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            View code →
+            View the code →
           </a>
         )}
         {project.video && !(videoId && poster) && (
@@ -139,9 +140,15 @@ export default function ProjectDetail({ params }) {
         )}
       </div>
 
-      <div className="project-detail-footer mono">
-        <span>{`${String(index + 1).padStart(2, '0')} / ${String(projectsData.length).padStart(2, '0')}`}</span>
-      </div>
+      <nav className="project-detail-footer" aria-label="More projects">
+        <Link to="/projects" className="link-underline mono">
+          ← All projects
+        </Link>
+        <Link to={`/projects/${next.slug}`} className="project-detail-next">
+          <span className="mono">Next project</span>
+          <span className="project-detail-next-title">{next.title} →</span>
+        </Link>
+      </nav>
     </div>
   );
 }

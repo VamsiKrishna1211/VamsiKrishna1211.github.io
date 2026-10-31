@@ -8,7 +8,6 @@ import Layout from './components/Layout/Layout';
 import LoadingSpinner from './components/Loading/LoadingSpinner';
 
 const Home = lazy(() => import('./pages/Home'));
-const Education = lazy(() => import('./pages/Education'));
 const Work = lazy(() => import('./pages/Work'));
 const Projects = lazy(() => import('./pages/Projects'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
@@ -22,14 +21,15 @@ function AppRoutes() {
   useDocumentMeta(path);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // /education lands on the Experience page's Education section, which scrolls itself.
+    if (!window.location.hash && path !== '/education') window.scrollTo(0, 0);
   }, [path]);
 
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/education" element={<Education />} />
+        <Route path="/education" element={<Work section="education" />} />
         <Route path="/work" element={<Work />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />

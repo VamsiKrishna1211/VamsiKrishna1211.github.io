@@ -1,7 +1,7 @@
 {
   "name": "Vamsi Krishna Kocherla",
-  "subtitle": "Robotics MS · ex-production CV scientist — perception that ships on edge hardware",
-  "status": "building autonomous drones & SLAM systems at UMN",
+  "subtitle": "Robotics & perception engineer · MS Robotics, University of Minnesota",
+  "status": "Graduating January 2027 · open to full-time roles",
   "location": "Minneapolis, USA",
   "email": "vamsikmails@gmail.com",
   "linkedin": "https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/",
@@ -10,11 +10,11 @@
   "portfolio": "https://vamsikrishna1211.github.io",
   "resume": "/src/assets/Robotics-Resume-Aug-2026.pdf",
   "tagline": "Cameras, LiDAR, and IMUs lie in their own ways. I get them to agree.",
-  "bio": "Recovering ECE undergrad — started in signals and circuits, ended up shipping CV models for farm equipment: YOLO on Jetson, inference on Kubernetes, code that had to work outdoors in bad light. Now at UMN, going deeper on the parts that actually work: visual-inertial SLAM, Gaussian Splatting, and sim-in-the-loop autonomy.",
+  "bio": "I spent five years shipping computer vision to production at Upjao Agrotech: detection models running on Jetson boards in the field, and the Kubernetes inference platform behind them. Now I'm doing an MS in Robotics at the University of Minnesota, building visual-inertial SLAM and Gaussian Splatting pipelines for ground robots.",
   "heroVideo": null,
   "stats": [
     {
-      "label": "yrs production CV",
+      "label": "years of production CV",
       "value": "5+"
     },
     {
@@ -22,7 +22,7 @@
       "value": "5"
     },
     {
-      "label": "deployment stack",
+      "label": "what I deploy on",
       "value": "ROS 2 · Jetson · K8s"
     }
   ],
@@ -31,5 +31,11 @@
     "Real-time CV on edge GPUs",
     "Fusing CLIP + DINOv2 into Gaussian splats for language-queryable 3D scenes",
     "Scalable inference — Triton, KServe, K8s"
+  ],
+  "story": [
+    "I started in Electronics & Communication Engineering at GITAM University, where signals, DSP, and probability gave me the math that perception still runs on. While I was still an undergrad, I joined the core team at Upjao Agrotech and started building computer vision for agriculture.",
+    "Over five and a half years there, I built the detection and segmentation models that graded agricultural produce on Jetson and Raspberry Pi boards, the serverless Triton and KServe platform that served them under 500ms, and a model-caching scheme that cut scale-up from 15–20 minutes to 3–4 seconds. That work turned into two granted patents and three more filed. Alongside it, I led a five-engineer team in TCS Rapid Labs that won the cohort's Best Team Award.",
+    "In 2024 I moved to Minneapolis for an MS in Robotics at the University of Minnesota to go deeper on the robotics side. As a graduate research assistant I build the ROS 2 mapping stack: a RealSense D435i feeding cuVSLAM for real-time visual-inertial SLAM, with Gaussian Splatting for reconstruction. At Parallax Worlds in San Francisco, I deployed that kind of reconstruction pipeline on Kubernetes across H100, A100, and T4 GPUs and cut processing time 30%.",
+    "I graduate in January 2027, and I'm looking for full-time roles in robotics perception, SLAM, and 3D vision."
   ]
 }

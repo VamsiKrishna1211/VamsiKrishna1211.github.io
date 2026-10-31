@@ -49,7 +49,10 @@ export default function Contact() {
 
   return (
     <div className="container">
-      <PageHeader eyebrow="ping vamsi" title="Contact" deck="Goes straight to my inbox. I read and answer these myself." />
+      <PageHeader
+        title="Contact"
+        deck="Full-time roles, research collaborations, or a question about one of my projects: the form goes straight to my inbox, and I answer every message myself."
+      />
 
       <div className="contact-grid">
         <div className="contact-info">
@@ -102,7 +105,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                placeholder="your name"
+                placeholder="Your name"
               />
             </div>
             <div className="form-group">
@@ -122,7 +125,7 @@ export default function Contact() {
           <div className="form-group">
             <label htmlFor="subject">Subject</label>
             <select id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required>
-              <option value="">select topic</option>
+              <option value="">Select a topic</option>
               <option value="Research Collaboration">Research Collaboration</option>
               <option value="Project Partnership">Project Partnership</option>
               <option value="Job Opportunity">Job Opportunity</option>
@@ -141,13 +144,13 @@ export default function Contact() {
               onChange={handleInputChange}
               required
               rows="4"
-              placeholder="your message..."
+              placeholder="What would you like to talk about?"
             />
           </div>
 
           <button type="submit" className="btn btn-primary submit-btn" disabled={isLoading}>
             <FaPaperPlane size={12} aria-hidden="true" />
-            {isLoading ? 'sending...' : 'send message'}
+            {isLoading ? 'Sending…' : 'Send message'}
           </button>
 
           {notification && (

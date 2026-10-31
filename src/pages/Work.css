@@ -1,6 +1,7 @@
 .work-section {
   padding: var(--space-7) 0;
   border-top: 1px solid var(--rule);
+  scroll-margin-top: 72px;
 }
 
 .work-section:first-of-type {
@@ -14,34 +15,4 @@
 .role-list {
   display: flex;
   flex-direction: column;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.skill-category h3 {
-  margin-bottom: var(--space-3);
-}
-
-.skill-tier {
-  margin-bottom: var(--space-2);
-}
-
-.skill-tier-core {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.skill-tier-working {
-  color: var(--ink-2);
-  font-size: 0.9375rem;
-}
-
-.skill-tier-familiar {
-  color: var(--ink-3);
-  font-size: 0.8125rem;
 }

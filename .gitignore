@@ -27,3 +27,6 @@ brag-output
 
 # Design canvas scratch
 .design
+
+# Ignoring worktrees folders
+worktrees/

@@ -51,11 +51,9 @@
   letter-spacing: 0.02em;
 }
 
-.project-row-number {
-  font-size: 0.8125rem;
+.project-row-category {
+  font-size: 0.75rem;
   color: var(--ink-3);
-  padding-top: 4px;
-  flex-shrink: 0;
 }
 
 .project-row-body {

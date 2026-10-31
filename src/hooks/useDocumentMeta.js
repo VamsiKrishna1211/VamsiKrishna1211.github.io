@@ -9,13 +9,13 @@ const PAGES = {
       'ECE grad turned production CV scientist, now doing MS Robotics at UMN. 5+ years shipping AI for agriculture at the edge — Jetson hardware, Kubernetes inference, real-world deadlines. Currently building visual-inertial SLAM and Gaussian Splatting pipelines for autonomous ground robots. Open to robotics and vision engineering roles.',
   },
   '/education': {
-    title: 'Education — Vamsi Krishna Kocherla',
+    title: 'Experience & Education — Vamsi Krishna Kocherla',
     description: 'M.S. Robotics at the University of Minnesota, and a B.Tech in Electronics & Communication Engineering.',
   },
   '/work': {
-    title: 'Work — Vamsi Krishna Kocherla',
+    title: 'Experience — Vamsi Krishna Kocherla',
     description:
-      'Ranked technical skills and a role-by-role history in robotics and computer vision — SLAM, 3D reconstruction, edge AI, and production ML at scale.',
+      'Role-by-role history in robotics and computer vision, from production CV at an agritech startup to SLAM and 3D reconstruction research at the University of Minnesota, plus education.',
   },
   '/projects': {
     title: 'Projects — Vamsi Krishna Kocherla',
@@ -25,12 +25,12 @@ const PAGES = {
   '/about': {
     title: 'About — Vamsi Krishna Kocherla',
     description:
-      'Background and current focus of a robotics and computer vision engineer pursuing an MS in Robotics at the University of Minnesota.',
+      'The story so far, current focus, and skills of a robotics and computer vision engineer pursuing an MS in Robotics at the University of Minnesota.',
   },
   '/research': {
     title: 'Research & Recognition — Vamsi Krishna Kocherla',
     description:
-      'Publications, patents, achievements, and certifications in computer vision, robotics, and deep learning.',
+      'Patents, publications, and recognition in computer vision, robotics, and deep learning.',
   },
   '/contact': {
     title: 'Contact — Vamsi Krishna Kocherla',

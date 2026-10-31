@@ -186,10 +186,42 @@
 }
 
 .project-detail-footer {
-  padding-top: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  padding-top: var(--space-5);
   border-top: 1px solid var(--rule);
+}
+
+.project-detail-footer > a:first-child {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.project-detail-next {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+  text-align: right;
+}
+
+.project-detail-next .mono {
   font-size: 0.75rem;
   color: var(--ink-3);
+}
+
+.project-detail-next-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 150ms var(--ease);
+}
+
+.project-detail-next:hover .project-detail-next-title {
+  color: var(--accent);
 }
 
 @media (max-width: 640px) {

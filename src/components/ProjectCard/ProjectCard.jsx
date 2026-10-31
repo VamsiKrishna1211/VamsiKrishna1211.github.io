@@ -3,7 +3,7 @@ import Reveal from '../Reveal/Reveal';
 import { posterFor } from '../../data/projectMedia';
 import './ProjectCard.css';
 
-export default function ProjectCard({ project, index, delay = 0 }) {
+export default function ProjectCard({ project, delay = 0 }) {
   const poster = posterFor(project.slug);
 
   return (
@@ -19,8 +19,8 @@ export default function ProjectCard({ project, index, delay = 0 }) {
             )}
           </div>
         )}
-        <span className="project-row-number mono">{String(index + 1).padStart(2, '0')}</span>
         <div className="project-row-body">
+          <span className="project-row-category mono">{project.category}</span>
           <div className="project-row-top">
             <h3 className="project-row-title">{project.title}</h3>
             <span className="project-row-arrow" aria-hidden="true">
