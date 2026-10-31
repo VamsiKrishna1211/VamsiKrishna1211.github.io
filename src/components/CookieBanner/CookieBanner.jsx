@@ -8,7 +8,11 @@ export default function CookieBanner() {
 
   const updateConsent = (granted) => {
     const value = granted ? 'granted' : 'denied';
-    try { localStorage.setItem('cookie_consent', value); } catch {}
+    try {
+      localStorage.setItem('cookie_consent', value);
+    } catch {
+      /* private browsing or storage disabled — consent still applies for this load */
+    }
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', { analytics_storage: value });
     }
@@ -20,8 +24,7 @@ export default function CookieBanner() {
   return (
     <div className="cookie-banner" role="dialog" aria-label="Cookie consent">
       <div className="cookie-banner-text">
-        <span className="prompt">// cookies:</span>
-        This site uses Google Analytics to understand visitor traffic. No personal data is stored.
+        Uses Google Analytics for traffic only — no personal data stored.
       </div>
       <div className="cookie-banner-actions">
         <button className="cookie-btn cookie-btn-decline" onClick={() => updateConsent(false)}>

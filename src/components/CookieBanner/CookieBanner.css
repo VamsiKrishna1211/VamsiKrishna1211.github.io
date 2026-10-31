@@ -3,66 +3,56 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-overlay);
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border-accent);
-  padding: var(--space-md) var(--space-xl);
+  z-index: 200;
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  padding: var(--space-4) var(--space-6);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-.cookie-banner-text .prompt {
-  color: var(--green);
-  margin-right: var(--space-sm);
+  gap: var(--space-4);
+  font-size: 0.875rem;
+  color: var(--ink-2);
 }
 
 .cookie-banner-actions {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-3);
   flex-shrink: 0;
 }
 
 .cookie-btn {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-sm);
-  border: 1px solid;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 0.8125rem;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  transition: border-color 150ms var(--ease), color 150ms var(--ease), background 150ms var(--ease);
+  min-height: 36px;
 }
 
 .cookie-btn-accept {
-  border-color: var(--green);
-  color: var(--green);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .cookie-btn-accept:hover {
-  background: var(--green);
-  color: var(--bg-primary);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .cookie-btn-decline {
-  border-color: var(--comment);
-  color: var(--comment);
+  color: var(--ink-3);
 }
 
 .cookie-btn-decline:hover {
-  border-color: var(--text-muted);
-  color: var(--text-muted);
+  color: var(--ink);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .cookie-banner {
     flex-direction: column;
     align-items: flex-start;
-    padding: var(--space-md);
   }
 
   .cookie-banner-actions {

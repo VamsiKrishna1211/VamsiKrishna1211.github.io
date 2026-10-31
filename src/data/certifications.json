@@ -8,60 +8,8 @@
     "credentialId": null,
     "url": null,
     "skills": ["Deep Learning", "Neural Networks", "TensorFlow", "PyTorch"],
-    "description": "Comprehensive specialization covering the foundations of deep learning, including neural networks, optimization, and practical applications.",
+    "description": "Four-course specialization: Convolutional Neural Networks; Sequence Models; Improving Deep Neural Networks (hyperparameter tuning, regularization, optimization); Structuring Machine Learning Projects.",
     "icon": "🧠",
     "featured": true
-  },
-  {
-    "id": 2,
-    "title": "Convolutional Neural Networks",
-    "issuer": "DeepLearning.AI (Coursera)",
-    "issueDate": "2020",
-    "expiryDate": null,
-    "credentialId": null,
-    "url": null,
-    "skills": ["CNN", "Computer Vision", "Image Processing", "Object Detection"],
-    "description": "Specialized course focusing on convolutional neural networks for computer vision applications.",
-    "icon": "👁️",
-    "featured": true
-  },
-  {
-    "id": 3,
-    "title": "Sequence Models",
-    "issuer": "DeepLearning.AI (Coursera)",
-    "issueDate": "2020",
-    "expiryDate": null,
-    "credentialId": null,
-    "url": null,
-    "skills": ["RNN", "LSTM", "NLP", "Sequence Modeling"],
-    "description": "Advanced course on sequence models including RNNs, LSTMs, and attention mechanisms for natural language processing.",
-    "icon": "📝",
-    "featured": true
-  },
-  {
-    "id": 4,
-    "title": "Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",
-    "issuer": "DeepLearning.AI (Coursera)",
-    "issueDate": "2020",
-    "expiryDate": null,
-    "credentialId": null,
-    "url": null,
-    "skills": ["Hyperparameter Tuning", "Regularization", "Optimization", "Model Improvement"],
-    "description": "Focused on practical techniques for improving deep neural network performance through optimization and regularization strategies.",
-    "icon": "⚙️",
-    "featured": false
-  },
-  {
-    "id": 5,
-    "title": "Structuring Machine Learning Projects",
-    "issuer": "DeepLearning.AI (Coursera)",
-    "issueDate": "2020",
-    "expiryDate": null,
-    "credentialId": null,
-    "url": null,
-    "skills": ["ML Strategy", "Project Management", "Error Analysis", "ML Pipeline"],
-    "description": "Strategic approach to machine learning project development, including error analysis and ML pipeline optimization.",
-    "icon": "📊",
-    "featured": false
   }
 ]

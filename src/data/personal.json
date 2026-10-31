@@ -1,41 +1,35 @@
 {
   "name": "Vamsi Krishna Kocherla",
-  "title": "Deep Learning | Computer Vision | Robotics | GenAI",
-  "subtitle": "Robotics MS Student · ex-Production CV Scientist · recovering ECE undergrad",
+  "subtitle": "Robotics MS · ex-production CV scientist — perception that ships on edge hardware",
   "status": "building autonomous drones & SLAM systems at UMN",
   "location": "Minneapolis, USA",
   "email": "vamsikmails@gmail.com",
-  "phone": "+1-763-900-1422",
   "linkedin": "https://www.linkedin.com/in/vamsi-krishna-k-46941a16a/",
   "github": "https://github.com/VamsiKrishna1211",
   "scholar": "https://scholar.google.com/citations?user=Vm4R7eoAAAAJ&hl=en",
   "portfolio": "https://vamsikrishna1211.github.io",
-  "resume": "/src/assets/Robotics-Resume-Mar-2026.pdf",
-  "tagline": "I teach robots to see, think, and not crash into things.",
-  "bio": "Started with signals and circuits, ended up writing CV models for farm equipment. Spent 5+ years at a startup turning research into production systems — YOLO on Jetson, serverless inference on Kubernetes, models that had to work outdoors in bad lighting. Now at UMN doing robotics research and mostly learning why the things that worked actually worked.",
+  "resume": "/src/assets/Robotics-Resume-Aug-2026.pdf",
+  "tagline": "Cameras, LiDAR, and IMUs lie in their own ways. I get them to agree.",
+  "bio": "Recovering ECE undergrad — started in signals and circuits, ended up shipping CV models for farm equipment: YOLO on Jetson, inference on Kubernetes, code that had to work outdoors in bad light. Now at UMN, going deeper on the parts that actually work: visual-inertial SLAM, Gaussian Splatting, and sim-in-the-loop autonomy.",
   "heroVideo": null,
   "stats": [
     {
-      "label": "years shipping AI",
+      "label": "yrs production CV",
       "value": "5+"
     },
     {
-      "label": "projects built",
-      "value": "20+"
-    },
-    {
-      "label": "patents filed",
+      "label": "patents · 2 granted",
       "value": "5"
     },
     {
-      "label": "models deployed",
-      "value": "10+"
+      "label": "deployment stack",
+      "value": "ROS 2 · Jetson · K8s"
     }
   ],
   "focus": [
     "Visual-Inertial SLAM & autonomous navigation",
     "Real-time CV on edge GPUs",
-    "Multimodal perception for robotic manipulation",
+    "Fusing CLIP + DINOv2 into Gaussian splats for language-queryable 3D scenes",
     "Scalable inference — Triton, KServe, K8s"
   ]
 }

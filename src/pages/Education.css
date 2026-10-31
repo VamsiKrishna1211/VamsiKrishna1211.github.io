@@ -1,0 +1,67 @@
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-bottom: var(--space-9);
+}
+
+.edu-entry {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-6);
+  padding-left: var(--space-5);
+  /* Gutter bar: one accent, identical on every entry. */
+  border-left: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+}
+
+.edu-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Titles and course chips take the contrasting accent. */
+.edu-entry h3 {
+  color: var(--accent-2);
+}
+
+.edu-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.edu-entry-institution {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+
+.edu-entry-dates {
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.edu-entry-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.edu-entry-courses .tag {
+  color: var(--accent-2);
+  background: color-mix(in oklch, var(--accent-2) 12%, transparent);
+  border: 1px solid color-mix(in oklch, var(--accent-2) 28%, transparent);
+  padding: 3px 9px;
+  border-radius: var(--radius);
+  transition: background 160ms var(--ease), border-color 160ms var(--ease);
+}
+
+.edu-entry-courses .tag:hover {
+  background: color-mix(in oklch, var(--accent-2) 20%, transparent);
+  border-color: color-mix(in oklch, var(--accent-2) 45%, transparent);
+}

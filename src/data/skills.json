@@ -2,35 +2,103 @@
   {
     "category": "Hardware & Signals",
     "items": [
-      "CUDA", "C++", "Jetson Orin Nano", "Jetson AGX",
-      "Raspberry Pi", "Arduino", "Sensor Fusion", "Sensor Integration", "MQTT"
+      "CUDA",
+      "C++",
+      "Jetson Orin Nano",
+      "Jetson AGX",
+      "Raspberry Pi",
+      "Arduino",
+      "Sensor Fusion",
+      "Sensor Integration",
+      "MQTT",
+      "Jetson Orin",
+      "LiDAR",
+      "RealSense RGB-D",
+      "Kalman Filters",
+      "Sensor Time Synchronization"
     ]
   },
   {
     "category": "Vision & Intelligence",
     "items": [
-      "PyTorch", "TensorFlow", "OpenCV", "TensorRT", "ONNX",
-      "Object Detection", "Semantic/Instance Segmentation", "Stereo Vision",
-      "3D Reconstruction", "Feature Matching", "Depth/Disparity Maps",
-      "Multi-view 3D Geometry", "ViT", "Faster-RCNN", "Mask-RCNN",
-      "YOLO", "Transformers", "CNNs", "GANs", "Scikit-learn"
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "TensorRT",
+      "ONNX",
+      "Object Detection",
+      "Semantic/Instance Segmentation",
+      "Stereo Vision",
+      "3D Reconstruction",
+      "Feature Matching",
+      "Depth/Disparity Maps",
+      "Multi-view 3D Geometry",
+      "ViT",
+      "Faster-RCNN",
+      "Mask-RCNN",
+      "YOLO",
+      "Transformers",
+      "CNNs",
+      "GANs",
+      "Scikit-learn",
+      "CLIP",
+      "DINOv2",
+      "NeRF"
     ]
   },
   {
     "category": "Autonomy & Robotics",
     "items": [
-      "ROS/ROS2", "SLAM", "Gaussian Splatting", "Isaac Sim (Omniverse)",
-      "Gazebo", "OpenAI Gym", "Ardupilot", "PX4"
+      "ROS/ROS2",
+      "SLAM",
+      "Gaussian Splatting",
+      "Isaac Sim (Omniverse)",
+      "Gazebo",
+      "OpenAI Gym",
+      "Ardupilot",
+      "PX4",
+      "cuVSLAM",
+      "ORB-SLAM3",
+      "RTAB-Map",
+      "KISS-ICP",
+      "FastDDS",
+      "MAVLink"
     ]
   },
   {
     "category": "Production & Scale",
     "items": [
-      "Python", "Golang", "Kubernetes", "KNative", "Docker",
-      "KServe", "Triton Inference Server", "AWS", "GCP", "Azure",
-      "REST APIs", "gRPC", "Apache Kafka", "Redis", "PostgreSQL",
-      "MongoDB", "Prometheus", "Grafana", "Flask", "FastAPI",
-      "Git", "GitLab CI/CD"
+      "Python",
+      "Golang",
+      "Kubernetes",
+      "KNative",
+      "Docker",
+      "KServe",
+      "Triton Inference Server",
+      "AWS",
+      "GCP",
+      "Azure",
+      "REST APIs",
+      "gRPC",
+      "Apache Kafka",
+      "Redis",
+      "PostgreSQL",
+      "MongoDB",
+      "Prometheus",
+      "Grafana",
+      "Flask",
+      "FastAPI",
+      "Git",
+      "GitLab CI/CD",
+      "C",
+      "Rust",
+      "CMake",
+      "Bazel",
+      "Terraform",
+      "ArgoCD",
+      "Argo Workflows",
+      "RabbitMQ",
+      "Foxglove"
     ]
   }
 ]

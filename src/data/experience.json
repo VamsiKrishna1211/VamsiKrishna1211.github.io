@@ -4,11 +4,10 @@
     "company": "University of Minnesota - Twin Cities",
     "position": "Graduate Research Assistant",
     "location": "Minneapolis, MN, USA",
-    "startDate": "Sep 2024",
-    "endDate": "May 2025",
-    "duration": "7 months",
+    "startDate": "Sep 2025",
+    "endDate": "Present",
     "type": "Research",
-    "headline": "Adding features to Gaussian Splatting for 3D Reconstruction",
+    "headline": "cuVSLAM + Gaussian Splatting · city-scale under 5GB VRAM · 34ms → 19ms jitter",
     "logo": "/src/assets/parallax-logo.png",
     "technologies": [
       "PyTorch",
@@ -17,78 +16,133 @@
       "Gaussian Splatting",
       "Open3D",
       "SAM",
-      "DINOv2"
+      "DINOv2",
+      "ROS 2",
+      "Isaac ROS cuVSLAM",
+      "RealSense D435i",
+      "FastDDS",
+      "Docker",
+      "COLMAP",
+      "CLIP",
+      "Isaac Sim"
     ],
     "achievements": [
-      "Implemented multiple research papers into end-to-end pipelines for novel 3D Reconstruction techniques",
-      "Built a custom Gaussian Splatting pipeline from scratch for high-fidelity 3D scene reconstruction",
-      "Researched City-Scale Gaussian Splatting with a focus on memory-efficient scene representations",
-      "Integrated CLIP language features for fine-grained semantic queries, enabling natural language-based 3D scene search",
-      "Incorporated spatial feature encoding using DINOv2 for enhanced scene understanding and object localization",
-      "Combining the use of CLIP and DINOv2 features for better scene understanding and object localization"
+      "Built an end-to-end ROS 2 mapping and navigation pipeline: RealSense D435i feeding NVIDIA Isaac ROS cuVSLAM 3.2 for real-time visual-inertial SLAM, with a synchronized 2Hz capture node",
+      "Audited the RealSense driver end to end, found 11 distinct misconfigurations degrading SLAM tracking, and tightened jitter tolerance from 34ms to 19ms",
+      "Migrated an abandoned robot simulation across a discontinued Isaac Sim release, fixing nine categories of breaking changes including a full Python API namespace migration",
+      "Diagnosed a silent multi-camera sensor-fusion failure by proving two cameras sixty degrees apart couldn't triangulate depth, redesigned the camera rig, and built a tool to derive LiDAR intrinsics directly from live data",
+      "Built a custom Gaussian Splatting pipeline from scratch for high-fidelity 3D scene reconstruction, and developed feed-forward methods that work from minimal input views",
+      "Designed a 3-machine distributed ROS 2 system over a Tailscale mesh, choosing a FastDDS Discovery Server over CycloneDDS since multicast doesn't traverse VPN tunnels, then tracked down a Tailscale tun0 userspace-networking bug via FastDDS interface whitelisting",
+      "Wrote a three-way coordinate-frame translation layer across ROS, OpenGL, and COLMAP conventions, plus a quaternion-SLERP correction scheme so loop-closure pose jumps stay geometrically consistent",
+      "Researched city-scale Gaussian Splatting with memory-efficient scene representations, running on a single GPU under 5GB VRAM — not a multi-GPU cluster",
+      "Fused CLIP and DINOv2 features into the splat representation, so a reconstructed environment can be queried and localized in natural language",
+      "Architected a full sim-in-the-loop autonomy stack on Isaac Sim, chaining visual-inertial SLAM, 3D reconstruction, navigation, and autonomous exploration into one GPU-accelerated pipeline for a ground robot",
+      "Enabled zero-copy GPU image transport between perception and navigation stages, and cut the LiDAR's data volume four-fold after finding it starved the navigation stack",
+      "Authored a custom multi-sensor payload in URDF/xacro (dual RGB-D + 3D spinning LiDAR) with matching Isaac Sim sensor publishers, keeping every simulated topic consistent with the real driver's layout",
+      "Decoupled the simulator's physics tick rate from its render rate, running physics at 180Hz against 60Hz rendering, after measuring that render-rate updates left the inertial data too sparse for reliable SLAM tracking",
+      "Implemented multiple research papers into end-to-end pipelines for 3D reconstruction techniques"
     ],
-    "description": "Working on 3D Reconstruction using Gaussian Splatting, and adding features to it to make it more user friendly and efficient."
+    "description": "Built a ROS 2 pipeline that starts at a RealSense feed and ends at a language-queryable 3D scene: cuVSLAM for real-time visual-inertial tracking, a custom Gaussian Splatting reconstruction stack, and CLIP/DINOv2 features fused into the splats. Most of the work has been the audit trail — RealSense misconfigurations, sensor-fusion failures, Isaac Sim breaking changes — that has to get fixed before any of that runs reliably."
   },
   {
-    "id": 1,
+    "id": 2,
     "company": "Parallax Worlds (Startup)",
     "position": "Robotics Perception Intern",
     "location": "San Francisco, CA, USA",
     "startDate": "Jun 2025",
     "endDate": "Dec 2025",
-    "duration": "7 months",
     "type": "Internship",
-    "headline": "30% faster 3D reconstruction · 20% less downtime",
+    "headline": "30% faster 3D reconstruction · 40% faster failure response",
     "logo": "/src/assets/parallax-logo.png",
-    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
-    "achievements": [
-      "Research and implement a Physics Estimation Pipeline (Young's Modulus, Poisson's ratio, Density, Friction) for 3D Reconstructed models, including deformable and rigid objects based on Visual Features & Textures",
-      "Deployed the Physics estimation pipeline with the existing 3D reconstruction pipeline",
-      "Designed and Deployed scalable asynchronous job scheduling platform using Argo Workflows, improving stability and reliability",
-      "Deployed 3D-Reconstruction (Gaussian Splatting) pipeline using dynamic GPU allocation (H100s, A100s, T4s) on Kubernetes, achieving 30% reduction in processing time",
-      "Implemented monitoring and alerting system using Prometheus and Grafana, reducing the failure response time by 40%"
+    "technologies": [
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "YOLO",
+      "Faster-RCNN",
+      "Kubernetes",
+      "Docker",
+      "NVIDIA Triton",
+      "Jetson",
+      "Terraform",
+      "ArgoCD"
     ],
-    "description": "Built physics estimation pipelines for 3D models, scaled Gaussian Splatting reconstruction on Kubernetes with GPU acceleration, and built production monitoring systems."
+    "achievements": [
+      "Deployed the Gaussian Splatting reconstruction pipeline on Kubernetes with dynamic GPU allocation across H100, A100, and T4 tiers, cutting processing time 30%",
+      "Built a physics-estimation pipeline that infers Young's modulus, Poisson's ratio, density, and friction for reconstructed deformable and rigid objects from visual features and texture, connecting 3D reconstruction to physical-world understanding",
+      "Managed Kubernetes cluster state and infrastructure provisioning with Terraform, and set up the deployment workflow end to end on ArgoCD, giving the team a GitOps-driven path from a config change to a running cluster",
+      "Built the monitoring and alerting layer on Prometheus and Grafana so failures surfaced instead of hiding in logs, cutting failure response time 40%",
+      "Designed and deployed a scalable asynchronous job scheduling platform on Argo Workflows, improving pipeline stability and reliability"
+    ],
+    "description": "Connected physics to pixels: built a pipeline that infers material properties from reconstructed 3D geometry, then deployed it alongside the existing Gaussian Splatting stack on Kubernetes with GPU-tier-aware scheduling and real monitoring."
   },
   {
-    "id": 2,
+    "id": 3,
     "company": "Upjao Agrotech (Startup)",
     "position": "Senior Computer Vision Scientist (Core Team)",
     "location": "Ahmedabad, India",
     "startDate": "Jan 2019",
     "endDate": "Jul 2024",
-    "duration": "5 years 7 months",
     "type": "Full-time",
     "headline": "50% faster inference · 60% cost reduction · <500ms latency",
     "logo": "/src/assets/upjao-logo.png",
-    "technologies": ["PyTorch", "TensorFlow", "OpenCV", "YOLO", "Faster-RCNN", "Kubernetes", "Docker", "NVIDIA Triton", "Jetson"],
+    "technologies": [
+      "PyTorch",
+      "TensorFlow",
+      "OpenCV",
+      "YOLO",
+      "Faster-RCNN",
+      "Kubernetes",
+      "Docker",
+      "NVIDIA Triton",
+      "Jetson",
+      "ViT",
+      "Mask-RCNN",
+      "gRPC",
+      "ConnectRPC",
+      "Kotlin",
+      "KServe",
+      "KNative"
+    ],
     "achievements": [
-      "Developed novel deep learning models based on Visual Transformers, Faster-RCNN, Mask-RCNN, YOLO — up to 20% accuracy improvement",
-      "Designed serverless inference platform on Kubernetes with NVIDIA Triton, achieving <500ms latency",
-      "Optimized models for edge: 40% less inference time, 20% smaller model size",
-      "Improved inference performance by 50% and reduced infra costs by 60%",
-      "Built model caching that cut scale-up from 15-20 min to 3-4 seconds"
+      "Built detection, segmentation, and classification models (ViT, Faster-RCNN, Mask-RCNN, YOLO) with custom loss and activation functions, gaining up to 20% accuracy",
+      "Designed a serverless inference platform on Kubernetes using Triton Inference Server, KServe, KNative, and gRPC, serving multiple models under 500ms latency",
+      "Improved inference performance 50% and cut infrastructure costs 60% through multithreading, vectorization, and FP16/INT8 precision on A100 and T4 GPUs",
+      "Deployed vision models to Jetson and Raspberry Pi boards under hard latency budgets using quantization, pruning, and distillation: 40% faster inference, 20% smaller models",
+      "Built a model-caching algorithm that cut scale-up time from 15-20 minutes to 3-4 seconds",
+      "Built streaming and bidirectional gRPC servers on top of Triton, plus custom extension interfaces for specialized inference workloads, connecting Android and JavaScript clients via gRPC, ConnectRPC, and REST — including Kotlin gRPC clients for the Android integration",
+      "Led and mentored a team of 6+ engineers, and secured roughly $200K in NVIDIA and Azure cloud-credit partnerships",
+      "Presented technical updates and new AI approaches directly to investors, company directors, and other non-technical stakeholders, translating what a model could and couldn't do into decisions the wider team could act on"
     ],
     "description": "Led CV team at an agriculture AI startup — custom model architectures, edge deployment on Jetson, distributed inference on Kubernetes. Five years of production constraints will teach you more about robustness than any textbook. Eventually decided to go formalize what was working with a proper robotics degree."
   },
   {
-    "id": 3,
+    "id": 4,
     "company": "Tata Consultancy Services",
     "position": "AI / ML Developer",
     "location": "Hyderabad, India",
     "startDate": "Jun 2021",
     "endDate": "Apr 2023",
-    "duration": "1 year 11 months",
     "type": "Full-time",
-    "headline": "Best Team Award · Elite R&D cohort · 20% efficiency gain",
+    "headline": "Led 5 engineers · Best Team Award · in-house serverless inference platform",
     "logo": "/src/assets/tcs-logo.png",
-    "technologies": ["BERT", "Transformers", "Flask", "React", "Vite", "Python", "NLP"],
-    "achievements": [
-      "Selected into TCS Rapid Labs Cohort — elite R&D team for AI and Robotics",
-      "Shipped multiple NLP proof-of-concepts using BERT & Transformer models",
-      "Built novel algorithm for complex repeated data removal from PDFs, +20% efficiency",
-      "Awarded Best Team Award in TCS Rapid Labs"
+    "technologies": [
+      "BERT",
+      "Transformers",
+      "Flask",
+      "React",
+      "Vite",
+      "Python",
+      "NLP"
     ],
-    "description": "Built NLP solutions in an elite R&D team, won Best Team Award for AI innovation."
+    "achievements": [
+      "Selected into TCS Rapid Labs, an internal AI and robotics R&D cohort running fast three-month proof-of-concept cycles",
+      "Led a team of 5 engineers building full-stack proof-of-concepts, architecting the cloud and HPC infrastructure behind them",
+      "Spearheaded an in-house serverless inference and deployment platform for computer vision, NLP, and multi-modal models",
+      "Built a data-cleaning algorithm to detect and remove duplicate repeated data from PDFs, gaining 20% efficiency",
+      "Shipped multiple NLP proof-of-concepts using BERT and Transformer models",
+      "Won the Best Team Award for the cohort"
+    ],
+    "description": "Built NLP and full-stack proof-of-concepts inside TCS Rapid Labs, an internal three-month-cycle R&D cohort, and led the 5-engineer team that won the cohort's Best Team Award."
   }
 ]

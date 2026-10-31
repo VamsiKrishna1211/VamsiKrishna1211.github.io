@@ -1,28 +1,32 @@
 .footer {
-  border-top: 1px solid var(--border);
-    padding: var(--space-lg) 0;
+  border-top: 1px solid var(--rule);
+  padding: var(--space-6) 0;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-mono);
-    font-size: 0.8rem;
+  font-size: 0.8125rem;
 }
 
 .footer-left {
-  color: var(--text-muted);
+  color: var(--ink-2);
+}
+
+.footer-location {
+  color: var(--ink-3);
 }
 
 .footer-right {
   font-size: 0.75rem;
+  color: var(--ink-3);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .footer-content {
     flex-direction: column;
-    gap: var(--space-sm);
-      text-align: center;
+    gap: var(--space-2);
+    text-align: center;
   }
 }

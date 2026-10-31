@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4';
 export const initGA = (measurementId) => {
   if (measurementId) {
     ReactGA.initialize(measurementId, {
-      debug: process.env.NODE_ENV === 'development',
+      debug: import.meta.env.DEV,
     });
   }
 };
