@@ -9,7 +9,7 @@
     "inventors": ["Vamsi Krishna Kocherla"],
     "assignee": "Upjao Agrotech",
     "type": "Utility Patent",
-    "abstract": "A comprehensive system for automated quality assessment of agricultural products using computer vision and machine learning techniques.",
+    "abstract": "Automated system for grading agricultural product quality from computer vision, replacing manual visual inspection with a model trained on the same visual defects an inspector looks for.",
     "claims": null,
     "featured": true
   },
@@ -23,7 +23,7 @@
     "inventors": ["Vamsi Krishna Kocherla"],
     "assignee": "Upjao Agrotech",
     "type": "Utility Patent",
-    "abstract": "Novel approach for data encoding and decoding using visual markers for agricultural and industrial applications.",
+    "abstract": "Method for encoding and decoding data through visual markers, built to be read reliably by a camera under agricultural and industrial field conditions.",
     "claims": null,
     "featured": true
   },
@@ -37,35 +37,35 @@
     "inventors": ["Vamsi Krishna Kocherla"],
     "assignee": "Upjao Agrotech",
     "type": "Provisional Patent",
-    "abstract": "Innovative apparatus design for consistent and uniform image acquisition in computer vision applications.",
+    "abstract": "Adjustable apparatus that holds camera position and lighting constant across captures, so the CV pipeline downstream gets uniform images instead of compensating for whatever angle a person happened to shoot from.",
     "claims": null,
     "featured": false
   },
   {
     "id": 4,
     "title": "Generic Classification Using Very Less Data",
-    "patentNumber": "Filed",
+    "patentNumber": null,
     "status": "Filed",
     "filingDate": null,
     "grantDate": null,
     "inventors": ["Vamsi Krishna Kocherla"],
     "assignee": "Upjao Agrotech",
     "type": "Utility Patent",
-    "abstract": "Advanced machine learning approach for accurate classification with minimal training data using novel data augmentation and transfer learning techniques.",
+    "abstract": "Classification approach for accurate results with minimal training data, using data augmentation and transfer learning to make up for a dataset too small to train a model from scratch.",
     "claims": null,
     "featured": false
   },
   {
     "id": 5,
     "title": "Cattle Identification Using Face Recognition",
-    "patentNumber": "Filed",
+    "patentNumber": null,
     "status": "Filed",
     "filingDate": null,
     "grantDate": null,
     "inventors": ["Vamsi Krishna Kocherla"],
     "assignee": "Upjao Agrotech",
     "type": "Utility Patent",
-    "abstract": "Computer vision system for individual cattle identification using facial recognition technology for livestock management.",
+    "abstract": "Computer vision system that identifies individual cattle by facial features, for tracking livestock without RFID tags or manual recordkeeping.",
     "claims": null,
     "featured": false
   }

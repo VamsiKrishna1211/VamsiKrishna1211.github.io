@@ -1,0 +1,18 @@
+.work-section {
+  padding: var(--space-7) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 72px;
+}
+
+.work-section:first-of-type {
+  border-top: none;
+}
+
+.work-section-title {
+  margin-bottom: var(--space-5);
+}
+
+.role-list {
+  display: flex;
+  flex-direction: column;
+}

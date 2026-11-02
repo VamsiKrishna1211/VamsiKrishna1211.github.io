@@ -1,0 +1,15 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  color: var(--ink-2);
+  transition: color 150ms var(--ease), background 150ms var(--ease);
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}

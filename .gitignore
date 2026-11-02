@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+brag-output
+
+# Design canvas scratch
+.design
+
+# Ignoring worktrees folders
+worktrees/

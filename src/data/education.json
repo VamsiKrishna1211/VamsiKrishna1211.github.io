@@ -5,7 +5,7 @@
     "degree": "Master of Science in Robotics",
     "location": "Minneapolis, USA",
     "startDate": "Aug 2024",
-    "endDate": "Aug 2026 (Expected)",
+    "endDate": "Jan 2027 (Expected)",
     "gpa": null,
     "logo": "/src/assets/umn-logo.png",
     "status": "Current",
@@ -16,7 +16,7 @@
       "Natural Language Processing",
       "Deep Learning"
     ],
-    "description": "Advanced graduate studies in robotics with focus on robotic manipulation, computer vision, and AI integration."
+    "description": "Graduate research on Gaussian Splatting for 3D reconstruction, multi-sensor SLAM capture, and simulation-based autonomy stacks — the fundamentals behind the CV systems already shipped in production."
   },
   {
     "id": 2,
@@ -33,6 +33,6 @@
       "Digital Signal Processing",
       "Probability Theory and Random Process"
     ],
-    "description": "Undergraduate studies in electronics and communication engineering with strong foundation in signal processing and mathematical concepts."
+    "description": "Signals, systems, DSP, and probability — the math the perception work still runs on, learned before any of it had a camera attached."
   }
 ]

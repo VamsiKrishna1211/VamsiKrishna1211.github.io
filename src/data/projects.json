@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "slug": "slam-3d-mapping",
     "title": "Real-Time Multi-Sensor 3D Mapping Pipeline for Agricultural Robotics",
     "category": "Robotics & CV",
     "headline": "Jetson Orin · RGB-D + LiDAR fusion · Gaussian Splatting-ready output",
@@ -38,10 +39,11 @@
   },
   {
     "id": 1,
+    "slug": "rl-robotic-manipulation",
     "title": "RL-based Robotic Manipulation with Koopman Operator",
     "category": "Robotics & ML",
     "headline": "30% faster task completion · 40% smoother motion",
-    "description": "RL-based robotic picking system using Isaac Sim + PPO, with Koopman-based linear models for smoother arm dynamics.",
+    "description": "RL-based robotic picking system using Isaac Sim + PPO, layering a Koopman-operator linear model on top to approximate the arm's non-linear dynamics for smoother control. Designed the reward function and sim-to-real transfer path from scratch.",
     "technologies": [
       "Isaac Sim",
       "Python",
@@ -62,9 +64,9 @@
     "status": "Completed",
     "featured": true,
     "highlights": [
-      "30% improvement in task completion time",
-      "25% reduction in collision errors",
-      "40% reduction in erratic movements"
+      "30% faster task completion against the un-linearized baseline",
+      "25% fewer collision errors against the un-linearized baseline",
+      "40% less erratic motion against the un-linearized baseline"
     ],
     "learned": [
       "RL pipeline design for robotics",
@@ -75,10 +77,11 @@
   },
   {
     "id": 2,
+    "slug": "indoor-semantic-slam",
     "title": "Indoor Mapping with Semantic 3D SLAM",
     "category": "Robotics & CV",
     "headline": "95% mapping accuracy · 70% better navigation",
-    "description": "Semantic 3D SLAM in ROS for TurtleBot 3 autonomous indoor navigation in GPS-denied environments.",
+    "description": "Semantic 3D SLAM fusing RTAB-Map and ORB-SLAM3 with instance segmentation on a TurtleBot 3, producing semantically labeled 3D maps for GPS-denied indoor navigation, validated first in Isaac Sim.",
     "technologies": [
       "Isaac Sim",
       "Python",
@@ -101,9 +104,9 @@
     "status": "Completed",
     "featured": true,
     "highlights": [
-      "95% accuracy in 3D mapping and localization",
-      "70% improvement in navigation efficiency",
-      "Dynamic obstacle avoidance"
+      "95% mapping and localization accuracy against the landmark-tracked map",
+      "70% better navigation efficiency over the unfused baseline",
+      "Dynamic obstacle avoidance layered on top of the semantic map"
     ],
     "learned": [
       "3D point clouds from stereo vision",
@@ -113,10 +116,11 @@
   },
   {
     "id": 3,
+    "slug": "drone-stereo-slam",
     "title": "Autonomous Drone 3D Mapping with Stereo SLAM",
     "category": "Robotics & CV",
     "headline": "Custom stereo rig · GPS-denied flight · real-time 3D maps",
-    "description": "Custom-built stereo vision system on a drone for real-time 3D mapping and localization without GPS.",
+    "description": "Solo build of a GPS-denied navigation stack on a custom quadcopter: a hand-calibrated stereo rig of two Raspberry Pi cameras feeding ORB-SLAM3 and RTAB-Map for real-time visual-inertial localization and mapping, run on a Jetson Orin Nano paired with a Pixhawk flight controller over ROS 2.",
     "technologies": [
       "Python",
       "ROS 2",
@@ -138,9 +142,9 @@
     "status": "Completed",
     "featured": true,
     "highlights": [
-      "Custom stereo vision with Raspberry Pi cameras",
-      "Real-time Visual-Inertial SLAM",
-      "Simulation-validated before real deployment"
+      "Hand-calibrated stereo rig built from two Raspberry Pi cameras",
+      "Real-time visual-inertial SLAM on a Jetson Orin Nano",
+      "Validated end to end in simulation, with fallback logic for SLAM tracking loss, before flight testing"
     ],
     "learned": [
       "Stereo camera calibration workflow",
@@ -150,11 +154,19 @@
   },
   {
     "id": 4,
+    "slug": "visual-servoing-arm",
     "title": "Image-Based Visual Servoing for Robotic Arm",
     "category": "CV & Robotics",
     "headline": "<5ms inference · real-time visual feedback control",
     "description": "Real-time visual feedback control for precise robotic arm manipulation using stereo vision + YOLOv8.",
-    "technologies": ["Python", "ROS", "OpenCV", "PyTorch", "Open3D", "TensorRT"],
+    "technologies": [
+      "Python",
+      "ROS",
+      "OpenCV",
+      "PyTorch",
+      "Open3D",
+      "TensorRT"
+    ],
     "frameworks": [
       "YOLOv8",
       "Stereo Anything",
@@ -178,11 +190,17 @@
   },
   {
     "id": 5,
+    "slug": "custom-quadcopter",
     "title": "Custom Quadcopter Design & Development",
     "category": "Autonomous Systems",
     "headline": "2.8km range · 20min flight time · 6kg payload",
     "description": "End-to-end quadcopter build — component selection to autonomous flight with extended range and payload.",
-    "technologies": ["Pixhawk", "ArduPilot", "C++", "Mission Planner"],
+    "technologies": [
+      "Pixhawk",
+      "ArduPilot",
+      "C++",
+      "Mission Planner"
+    ],
     "frameworks": [
       "PX4",
       "MAVLink"
@@ -195,7 +213,7 @@
     "highlights": [
       "2.8km range with constant telemetry",
       "20-minute flight, 6kg payload",
-      "Advanced autonomous flight modes"
+      "Autonomous flight modes unlocked by the long-range telemetry link"
     ],
     "learned": [
       "Battery/propeller trade-offs",
@@ -205,11 +223,17 @@
   },
   {
     "id": 6,
+    "slug": "srgan-super-resolution",
     "title": "Image Super Resolution — SRGAN",
     "category": "Deep Learning & CV",
     "headline": "720p → 4K upscaling · 40% less GPU memory",
     "description": "SRGAN for real-time video upscaling from 720p to 4K with heavy memory optimization.",
-    "technologies": ["Python", "PyTorch", "OpenCV", "CUDA"],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "OpenCV",
+      "CUDA"
+    ],
     "frameworks": [
       "SRGAN",
       "GAN"
@@ -232,11 +256,18 @@
   },
   {
     "id": 7,
+    "slug": "audio-noise-cancellation",
     "title": "Real-Time Audio Noise Cancellation",
     "category": "Deep Learning & Signal Processing",
     "headline": "Wave-UNet architecture · MSE ~0.2 · real-time",
     "description": "Deep learning noise cancellation using Wave-UNet with one-cycle learning on Mozilla Common Voice + UrbanSound8k.",
-    "technologies": ["Python", "PyTorch", "Torchaudio", "Librosa", "STFT"],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Torchaudio",
+      "Librosa",
+      "STFT"
+    ],
     "frameworks": [
       "Wave-UNet",
       "One Cycle Learning"
@@ -259,11 +290,19 @@
   },
   {
     "id": 8,
+    "slug": "pothole-detection",
     "title": "Pothole Detection System",
     "category": "CV & Deep Learning",
     "headline": "mAP > 0.85 @ IoU 0.95 · ResNet50 + RetinaNet",
-    "description": "Production-grade pothole detection with advanced augmentation, ResNet50 backbone, and semi-synthetic data generation.",
-    "technologies": ["Python", "PyTorch", "Fastai", "OpenCV", "Scikit-Learn", "Albumentations"],
+    "description": "Pothole detector built on a RetinaNet head over a ResNet50 backbone, with a semi-synthetic data-generation pipeline and a heavy Albumentations augmentation stack to compensate for limited labeled data, trained and evaluated against PascalVOC/COCO-format annotations.",
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Fastai",
+      "OpenCV",
+      "Scikit-Learn",
+      "Albumentations"
+    ],
     "frameworks": [
       "ResNet50",
       "RetinaNet",
@@ -281,9 +320,75 @@
       "Albumentations augmentation pipeline"
     ],
     "learned": [
-      "Advanced augmentation techniques",
-      "Detection architecture design",
-      "Dataset annotation workflows"
+      "Albumentations-based augmentation to offset limited labeled data",
+      "RetinaNet/ResNet50 detection architecture design",
+      "PascalVOC/COCO dataset annotation workflows"
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "manipulator-sim-control",
+    "title": "Manipulator Simulation & Control Pipeline",
+    "category": "Robotics & Controls",
+    "headline": "6-DOF SO-101 arm · Jacobian IK from first principles · MuJoCo sim-to-control",
+    "description": "Full sim-to-control pipeline built from scratch in MuJoCo for a 6-DOF SO-101 arm, from MJCF validation tooling through a first-principles inverse-kinematics solver.",
+    "technologies": [
+      "MuJoCo",
+      "Python",
+      "Inverse Kinematics",
+      "Robotic Manipulation"
+    ],
+    "frameworks": [
+      "SO-101 Arm",
+      "MJCF"
+    ],
+    "video": null,
+    "github": null,
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Diagnostic tooling validating a community MJCF conversion against joint/actuator/body topology",
+      "Joint-by-joint sinusoidal sweep to sanity-check actuator wiring and limits",
+      "Jacobian-based damped least-squares IK solver built from first principles for circular-trajectory tracking"
+    ],
+    "learned": [
+      "MJCF/URDF conversion pitfalls",
+      "Damped least-squares inverse kinematics",
+      "Real-time-synced simulation viewers for verification"
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "isaac-lab-manipulation",
+    "title": "Isaac Lab Manipulation Environment",
+    "category": "Robotics & Simulation",
+    "headline": "7D IK-delta + 9D joint-delta teleop · Isaac Lab 3.0 beta migration",
+    "description": "Manager-based Gym task package in NVIDIA Isaac Lab for the SO-101 arm, registering training and teleoperation environments through isaaclab.devices.",
+    "technologies": [
+      "NVIDIA Isaac Lab",
+      "Isaac Sim",
+      "Gym",
+      "Python"
+    ],
+    "frameworks": [
+      "Isaac Lab",
+      "SO-101 Arm"
+    ],
+    "video": null,
+    "github": null,
+    "demo": null,
+    "status": "Completed",
+    "featured": false,
+    "highlights": [
+      "Manager-based Gym task package registering three training/teleoperation environments",
+      "7D IK-delta-plus-gripper and 9D joint-delta teleoperation action spaces via isaaclab.devices",
+      "Diagnosed a stale table-height assumption and quaternion-ordering bug via runtime bounding-box measurement"
+    ],
+    "learned": [
+      "Isaac Lab manager-based task API",
+      "Working through pre-release breaking changes (WXYZ to XYZW quaternion flip)",
+      "Teleoperation action-space design for manipulation"
     ]
   }
 ]

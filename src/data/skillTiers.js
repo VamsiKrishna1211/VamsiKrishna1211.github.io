@@ -1,0 +1,65 @@
+// Ranks each skills.json category into three tiers — load-bearing, working
+// proficiency, and familiar-with — using only items already in skills.json.
+// Nothing here is invented; this is a reordering, not a new list.
+export const skillTiers = {
+  'Hardware & Signals': {
+    core: ['CUDA', 'Jetson Orin Nano', 'Jetson Orin', 'Jetson AGX', 'Sensor Fusion', 'LiDAR'],
+    working: ['C++', 'Raspberry Pi', 'Sensor Integration', 'RealSense RGB-D', 'Kalman Filters', 'Sensor Time Synchronization'],
+    familiar: ['Arduino', 'MQTT'],
+  },
+  'Vision & Intelligence': {
+    core: ['PyTorch', 'OpenCV', 'Object Detection', '3D Reconstruction', 'YOLO'],
+    working: [
+      'TensorFlow',
+      'TensorRT',
+      'ONNX',
+      'Semantic/Instance Segmentation',
+      'Stereo Vision',
+      'Faster-RCNN',
+      'Mask-RCNN',
+      'Depth/Disparity Maps',
+      'CLIP',
+      'DINOv2',
+    ],
+    familiar: ['ViT', 'Transformers', 'CNNs', 'GANs', 'Scikit-learn', 'Feature Matching', 'Multi-view 3D Geometry', 'NeRF'],
+  },
+  'Autonomy & Robotics': {
+    core: ['ROS/ROS2', 'SLAM', 'Gaussian Splatting', 'cuVSLAM', 'ORB-SLAM3', 'RTAB-Map'],
+    working: ['Isaac Sim (Omniverse)', 'Ardupilot', 'PX4', 'KISS-ICP', 'FastDDS', 'MAVLink'],
+    familiar: ['Gazebo', 'OpenAI Gym'],
+  },
+  'Production & Scale': {
+    core: ['Python', 'Kubernetes', 'Docker', 'Triton Inference Server'],
+    working: [
+      'Golang',
+      'KServe',
+      'KNative',
+      'REST APIs',
+      'gRPC',
+      'Prometheus',
+      'Grafana',
+      'Git',
+      'CMake',
+      'Bazel',
+      'Terraform',
+      'ArgoCD',
+      'Argo Workflows',
+    ],
+    familiar: [
+      'AWS',
+      'GCP',
+      'Azure',
+      'Apache Kafka',
+      'Redis',
+      'PostgreSQL',
+      'MongoDB',
+      'Flask',
+      'FastAPI',
+      'GitLab CI/CD',
+      'C',
+      'Rust',
+      'RabbitMQ',
+      'Foxglove',
+    ],
+  },
+};

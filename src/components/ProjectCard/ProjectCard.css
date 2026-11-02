@@ -1,0 +1,116 @@
+.project-row {
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-row:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.project-row-link {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+}
+
+.project-row-link.has-poster {
+  flex-wrap: wrap;
+}
+
+.project-row-media {
+  position: relative;
+  flex-shrink: 0;
+  width: 320px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
+
+.project-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 250ms var(--ease);
+}
+
+.project-row-link:hover .project-row-media img {
+  transform: scale(1.03);
+}
+
+.project-row-play {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  letter-spacing: 0.02em;
+}
+
+.project-row-category {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.project-row-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.project-row-title {
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 150ms var(--ease);
+}
+
+.project-row-link:hover .project-row-title {
+  color: var(--accent);
+}
+
+.project-row-arrow {
+  font-family: var(--font-mono);
+  color: var(--ink-3);
+  transition: transform 150ms var(--ease), color 150ms var(--ease);
+}
+
+.project-row-link:hover .project-row-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+.project-row-headline {
+  font-size: 0.8125rem;
+  color: var(--accent);
+}
+
+.project-row-desc {
+  max-width: 66ch;
+}
+
+.project-row-tags {
+  display: flex;
+  gap: var(--space-2) var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-1);
+}
+
+@media (max-width: 640px) {
+  .project-row-media {
+    width: 100%;
+  }
+}
