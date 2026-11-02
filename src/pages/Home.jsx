@@ -206,11 +206,9 @@ export default function Home() {
           <div>
             <h2 className="contact-cta-title">Hiring for robotics or perception?</h2>
             <p className="contact-cta-text">
-              I graduate in January 2027 and I&rsquo;m looking for full-time roles. Write to{' '}
               <a href={`mailto:${personalData.email}`} className="link-underline contact-cta-email">
                 {personalData.email}
-              </a>{' '}
-              or use the form.
+              </a>
             </p>
           </div>
           <Link to="/contact" className="btn btn-primary">
