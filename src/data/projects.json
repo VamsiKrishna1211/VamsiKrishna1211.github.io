@@ -1,10 +1,7 @@
 [
   {
     "id": 0,
-<<<<<<< HEAD
     "slug": "slam-3d-mapping",
-=======
->>>>>>> origin/main
     "title": "Real-Time Multi-Sensor 3D Mapping Pipeline for Agricultural Robotics",
     "category": "Robotics & CV",
     "headline": "Jetson Orin · RGB-D + LiDAR fusion · Gaussian Splatting-ready output",
